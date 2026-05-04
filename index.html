@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avo Miami — Real Food. Real Ingredients. Nothing to Hide.</title>
+  <meta name="description" content="Zero seed oils. No microwaves. Dietitian-designed. Made fresh every morning. Bowls, breakfast &amp; brunch in South Miami, Coconut Grove &amp; Sunset Harbor.">
+  <meta property="og:title" content="Avo Miami — Real Food. Real Ingredients. Nothing to Hide.">
+  <meta property="og:description" content="Zero seed oils. No microwaves. Dietitian-designed. Made fresh every morning.">
+  <meta property="og:image" content="img/open_graps/Avo-Miami-Open-Graph-HomePage.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avomiami.com/">
+  <link rel="canonical" href="https://avomiami.com/">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/logos/favico32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="img/logos/favico256.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="img/heros/Gemini_Generated_Image_8akv4d8akv4d8akv.png" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CSS BASE — Variables, Reset, Tipografía
+    ============================================================ */
+    :root {
+      /* Colores base */
+      --verde-bosque:      #1D6B3E;
+      --crema:             #F5F1EB;
+      --carbon:            #1A1A17;
+      --tierra:            #A07850;
+      --arena:             #E8DFD0;
+      --verde-hoja:        #3A8A57;
+      --blanco:            #FFFFFF;
+
+      /* Colores de hover/estado */
+      --verde-bosque-dark: #155A33;
+      --carbon-dark:       #2a2a26;
+      --blanco-hover:      #f0f0f0;
+
+      /* Bordes */
+      --border-subtle:     #E0D8CC;
+      --border-test:       #E8E0D4;
+
+      /* UI especial */
+      --star-color:        #FFB800;
+
+      /* Tipografía */
+      --font-serif:        'Cormorant Garant', Georgia, serif;
+      --font-sans:         'DM Sans', system-ui, sans-serif;
+
+      /* Escala tipográfica */
+      --text-xs:           10px;
+      --text-sm:           11px;
+      --text-base:         13px;
+      --text-md:           14px;
+      --text-lg:           16px;
+      --text-xl:           18px;
+      --text-2xl:          28px;
+      --text-3xl:          36px;
+      --text-4xl:          48px;
+      --text-5xl:          54px;
+      --text-display:      64px;
+
+      /* Pesos tipográficos */
+      --fw-regular:        400;
+      --fw-medium:         500;
+      --fw-semibold:       600;
+      --fw-bold:           700;
+
+      /* Border radius */
+      --radius-pill:       100px;
+      --radius-card:       12px;
+
+      /* Padding de sección */
+      --pad-section-desktop: 100px;
+      --pad-section-mobile:  56px;
+
+      /* Z-index */
+      --z-base:            1;
+      --z-sticky:          90;
+      --z-nav:             100;
+      --z-drawer:          200;
+      --z-modal:           300;
+
+      /* Breakpoints (documentales — no usables en @media) */
+      --bp-xs:             375px;
+      --bp-tablet:         768px;
+      --bp-laptop:         1024px;
+      --bp-desktop:        1280px;
+      --bp-wide:           1400px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: var(--text-lg); }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--crema);
+      color: var(--carbon);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       TIPOGRAFÍA GLOBAL
+    ============================================================ */
+    h2 {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: var(--text-3xl);
+      color: var(--carbon);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 1024px) {
+      h2 { font-size: var(--text-4xl); }
+    }
+    .section-header h2,
+    .bowl-header h2,
+    .rewards-copy h2,
+    #catering h2 { font-style: italic; }
+
+    /* ============================================================
+       BOTONES
+    ============================================================ */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .btn:focus-visible { box-shadow: 0 0 0 2px var(--verde-bosque); outline: none; }
+
+    .btn-primary    { background: var(--verde-bosque); color: var(--blanco); }
+    .btn-primary:hover { background: var(--verde-bosque-dark); }
+
+    .btn-secondary  { background: transparent; color: var(--verde-bosque); border: 1.5px solid var(--verde-bosque); }
+    .btn-secondary:hover { background: rgba(29,107,62,0.06); }
+
+    .btn-ghost      { background: transparent; color: var(--crema); border: 1.5px solid var(--crema); }
+    .btn-ghost:hover { background: rgba(245,241,235,0.12); }
+
+    .btn-dark       { background: var(--carbon); color: var(--crema); }
+    .btn-dark:hover { background: var(--carbon-dark); }
+
+    .btn-white      { background: var(--blanco); color: var(--verde-bosque); }
+    .btn-white:hover { background: var(--blanco-hover); }
+
+    /* ============================================================
+       BADGES
+    ============================================================ */
+    .badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-xs);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+    .badge-verde   { background: var(--arena); color: var(--verde-bosque); }
+    .badge-solid   { background: var(--verde-bosque); color: var(--crema); }
+    .badge-tierra  { background: var(--crema); color: var(--tierra); border: 1px solid var(--tierra); }
+    .badge-dark    { background: rgba(26,26,23,0.6); color: var(--crema); }
+    .badge-warning { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+    .badge-keto    { background: var(--crema); color: var(--tierra); border: 1px solid var(--tierra); }
+    .badge-lean    { background: var(--verde-bosque); color: var(--crema); }
+    .badge-power   { background: #3A3A3A; color: var(--crema); }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+    /*
+      Container breakpoints:
+      < 768px   : padding 0 20px  (mobile)
+      ≥ 768px   : padding 0 32px  (tablet)
+      ≥ 1024px  : padding 0 48px  (desktop)
+      ≥ 1280px  : max-width kicks in → content always ≤ 1280px centered
+      ≥ 1920px  : 1280px centered, 320px gutter on each side
+    */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    @media (min-width: 768px)  { .container { padding: 0 32px; } }
+    @media (min-width: 1024px) { .container { padding: 0 48px; } }
+
+    .section-pad {
+      padding-top: var(--pad-section-mobile);
+      padding-bottom: var(--pad-section-mobile);
+    }
+    @media (min-width: 1024px) {
+      .section-pad {
+        padding-top: var(--pad-section-desktop);
+        padding-bottom: var(--pad-section-desktop);
+      }
+    }
+
+    /* Locks body scroll while drawer is open */
+    .no-scroll { overflow: hidden; }
+
+    /* Skip-to-content link (visible only on focus) */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: var(--z-modal);
+      background: var(--verde-bosque);
+      color: var(--blanco);
+      padding: 8px 16px;
+      font-size: var(--text-base);
+      border-radius: 0 0 var(--radius-card) 0;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* Visually hidden initial state (replaces inline display:none) */
+    .is-hidden-init { display: none; }
+
+    /* Layout helpers — replace inline style="" attributes */
+    .nav-flex-fixed     { flex-shrink: 0; }
+    .nav-links-spaced   { flex: 1; justify-content: space-between; margin: 0 156px; }
+    .nav-drawer-logo    { height: 32px; }
+    .bowl-summary-btn   { font-size: var(--text-base); }
+    .bowl-mobile-oil    { color: var(--verde-bosque); }
+    .bowl-mobile-row-mt { margin-top: 8px; }
+    .section-header h2 em.accent-carbon { color: var(--carbon); }
+    .footer-privacy     { opacity: 0.6; }
+    .load-error {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--tierra);
+      font-size: var(--text-base);
+    }
+
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tierra);
+      margin-bottom: 18px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--tierra);
+      flex-shrink: 0;
+    }
+    .section-eyebrow.light { color: var(--crema); opacity: 0.7; }
+    .section-eyebrow.light::before { background: var(--crema); }
+    .section-header h2 em.accent,
+    .bowl-header h2 em.accent,
+    .rewards-copy h2 em.accent,
+    #catering h2 em.accent {
+      font-style: italic;
+      color: var(--tierra);
+    }
+    .section-header p:not(.section-eyebrow) {
+      font-family: var(--font-sans);
+      font-size: var(--text-lg);
+      color: var(--carbon);
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: var(--z-nav);
+      background: var(--crema);
+      border-bottom: 0.5px solid var(--border-subtle);
+      transform: translateY(0);
+      transition: transform 0.35s ease;
+    }
+    #nav.hidden {
+      transform: translateY(-100%);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px)  { .nav-inner { padding: 0 32px; } }
+    @media (min-width: 1024px) { .nav-inner { padding: 0 48px; } }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+    .nav-links {
+      display: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: var(--fw-semibold);
+      font-style: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--verde-bosque);
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 0.6; }
+    .nav-cta { color: var(--crema) !important; }
+
+    .nav-hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--carbon);
+      border-radius: 2px;
+    }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: var(--carbon);
+      z-index: var(--z-drawer);
+      flex-direction: column;
+      padding: 24px;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .nav-drawer-close {
+      background: none;
+      border: none;
+      color: var(--crema);
+      font-size: var(--text-2xl);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+    .nav-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex: 1;
+    }
+    .nav-drawer-links a {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: var(--text-2xl);
+      color: var(--crema);
+      padding: 14px 0;
+      border-bottom: 0.5px solid rgba(245,241,235,0.12);
+    }
+    .nav-drawer-cta { margin-top: 40px; }
+    .nav-drawer-cta .btn { width: 100%; display: block; font-size: 15px; padding: 16px; }
+
+    /* Mobile bottom bar */
+    .nav-bottom-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      height: 56px;
+      background: var(--verde-bosque);
+      z-index: 99;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-bottom-bar a {
+      color: var(--blanco);
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: 15px;
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+      .nav-bottom-bar { display: none; }
+      .nav-logo img { height: 40px; }
+    }
+
+    /* Compensate for fixed mobile bottom bar (56px) */
+    @media (max-width: 1023px) {
+      body { padding-bottom: 56px; }
+    }
+
+    /* ============================================================
+       01 · HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img/heros/Gemini_Generated_Image_8akv4d8akv4d8akv.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26,26,23,0.88) 0%, rgba(26,26,23,0.45) 100%);
+    }
+    @media (min-width: 1024px) {
+      .hero-overlay {
+        background: linear-gradient(to right, rgba(26,26,23,0.82) 0%, rgba(26,26,23,0.2) 100%);
+      }
+    }
+    /* Hero container: full-width relative wrapper, centers content at 1280px */
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    @media (min-width: 768px)  { .hero-container { padding: 0 32px; } }
+    @media (min-width: 1024px) { .hero-container { padding: 0 48px; } }
+
+    .hero-content {
+      max-width: 620px;
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+    @media (min-width: 1024px) {
+      .hero-content { padding-top: 0; padding-bottom: 0; }
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--crema);
+      margin-bottom: 20px;
+    }
+    #hero h1 {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: var(--fw-bold);
+      font-size: var(--text-3xl);
+      color: var(--crema);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 1024px) {
+      #hero h1 { font-size: var(--text-5xl); }
+    }
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: var(--text-lg);
+      color: var(--crema);
+      opacity: 0.85;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 420px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 480px) {
+      .hero-ctas { flex-direction: row; }
+    }
+    .hero-social-proof {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--crema);
+      opacity: 0.85;
+    }
+    .hero-stars { color: #FFD700; margin-right: 4px; }
+
+    /* ============================================================
+       02 · STRIP DE DIFERENCIALES
+    ============================================================ */
+    #strip {
+      background: var(--verde-bosque);
+      overflow: hidden;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      height: 52px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 24px;
+      gap: 0;
+      scrollbar-width: none;
+    }
+    .strip-inner::-webkit-scrollbar { display: none; }
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      padding: 0 20px;
+      color: var(--crema);
+    }
+    .strip-item svg {
+      width: 16px; height: 16px;
+      stroke: var(--crema);
+      fill: none;
+      flex-shrink: 0;
+    }
+    .strip-item span {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .strip-sep {
+      color: var(--crema);
+      opacity: 0.3;
+      font-size: var(--text-xs);
+      flex-shrink: 0;
+      padding: 0 4px;
+    }
+    @media (min-width: 1024px) {
+      .strip-inner {
+        height: 64px;
+        justify-content: center;
+        overflow-x: visible;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+    }
+
+    /* ============================================================
+       03 · VIDEO
+    ============================================================ */
+    #video-section {
+      position: relative;
+      background: var(--carbon);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    @media (min-width: 1024px) {
+      #video-section { height: 600px; }
+    }
+    #video-section video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 55%);
+    }
+    .video-bar {
+      position: absolute;
+      bottom: 0; left: 0; width: 100%;
+      z-index: 2;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-top: 0.5px solid rgba(255,255,255,0.1);
+    }
+    .video-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .video-bar-title {
+      font-size: var(--text-3xl);
+      color: var(--crema);
+      line-height: 1.15;
+      flex: 0 0 auto;
+      max-width: 340px;
+      margin-bottom: 0;
+    }
+    .video-bar-divider {
+      width: 0.5px;
+      align-self: stretch;
+      background: rgba(255,255,255,0.2);
+      margin: 0 48px;
+      flex-shrink: 0;
+    }
+    .video-bar-body {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--crema);
+      opacity: 0.8;
+      line-height: 1.7;
+      flex: 1;
+    }
+    @media (max-width: 767px) {
+      .video-bar-inner { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 16px; }
+      .video-bar-divider { display: none; }
+      .video-bar-title { font-size: 26px; max-width: 100%; }
+    }
+
+    /* ============================================================
+       04 · BUILD YOUR BOWL
+    ============================================================ */
+    #build-bowl {
+      background: var(--crema);
+    }
+    .bowl-header { margin-bottom: 48px; max-width: 640px; }
+    .bowl-header h2 { margin-bottom: 20px; }
+
+    .bowl-header-list {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .bowl-header-list li {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--carbon);
+      line-height: 1.6;
+      padding: 8px 0 8px 16px;
+      border-left: 2px solid var(--verde-bosque);
+      margin-bottom: 8px;
+    }
+    .bowl-header-close {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--carbon);
+      opacity: 0.6;
+      line-height: 1.8;
+    }
+    .step-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tierra);
+      margin-bottom: 16px;
+    }
+
+    /* Protein grid */
+    .proteins-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    @media (min-width: 1024px) {
+      .proteins-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .protein-card {
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--blanco);
+      transition: border-color 0.2s;
+    }
+    .protein-card:hover { border-color: rgba(29,107,62,0.3); }
+    .protein-card.selected { border-color: var(--verde-bosque); background: rgba(29,107,62,0.03); }
+    .protein-img-wrap { position: relative; aspect-ratio: 1; overflow: hidden; }
+    .protein-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .protein-badge { position: absolute; top: 8px; left: 8px; }
+    .protein-info { padding: 12px; }
+    .protein-name {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: 15px;
+      color: var(--carbon);
+      margin-bottom: 4px;
+    }
+    .protein-desc {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--carbon);
+      opacity: 0.65;
+      margin-bottom: 6px;
+    }
+    .protein-price {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--verde-bosque);
+    }
+    .proteins-link {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--verde-bosque);
+      text-decoration: underline;
+      display: block;
+      text-align: right;
+      margin-bottom: 40px;
+    }
+    .proteins-link:hover { opacity: 0.75; }
+
+    /* Bowl layout desktop */
+    .bowl-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    @media (min-width: 1024px) {
+      .bowl-layout { flex-direction: row; gap: 40px; align-items: flex-start; }
+      .bowl-steps  { flex: 1; min-width: 0; }
+      .bowl-panel-col { width: 320px; flex-shrink: 0; }
+    }
+
+    /* Steps 2 & 3 */
+    .bowl-step {
+      display: none;
+      margin-bottom: 32px;
+      animation: fadeUp 0.3s ease-out;
+    }
+    .bowl-step.visible { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Bowl type cards */
+    .bowl-types {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 600px) { .bowl-types { grid-template-columns: repeat(3,1fr); } }
+
+    .bowl-type-card {
+      cursor: pointer;
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      background: var(--blanco);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .bowl-type-card:hover { border-color: rgba(29,107,62,0.3); }
+    .bowl-type-card.selected { border-color: var(--verde-bosque); background: rgba(29,107,62,0.03); }
+    .bowl-type-name {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: var(--text-xl);
+      color: var(--carbon);
+      margin: 8px 0 6px;
+    }
+    .bowl-type-desc {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    /* Base pills */
+    .bases-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .base-pill {
+      cursor: pointer;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 8px 16px;
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      background: var(--blanco);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .base-pill:hover { border-color: var(--verde-bosque); }
+    .base-pill.selected { background: var(--verde-bosque); color: var(--crema); border-color: var(--verde-bosque); }
+    .base-pill-cost { font-size: var(--text-sm); opacity: 0.75; }
+
+    /* Panel Tu Bowl */
+    .bowl-panel {
+      background: var(--blanco);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 24px;
+    }
+    @media (min-width: 1024px) {
+      .bowl-panel {
+        position: sticky;
+        top: 80px;
+      }
+    }
+    .bowl-panel-empty {
+      text-align: center;
+      padding: 16px 0;
+    }
+    .bowl-panel-empty p:first-child {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--carbon);
+      opacity: 0.4;
+      margin-bottom: 8px;
+    }
+    .bowl-panel-empty p:last-child {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.5;
+      line-height: 1.5;
+    }
+    .bowl-panel-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tierra);
+      margin-bottom: 16px;
+    }
+    .bowl-panel-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .bowl-panel-key {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.6;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .bowl-panel-val {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      text-align: right;
+    }
+    .bowl-panel-val.olive { color: var(--verde-bosque); }
+    .bowl-panel-divider {
+      border: none;
+      border-top: 0.5px solid var(--border-subtle);
+      margin: 12px 0;
+    }
+    .bowl-panel-price {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-lg);
+      color: var(--verde-bosque);
+      text-align: right;
+    }
+
+    /* Summary card */
+    .bowl-summary {
+      display: none;
+      margin-top: 16px;
+      background: var(--verde-bosque);
+      border-radius: var(--radius-card);
+      padding: 20px;
+    }
+    .bowl-summary.visible { display: block; animation: fadeUp 0.3s ease-out; }
+    .bowl-summary-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--crema);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .bowl-summary-title {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: var(--text-xl);
+      color: var(--crema);
+      margin-bottom: 8px;
+    }
+    .bowl-summary-detail {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--crema);
+      opacity: 0.85;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .bowl-summary-ctas {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .bowl-summary-note {
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      color: var(--crema);
+      opacity: 0.65;
+      text-align: center;
+    }
+
+    /* Mobile bowl sticky bar */
+    .bowl-mobile-bar {
+      display: flex;
+      position: fixed;
+      bottom: 56px; left: 0; width: 100%;
+      z-index: var(--z-sticky);
+      background: var(--carbon);
+      cursor: pointer;
+      flex-direction: column;
+      transition: max-height 0.3s ease;
+      max-height: 64px;
+      overflow: hidden;
+    }
+    .bowl-mobile-bar.expanded { max-height: 80vh; overflow-y: auto; }
+    .bowl-mobile-bar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .bowl-mobile-bar-label {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--crema);
+    }
+    .bowl-mobile-bar-arrow {
+      font-size: var(--text-xl);
+      color: var(--crema);
+      transition: transform 0.3s;
+    }
+    .bowl-mobile-bar.expanded .bowl-mobile-bar-arrow { transform: rotate(180deg); }
+    .bowl-mobile-bar-content {
+      padding: 20px;
+      background: var(--carbon);
+      color: var(--crema);
+    }
+    .bowl-mobile-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .bowl-mobile-key { font-size: var(--text-base); opacity: 0.6; }
+    .bowl-mobile-val { font-size: var(--text-base); font-weight: var(--fw-medium); }
+    @media (min-width: 1024px) {
+      .bowl-mobile-bar { display: none; }
+    }
+
+    /* ============================================================
+       05 · PLATOS DESTACADOS
+    ============================================================ */
+    #platos {
+      background: var(--arena);
+    }
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 1024px) {
+      .dishes-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    }
+    .dish-card {
+      background: var(--blanco);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .dish-img-wrap {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .dish-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+    .dish-card:hover .dish-img-wrap img { transform: scale(1.02); }
+    .dish-badges {
+      position: absolute;
+      top: 8px; left: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .dish-info { padding: 14px; }
+    .dish-name {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--carbon);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .dish-desc {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--carbon);
+      opacity: 0.65;
+      line-height: 1.5;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .dish-signature {
+      font-family: var(--font-sans);
+      font-style: italic;
+      font-size: var(--text-sm);
+      color: var(--tierra);
+      margin-bottom: 10px;
+    }
+    .dish-divider { border: none; border-top: 0.5px solid var(--border-subtle); margin: 10px 0; }
+    .dish-macros {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 0;
+    }
+    .macro-item { text-align: center; flex: 1; }
+    .macro-val {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--carbon);
+    }
+    .macro-label {
+      font-family: var(--font-sans);
+      font-size: var(--text-xs);
+      color: var(--carbon);
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+    .dish-cal-only {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--carbon);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .dish-footer {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .dish-order-btn {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: var(--fw-medium);
+      color: var(--verde-bosque);
+      border: 1px solid var(--verde-bosque);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .dish-order-btn:hover { background: var(--verde-bosque); color: var(--crema); }
+    .dish-price {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-md);
+      color: var(--verde-bosque);
+    }
+    .dishes-cta { text-align: center; margin-top: 40px; }
+
+    /* ============================================================
+       06 · QUÉ ES / QUÉ NO ES
+    ============================================================ */
+    #que-es {
+      background: var(--crema);
+    }
+
+    /* Dos bloques side by side en desktop */
+    .que-es-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 1024px) {
+      .que-es-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* Cada bloque: label + lista de filas */
+    .que-es-block { border-radius: var(--radius-card); overflow: hidden; }
+
+    .que-es-block-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 14px 20px;
+    }
+    .que-es-block-label.no  { background: #3A3A3A; color: var(--crema); }
+    .que-es-block-label.yes { background: var(--verde-bosque); color: var(--crema); }
+
+    /* Filas con zebra striping — tonos muy cercanos */
+    .que-es-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 20px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--carbon);
+      line-height: 1.5;
+    }
+    /* NO ES — alterna entre dos cremas */
+    .que-es-block.no .que-es-row:nth-child(odd)  { background: #F0EBE3; }
+    .que-es-block.no .que-es-row:nth-child(even) { background: #E8E0D6; }
+
+    /* ES — alterna entre dos verdes muy suaves */
+    .que-es-block.yes .que-es-row:nth-child(odd)  { background: #EDF5F0; }
+    .que-es-block.yes .que-es-row:nth-child(even) { background: #E3EEE8; }
+
+    .que-es-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: var(--fw-medium);
+    }
+    .que-es-icon.no  { background: rgba(160,120,80,0.15); color: var(--tierra); }
+    .que-es-icon.yes { background: rgba(29,107,62,0.15);  color: var(--verde-bosque); }
+
+    /* ============================================================
+       07 · 7 DIFERENCIALES
+    ============================================================ */
+    #diferenciales {
+      background: var(--crema);
+    }
+    .dif-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 600px) { .dif-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) {
+      /* 3+4 layout: first 3 in first row, 4 in second */
+      .dif-grid { grid-template-columns: repeat(3,1fr); }
+      .dif-card:nth-child(4),
+      .dif-card:nth-child(5),
+      .dif-card:nth-child(6),
+      .dif-card:nth-child(7) {
+        /* handled by grid auto */
+      }
+    }
+    .dif-card {
+      background: var(--crema);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      border-top: 4px solid var(--verde-bosque);
+      padding: 28px 28px 28px 24px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .dif-num {
+      font-family: var(--font-serif);
+      font-size: var(--text-display);
+      font-weight: var(--fw-bold);
+      line-height: 1;
+      color: var(--verde-bosque);
+      opacity: 0.18;
+      flex-shrink: 0;
+      margin-top: -4px;
+      padding-right: 24px;
+    }
+    .dif-content {
+      flex: 1;
+    }
+    .dif-title {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      color: var(--carbon);
+      margin-bottom: 10px;
+    }
+    .dif-body {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--carbon);
+      opacity: 0.75;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       08 · BENEFICIOS
+    ============================================================ */
+    #beneficios {
+      background: var(--verde-bosque);
+    }
+    #beneficios .section-header h2 { color: var(--crema); }
+    #beneficios .section-header p  { color: var(--crema); opacity: 0.8; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 600px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .benefits-grid { grid-template-columns: repeat(3,1fr); } }
+
+    .benefit-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-card);
+      padding: 28px;
+    }
+    .benefit-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: 14px;
+    }
+    .benefit-title {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: var(--text-xl);
+      color: var(--crema);
+      margin-bottom: 10px;
+    }
+    .benefit-body {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--crema);
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       09 · TESTIMONIOS
+    ============================================================ */
+    #testimonios {
+      background: var(--arena);
+    }
+    .test-badge-wrap {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .test-stars-header { color: var(--star-color); font-size: 20px; letter-spacing: 2px; }
+    .test-avg {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.7;
+      margin-top: 6px;
+      display: block;
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 600px) { .test-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .test-grid { grid-template-columns: repeat(3,1fr); } }
+
+    .test-card {
+      background: var(--blanco);
+      border: 1px solid var(--border-test);
+      border-radius: 16px;
+      padding: 24px 28px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Estrellas — siempre amarillo */
+    .test-card-stars {
+      color: var(--star-color);
+      font-size: var(--text-lg);
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .test-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--carbon);
+      line-height: 1.75;
+      margin-bottom: 0;
+      flex: 1;
+    }
+    .test-divider {
+      border: none;
+      border-top: 1px solid var(--border-test);
+      margin: 18px 0 14px;
+    }
+    .test-author-name {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      margin-bottom: 3px;
+    }
+    .test-author-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--carbon);
+      opacity: 0.5;
+    }
+    .test-cta { text-align: center; margin-top: 36px; }
+    .test-cta a {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--verde-bosque);
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       10 · REWARDS
+    ============================================================ */
+    #rewards {
+      background: var(--crema);
+    }
+    .rewards-layout {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .rewards-layout {
+        flex-direction: row;
+        align-items: center;
+        gap: 80px;
+      }
+    }
+    .rewards-copy { flex: 1; }
+    .rewards-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .rewards-img img {
+      max-height: 480px;
+      width: auto;
+    }
+    .rewards-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tierra);
+      margin-bottom: 18px;
+    }
+    .rewards-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--tierra);
+      flex-shrink: 0;
+    }
+    .rewards-sub {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--carbon);
+      opacity: 0.75;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .rewards-benefits {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .rewards-benefits li {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--carbon);
+      line-height: 2;
+    }
+    .rewards-store-badges {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .rewards-store-badges img { height: 40px; width: auto; }
+    .rewards-more { margin-top: 8px; }
+
+    /* ============================================================
+       11 · CATERING
+    ============================================================ */
+    #catering {
+      background: var(--verde-bosque);
+      padding: 64px 0;
+      text-align: center;
+    }
+    @media (min-width: 1024px) {
+      #catering { text-align: left; }
+    }
+    /* Inner container handles the flex layout */
+    .catering-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    @media (min-width: 1024px) {
+      .catering-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 48px;
+      }
+    }
+    .catering-copy { flex: 1; }
+    .catering-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--crema);
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+    .catering-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--crema);
+      flex-shrink: 0;
+    }
+    #catering h2 {
+      font-weight: var(--fw-regular);
+      color: var(--crema);
+    }
+    #catering h2 em.accent { color: var(--arena); }
+
+    /* ============================================================
+       12 · LOCATIONS
+    ============================================================ */
+    #locations {
+      background: var(--crema);
+    }
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 1024px) {
+      .locations-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    .location-card {
+      background: var(--blanco);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+    .location-img { aspect-ratio: 4/3; overflow: hidden; }
+    .location-img img { width: 100%; height: 100%; object-fit: cover; }
+    .location-info { padding: 24px; }
+    .location-name {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: 20px;
+      color: var(--carbon);
+      margin-bottom: 6px;
+    }
+    .location-address {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--carbon);
+      opacity: 0.7;
+      margin-bottom: 6px;
+    }
+    .location-hours {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--verde-bosque);
+      margin-bottom: 16px;
+    }
+    .location-ctas { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ============================================================
+       13 · FOOTER
+    ============================================================ */
+    #footer {
+      background: var(--carbon);
+      color: var(--crema);
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 60px 20px 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px)  { .footer-main { padding-left: 32px; padding-right: 32px; } }
+    @media (min-width: 1024px) {
+      .footer-main {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 48px;
+        padding-right: 48px;
+        gap: 60px;
+      }
+    }
+    .footer-tagline {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--crema);
+      opacity: 0.6;
+      margin-top: 12px;
+    }
+    .footer-logo img { height: 32px; width: auto; }
+    .footer-col-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--crema);
+      opacity: 0.5;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+    .footer-links a {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--crema);
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-social svg { width: 20px; height: 20px; stroke: var(--crema); fill: none; }
+    .footer-social span {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--crema);
+      opacity: 0.75;
+    }
+    /* full-width border, container inside constrains the text */
+    .footer-bottom {
+      border-top: 0.5px solid rgba(245,241,235,0.12);
+    }
+    .footer-bottom .container {
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .footer-bottom p {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--crema);
+      opacity: 0.4;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Restaurant",
+        "@id": "https://avomiami.com/#sunset-harbor",
+        "name": "Avo Miami — Sunset Harbor",
+        "url": "https://avomiami.com/",
+        "servesCuisine": "Healthy",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1834 Bay Rd",
+          "addressLocality": "Miami",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        "openingHours": "Mo-Su 07:00-22:00",
+        "image": "https://avomiami.com/img/open_graps/Avo-Miami-Open-Graph-HomePage.jpg",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "1700" }
+      },
+      {
+        "@type": "Restaurant",
+        "@id": "https://avomiami.com/#coconut-grove",
+        "name": "Avo Miami — Coconut Grove",
+        "url": "https://avomiami.com/",
+        "servesCuisine": "Healthy",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2911 Grand Ave",
+          "addressLocality": "Miami",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        "openingHours": "Mo-Su 07:00-22:00",
+        "image": "https://avomiami.com/img/open_graps/Avo-Miami-Open-Graph-HomePage.jpg",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "1700" }
+      },
+      {
+        "@type": "Restaurant",
+        "@id": "https://avomiami.com/#south-miami",
+        "name": "Avo Miami — South Miami",
+        "url": "https://avomiami.com/",
+        "servesCuisine": "Healthy",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5958 S Dixie Hwy",
+          "addressLocality": "South Miami",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        "openingHours": "Mo-Su 07:00-22:00",
+        "image": "https://avomiami.com/img/open_graps/Avo-Miami-Open-Graph-HomePage.jpg",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "1700" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a href="/" class="nav-logo nav-flex-fixed" aria-label="Avo Miami — Home">
+      <img id="nav-logo-img" src="img/logos/logo-avo-miami.png" alt="Avo Miami logo" width="160" height="40">
+    </a>
+    <!-- Center links (desktop) -->
+    <div class="nav-links nav-links-spaced">
+      <a href="/our-story-healthy-food-miami" data-gtag-label="Our Mission">Our Mission</a>
+      <a href="/rewards" data-gtag-label="Rewards">Rewards</a>
+      <a href="/merch" data-gtag-label="Merch">Merch</a>
+      <a href="/menus" data-gtag-label="Menu">Menu</a>
+      <a href="/where-to-eat-healthy-miami" data-gtag-label="Locations">Locations</a>
+      <a href="/catering-miami-healthy-food" data-gtag-label="Catering">Catering</a>
+    </div>
+    <!-- CTA -->
+    <a href="#order" class="btn btn-primary nav-cta nav-flex-fixed" data-gtag-event="nav_order_online">Order Online</a>
+    <!-- Hamburger (mobile) -->
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Navigation menu">
+  <div class="nav-drawer-header">
+    <img src="img/logos/logo-avo-miami-white.png" alt="Avo Miami logo" class="nav-drawer-logo" width="128" height="32">
+    <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="nav-drawer-links">
+    <a href="/menus">Menu</a>
+    <a href="/where-to-eat-healthy-miami">Locations</a>
+    <a href="/our-story-healthy-food-miami">Our Mission</a>
+    <a href="/rewards">Rewards</a>
+    <a href="/catering-miami-healthy-food">Catering</a>
+  </nav>
+  <div class="nav-drawer-cta">
+    <a href="#order" class="btn btn-primary" data-gtag-event="nav_order_online">Order Online</a>
+  </div>
+</div>
+
+<!-- Mobile bottom bar -->
+<div class="nav-bottom-bar" aria-label="Order Online">
+  <a href="#order" data-gtag-event="nav_order_online_mobile">Order Online ▶</a>
+</div>
+
+<main id="main-content">
+
+<!-- ============================================================
+     01 · HERO
+============================================================ -->
+<section id="hero" data-screen-label="01 Hero">
+  <div class="hero-bg" role="img" aria-label="Fresh healthy bowl from Avo Miami"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Savor the Best Healthy Food Restaurant in Miami</p>
+    <h1>Real food. Real ingredients.<br>Nothing to hide.</h1>
+    <p class="hero-sub">Zero seed oils. No microwaves. Dietitian-designed.<br>Made fresh every morning.</p>
+    <div class="hero-badges">
+      <span class="badge badge-dark">ZERO SEED OILS</span>
+      <span class="badge badge-dark">DIETITIAN-DESIGNED</span>
+      <span class="badge badge-dark">OPEN KITCHEN</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#order" class="btn btn-primary" data-gtag-event="hero_order_online">Order Online</a>
+      <a href="/menus" class="btn btn-ghost" data-gtag-event="hero_see_menu">See Our Menu</a>
+    </div>
+    <p class="hero-social-proof">
+      <span class="hero-stars">★★★★★</span>
+      4.8 · 1,700+ happy guests across 3 locations
+    </p>
+  </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 · STRIP DE DIFERENCIALES
+============================================================ -->
+<section id="strip" data-screen-label="02 Strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><ellipse cx="12" cy="12" rx="5" ry="10"/><path d="M12 2C12 2 7 6 7 12s5 10 5 10"/></svg>
+      <span>Zero Seed Oils</span>
+    </div>
+    <span class="strip-sep">·</span>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <span>Dietitian-Designed</span>
+    </div>
+    <span class="strip-sep">·</span>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2v6M9 5l3-3 3 3M5 18c0-3.3 3.1-6 7-6s7 2.7 7 6"/><path d="M3 18h18"/></svg>
+      <span>No Microwaves</span>
+    </div>
+    <span class="strip-sep">·</span>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+      <span>Grass-Fed + Wild-Caught</span>
+    </div>
+    <span class="strip-sep">·</span>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Made Fresh Daily</span>
+    </div>
+    <span class="strip-sep">·</span>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+      <span>Open Kitchen</span>
+    </div>
+    <span class="strip-sep">·</span>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>Because You Deserve The Best</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 · VIDEO
+============================================================ -->
+<section id="video-section" data-screen-label="03 Video">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="img/img_menues/avo-miami-healthy-food-04.jpg"
+         aria-label="Avo Miami kitchen and food preparation">
+    <source src="img/videos/avo-miami-01.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+  <div class="video-bar">
+    <div class="video-bar-inner">
+      <h2 class="video-bar-title">Because You<br>Deserve The Best.</h2>
+      <div class="video-bar-divider"></div>
+      <p class="video-bar-body">Dining out shouldn’t mean compromising your health. At Avo, 'wellness' and 'indulgence' are one and the same.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     04 · BUILD YOUR BOWL
+============================================================ -->
+<section id="build-bowl" class="section-pad" data-screen-label="04 Build Your Bowl">
+  <div class="container">
+    <div class="bowl-header reveal">
+      <p class="section-eyebrow">Build Your Bowl</p>
+      <h2>Build the bowl <br><em class="accent">your body craves.</em></h2>
+      <ul class="bowl-header-list">
+        <li>Post-workout? Power Bowl with Grilled Salmon and Lentils.</li>
+        <li>Going Keto? Branzino with Truffled Mushrooms.</li>
+        <li>Keeping it light? Lean Bowl with Tuna and Cold Quinoa.</li>
+      </ul>
+      <p class="bowl-header-close">Every combination, dietitian-designed.<br>Every bowl, made fresh this morning.</p>
+    </div>
+
+    <!-- Proteins (step 1 - always visible) -->
+    <div class="reveal">
+      <p class="step-label">STEP 1 — CHOOSE YOUR PROTEIN</p>
+      <div class="proteins-grid" id="proteins-grid">
+        <!-- populated by JS -->
+      </div>
+      <a href="/menus/bowls-miami" class="proteins-link">View all proteins →</a>
+    </div>
+
+    <!-- Two-column layout for steps 2/3 + panel -->
+    <div class="bowl-layout">
+      <!-- Steps 2 & 3 -->
+      <div class="bowl-steps">
+
+        <!-- Step 2: Bowl type -->
+        <div class="bowl-step" id="step-2">
+          <p class="step-label">STEP 2 — HOW DO YOU WANT IT?</p>
+          <div class="bowl-types" id="bowl-types-grid">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <!-- Step 3: Base -->
+        <div class="bowl-step" id="step-3">
+          <p class="step-label">STEP 3 — CHOOSE YOUR BASE</p>
+          <div class="bases-wrap" id="bases-wrap">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Panel Tu Bowl (desktop) -->
+      <div class="bowl-panel-col">
+        <div class="bowl-panel" id="bowl-panel">
+          <div id="bowl-panel-empty" class="bowl-panel-empty">
+            <p>"Your bowl will appear here."</p>
+            <p>Select a protein, bowl, and base to build your combination.</p>
+          </div>
+          <div id="bowl-panel-filled" class="is-hidden-init" aria-live="polite">
+            <p class="bowl-panel-label">YOUR BOWL</p>
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Protein:</span>
+              <span class="bowl-panel-val" id="panel-protein">—</span>
+            </div>
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Bowl:</span>
+              <span class="bowl-panel-val" id="panel-bowl">—</span>
+            </div>
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Base:</span>
+              <span class="bowl-panel-val" id="panel-base">—</span>
+            </div>
+            <hr class="bowl-panel-divider">
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Oil:</span>
+              <span class="bowl-panel-val olive">Olive oil only</span>
+            </div>
+            <hr class="bowl-panel-divider">
+            <div class="bowl-panel-price" id="panel-price"></div>
+          </div>
+          <!-- Summary card -->
+          <div class="bowl-summary" id="bowl-summary">
+            <p class="bowl-summary-label">YOUR BOWL IS READY</p>
+            <p class="bowl-summary-title" id="summary-title"></p>
+            <p class="bowl-summary-detail" id="summary-detail"></p>
+            <div class="bowl-summary-ctas">
+              <a href="#order" class="btn btn-white bowl-summary-btn" data-gtag-event="bowl_order_now">Order Now</a>
+              <a href="/menus" class="btn btn-ghost bowl-summary-btn" data-gtag-event="bowl_ver_menu">View Full Menu</a>
+            </div>
+            <p class="bowl-summary-note">Complete your order in the Avo Miami app</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile sticky bar -->
+  <div class="bowl-mobile-bar" id="bowl-mobile-bar">
+    <div class="bowl-mobile-bar-top">
+      <span class="bowl-mobile-bar-label" id="mobile-bar-label">Tu bowl: Arma tu bowl</span>
+      <span class="bowl-mobile-bar-arrow">▲</span>
+    </div>
+    <div class="bowl-mobile-bar-content is-hidden-init" id="mobile-bar-content">
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Proteína:</span>
+        <span class="bowl-mobile-val" id="mobile-protein">—</span>
+      </div>
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Bowl:</span>
+        <span class="bowl-mobile-val" id="mobile-bowl">—</span>
+      </div>
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Base:</span>
+        <span class="bowl-mobile-val" id="mobile-base">—</span>
+      </div>
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Oil:</span>
+        <span class="bowl-mobile-val bowl-mobile-oil">Olive oil only</span>
+      </div>
+      <div class="bowl-mobile-row bowl-mobile-row-mt">
+        <span class="bowl-mobile-key">Precio ref.:</span>
+        <span class="bowl-mobile-val" id="mobile-price"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 · PLATOS DESTACADOS
+============================================================ -->
+<section id="platos" class="section-pad" data-screen-label="05 Platos Destacados">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Featured Dishes</p>
+      <h2>Eat well. Feel full. <br><em class="accent">Come back tomorrow.</em></h2>
+      <p>Satisfying portions without the post-meal slump. Clean labels with zero fillers. Discover our signature favorites: real food, prepared fresh, and designed to keep you at your best.</p>
+    </div>
+    <div class="dishes-grid" id="dishes-grid">
+      <!-- populated by JS -->
+    </div>
+    <div class="dishes-cta reveal">
+      <a href="/menus" class="btn btn-secondary" data-gtag-event="ver_menu_completo">View Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 · QUÉ ES / QUÉ NO ES
+============================================================ -->
+<section id="que-es" class="section-pad" data-screen-label="06 Qué es Avo">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">What We Are</p>
+      <h2>Real food.<br><em class="accent">For everyone.</em></h2>
+      <p>The place you’ve always wished existed: actually delicious, actually real, and made for all. Not just for vegans, not just for athletes. Just olive oil, an open kitchen, and nothing to hide. For anyone who believes they deserve to eat well.</p>
+    </div>
+    <div class="que-es-grid reveal">
+
+      <!-- BLOQUE NO ES -->
+      <div class="que-es-block no">
+        <div class="que-es-block-label no">AVO IS NOT...</div>
+        <div class="que-es-row">
+          <span class="que-es-icon no">✗</span>
+          <span>Just for vegans</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon no">✗</span>
+          <span>Boring food that feels like a sacrifice</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon no">✗</span>
+          <span>Fast food with a "healthy" label</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon no">✗</span>
+          <span>Seed oils disguised as healthy</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon no">✗</span>
+          <span>Reheated in a microwave</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon no">✗</span>
+          <span>A chain that doesn't know your name</span>
+        </div>
+      </div>
+
+      <!-- BLOQUE SÍ ES -->
+      <div class="que-es-block yes">
+        <div class="que-es-block-label yes">AVO IS...</div>
+        <div class="que-es-row">
+          <span class="que-es-icon yes">✓</span>
+          <span>Real food that’s actually delicious</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon yes">✓</span>
+          <span>For everyone—families, athletes, and brunch lovers</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon yes">✓</span>
+          <span>Dietitian-Designed, Chef-Crafted</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon yes">✓</span>
+          <span>100% Olive Oil. Always. No exceptions.</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon yes">✓</span>
+          <span>Made fresh this morning, right in front of you</span>
+        </div>
+        <div class="que-es-row">
+          <span class="que-es-icon yes">✓</span>
+          <span>A place where the staff remembers your face</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     07 · LOS 7 DIFERENCIALES
+============================================================ -->
+<section id="diferenciales" class="section-pad" data-screen-label="07 Diferenciales">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Our Commitment</p>
+      <h2>What sets<em class="accent"> us apart.</em></h2>
+      <p>These aren't just marketing claims. They are commitments you can verify with every visit.</p>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card reveal">
+        <div class="dif-num">01</div>
+        <div class="dif-content">
+          <h3 class="dif-title">Zero Seed Oils — Olive Oil Only</h3>
+          <p class="dif-body">Zero canola oil. Zero sunflower oil. Zero soybean oil. Only Extra Virgin Olive Oil—in everything, always. Because seed oils are the hidden ingredient most "healthy" restaurants keep from you.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-num">02</div>
+        <div class="dif-content">
+          <h3 class="dif-title">Dietitian-Designed Meals</h3>
+          <p class="dif-body">Our menu wasn’t designed by a marketing agency or an algorithm. It was crafted by a Registered Dietitian. Every dish is built to nourish you, not just to look good on Instagram.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-num">03</div>
+        <div class="dif-content">
+          <h3 class="dif-title">No Microwaves</h3>
+          <p class="dif-body">Nothing at Avo is ever reheated in a microwave. Everything you eat was cooked today. You can see it for yourself. That’s the difference between "marketing fresh" and truly fresh.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-num">04</div>
+        <div class="dif-content">
+          <h3 class="dif-title">Grass-Fed + Wild-Caught</h3>
+          <p class="dif-body">The proteins we use matter as much as how we cook them. Grass-fed beef. Wild-caught fish. No factory farms, no cages, no compromises.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-num">05</div>
+        <div class="dif-content">
+          <h3 class="dif-title">Made Fresh Daily</h3>
+          <p class="dif-body">No freezers. No preservatives. No Sunday prep served on a Thursday. Every morning we start from scratch—at all three locations.</p>
+        </div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-num">06</div>
+        <div class="dif-content">
+          <h3 class="dif-title">Open Kitchen</h3>
+          <p class="dif-body">We have nothing to hide because we have nothing to conceal. Our kitchen is open. Come, look, and ask. Transparency isn’t a slogan—it’s our architecture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     08 · BENEFICIOS
+============================================================ -->
+<section id="beneficios" class="section-pad" data-screen-label="08 Beneficios">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow light">Why Avo</p>
+      <h2>Why you’ll keep <em class="accent accent-carbon">coming back.</em></h2>
+      <p>Six reasons to choose Avo — every time.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🥗</div>
+        <h3 class="benefit-title">Eat out without compromising your health</h3>
+        <p class="benefit-body">Say goodbye to post-restaurant guilt. At Avo, you know exactly what’s on your plate—and everything is there for a reason.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💪</div>
+        <h3 class="benefit-title">Actually stay full</h3>
+        <p class="benefit-body">Avo bowls are generous. You won’t be hungry again in two hours. Eat delicious, eat well, eat enough.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">👨‍👩‍👧</div>
+        <h3 class="benefit-title">Something for everyone</h3>
+        <p class="benefit-body">Vegan, vegetarian, gluten-free, high-protein, and a kids' menu. No need to compromise with your group—everyone finds something they love.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⚡</div>
+        <h3 class="benefit-title">Recharge after your workout</h3>
+        <p class="benefit-body">Cold-pressed juices, wellness shots, smoothies, and protein-packed bowls. Real nutrition for active bodies.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✨</div>
+        <h3 class="benefit-title">Experience the vibe, don't just eat</h3>
+        <p class="benefit-body">Open kitchen, bohemian vibes, and a staff that treats you like a regular. Avo isn’t just a pit stop—it’s a destination.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🫒</div>
+        <h3 class="benefit-title">Pay for real quality</h3>
+        <p class="benefit-body">Grass-fed, wild-caught, olive oil only, fresh daily. You’re not just paying for the space—you’re paying for what goes into your body.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 · TESTIMONIOS
+============================================================ -->
+<section id="testimonios" class="section-pad" data-screen-label="09 Testimonios">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">What People Say</p>
+      <h2>Not just hype. <br><em class="accent">Just Real Food.</em></h2>
+      <p>Instagram filters can only go so far. We’re 1,700+ real voices confirming that honest, high-quality ingredients simply taste better. Don’t take our word for it—take theirs.</p>
+    </div>
+    <div class="test-badge-wrap reveal">
+      <span class="test-stars-header">★★★★★</span>
+      <span class="test-avg">4.8 star average · 1,700+ reviews · 3 locations</span>
+    </div>
+    <div class="test-grid">
+
+      <div class="test-card reveal">
+        <p class="test-card-stars">★★★★★</p>
+        <p class="test-quote">"The food is unbelievable. They use high quality ingredients, good portions, beautiful plating and reasonable prices. The owner is super nice, he always makes us feel like at home. My fave dishes: shakshuka, power bowl with wild caught sear tuna, protein pancakes, avocado toast. Hands down my fave spot."</p>
+        <hr class="test-divider">
+        <p class="test-author-name">Cindy P.</p>
+        <p class="test-author-meta">Local Guide · 48 reviews · 3 months ago</p>
+      </div>
+
+      <div class="test-card reveal">
+        <p class="test-card-stars">★★★★★</p>
+        <p class="test-quote">"Hands down, one of the best vegan-friendly spots in Miami. The service was excellent, the food is delicious and healthy, and the bowls are so generous you can even share them. Great energy all around."</p>
+        <hr class="test-divider">
+        <p class="test-author-name">Ashly Alvarez</p>
+        <p class="test-author-meta">Local Guide · 22 reviews · 5 months ago</p>
+      </div>
+
+      <div class="test-card reveal">
+        <p class="test-card-stars">★★★★★</p>
+        <p class="test-quote">"An absolutely fantastic farm-to-table experience! The food was incredibly fresh and flavorful, clearly crafted with high-quality, nutrient-dense ingredients sourced directly from local suppliers."</p>
+        <hr class="test-divider">
+        <p class="test-author-name">Nena Earl</p>
+        <p class="test-author-meta">Local Guide ·11 reviews · 2 months ago</p>
+      </div>
+
+      <div class="test-card reveal">
+        <p class="test-card-stars">★★★★★</p>
+        <p class="test-quote">"Best breakfast in Miami if you're looking for clean organic everything. My husband is gluten free and they have the best protein French toast! The ginger shots and espresso is just amazing. And it's so cute in there you can just grab breakfast, lunch, smoothie and chill. This is my go to."</p>
+        <hr class="test-divider">
+        <p class="test-author-name">Eileena Kim</p>
+        <p class="test-author-meta">Local Guide · 67 reviews · 1 months ago</p>
+      </div>
+
+      <div class="test-card reveal">
+        <p class="test-card-stars">★★★★★</p>
+        <p class="test-quote">"I’ve spent years traveling the world visiting coffee shops, and ever since I stepped into the first Avo location, I’ve been in love with their concept. This new spot is truly spectacular. Excellent service, a great menu, and the coffee is consistently amazing."</p>
+        <hr class="test-divider">
+        <p class="test-author-name">Travel_for_a_coffee</p>
+        <p class="test-author-meta">Local Guide · 914 reviews · 4 months ago</p>
+      </div>
+
+      <div class="test-card reveal">
+        <p class="test-card-stars">★★★★★</p>
+        <p class="test-quote">"Avo Miami is a true gem. Superbe location on Sunset Harbor, beautiful restaurant, delicious healthy mediterranean food and exceptional service. Food is made with love and everyone is treated like family."</p>
+        <hr class="test-divider">
+        <p class="test-author-name">Benjamin T</p>
+        <p class="test-author-meta">Local Guide · 8 reviews · 6 months ago</p>
+      </div>
+
+    </div>
+    <div class="test-cta reveal">
+      <a href="https://maps.google.com" target="_blank" rel="noopener">Love your experience? Share the vibe. →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 · REWARDS
+============================================================ -->
+<section id="rewards" class="section-pad" data-screen-label="10 Rewards">
+  <div class="container">
+    <div class="rewards-layout">
+      <div class="rewards-copy reveal">
+        <p class="rewards-eyebrow">AVO REWARDS</p>
+        <h2>Eat well. Earn points. <em class="accent">Repeat.</em></h2>
+        <p class="rewards-sub">Every visit counts. Download the Avo Miami app to earn points with every order and redeem them for your favorites.</p>
+        <ul class="rewards-benefits">
+          <li>🎁 Points on every purchase — in-store, online, or to-go.</li>
+          <li>🎂 Birthday rewards — a special surprise during your month.</li>
+          <li>📱 Easy app ordering — skip the line, no waiting.</li>
+        </ul>
+        <div class="rewards-store-badges">
+          <a href="#app-store" data-gtag-event="rewards_app_store">
+            <img src="img/logos/download-on-the-app-store-apple-logo-svgrepo-com.svg" alt="Download on App Store" width="135" height="40">
+          </a>
+          <a href="#google-play" data-gtag-event="rewards_google_play">
+            <img src="img/logos/google-play-badge-logo-svgrepo-com.svg" alt="Get it on Google Play" width="135" height="40">
+          </a>
+        </div>
+        <a href="/rewards" class="btn btn-secondary rewards-more" data-gtag-event="rewards_learn_more">Learn more about Rewards</a>
+      </div>
+      <div class="rewards-img reveal">
+        <img src="img/mockup_app/image-mobile-portrait.png" alt="Avo Miami app mockup" loading="lazy" width="240" height="480">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 · CATERING
+============================================================ -->
+<section id="catering" data-screen-label="11 Catering">
+  <div class="container catering-inner">
+    <div class="catering-copy reveal">
+      <p class="catering-eyebrow">CATERING & EVENTS</p>
+      <h2>Planning an event, office lunch, or celebration?<br>Avo brings the <em class="accent">freshness</em> to you.</h2>
+    </div>
+    <a href="/catering-miami-healthy-food" class="btn btn-ghost reveal" data-gtag-event="catering_cta">Get a Catering Quote</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     12 · LOCATIONS
+============================================================ -->
+<section id="locations" class="section-pad" data-screen-label="12 Locations">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Where We Are</p>
+      <h2>Find us.</h2>
+      <p>Three Miami locations. Open daily.</p>
+    </div>
+    <div class="locations-grid">
+      <!-- Sunset Harbor -->
+      <div class="location-card reveal">
+        <div class="location-img">
+          <img src="img/img_locations/01_sunset/avo-maimi-sunset-exterior1.webp"
+               alt="Avo Miami Sunset Harbor exterior" loading="lazy" width="800" height="600">
+        </div>
+        <div class="location-info">
+          <h3 class="location-name">Sunset Harbor</h3>
+          <p class="location-address">1834 Bay Rd, Sunset Harbor</p>
+          <p class="location-hours">7am – 10pm · Open daily</p>
+          <div class="location-ctas">
+            <a href="https://maps.google.com/?q=1834+Bay+Rd+Miami" target="_blank" rel="noopener"
+               class="btn btn-secondary"
+               data-gtag-event="location_directions"
+               data-gtag-params='{"location_name":"Sunset Harbor"}'>Get Directions</a>
+            <a href="#order" class="btn btn-primary"
+               data-gtag-event="location_order_online"
+               data-gtag-params='{"location_name":"Sunset Harbor"}'>Order Online</a>
+          </div>
+        </div>
+      </div>
+      <!-- Coconut Grove -->
+      <div class="location-card reveal">
+        <div class="location-img">
+          <img src="img/img_locations/02_coconut/avo-miami-coconut-exterior1.webp"
+               alt="Avo Miami Coconut Grove exterior" loading="lazy" width="800" height="600">
+        </div>
+        <div class="location-info">
+          <h3 class="location-name">Coconut Grove</h3>
+          <p class="location-address">2911 Grand Ave, Coconut Grove</p>
+          <p class="location-hours">7am – 10pm · Open daily</p>
+          <div class="location-ctas">
+            <a href="https://maps.google.com/?q=2911+Grand+Ave+Miami" target="_blank" rel="noopener"
+               class="btn btn-secondary"
+               data-gtag-event="location_directions"
+               data-gtag-params='{"location_name":"Coconut Grove"}'>Get Directions</a>
+            <a href="#order" class="btn btn-primary"
+               data-gtag-event="location_order_online"
+               data-gtag-params='{"location_name":"Coconut Grove"}'>Order Online</a>
+          </div>
+        </div>
+      </div>
+      <!-- South Miami -->
+      <div class="location-card reveal">
+        <div class="location-img">
+          <img src="img/img_locations/03_south/avo-miami-south-maimi-exterior.webp"
+               alt="Avo Miami South Miami exterior" loading="lazy" width="800" height="600">
+        </div>
+        <div class="location-info">
+          <h3 class="location-name">South Miami</h3>
+          <p class="location-address">5958 S Dixie Hwy, South Miami</p>
+          <p class="location-hours">7am – 10pm · Open daily</p>
+          <div class="location-ctas">
+            <a href="https://maps.google.com/?q=5958+S+Dixie+Hwy+Miami" target="_blank" rel="noopener"
+               class="btn btn-secondary"
+               data-gtag-event="location_directions"
+               data-gtag-params='{"location_name":"South Miami"}'>Get Directions</a>
+            <a href="#order" class="btn btn-primary"
+               data-gtag-event="location_order_online"
+               data-gtag-params='{"location_name":"South Miami"}'>Order Online</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     13 · FOOTER
+============================================================ -->
+<footer id="footer" data-screen-label="13 Footer">
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo">
+        <img src="img/logos/logo-avo-miami-white.png" alt="Avo Miami logo" width="128" height="32">
+      </div>
+      <p class="footer-tagline">"Because you deserve the best."</p>
+    </div>
+    <div>
+      <p class="footer-col-label">MENÚ</p>
+      <div class="footer-links">
+        <a href="/menus">Menu</a>
+        <a href="/where-to-eat-healthy-miami">Locations</a>
+        <a href="/our-story-healthy-food-miami">Our Mission</a>
+        <a href="/rewards">Rewards</a>
+        <a href="/catering-miami-healthy-food">Catering</a>
+        <a href="/healthy-eating-blog-miami">Blog</a>
+        <a href="/app">App</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-label">SÍGUENOS</p>
+      <div class="footer-social">
+        <svg viewBox="0 0 24 24" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        <span>@avomiami</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2026 Avo Miami &nbsp;·&nbsp; <a href="/privacy" class="footer-privacy">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+(function() {
+  // ── CONFIG ──
+  const CONFIG = {
+    NAV_HEIGHT:        64,
+    REVEAL_THRESHOLD:  0.15,
+    SECTION_THRESHOLD: 0.5,
+    PRODUCTS_URL:      'data/products.json',
+  };
+
+  // ── STUB for gtag (prevents errors if GTM not loaded) ──
+  window.gtag = window.gtag || function(){};
+
+  // ── SCROLL REVEAL ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: CONFIG.REVEAL_THRESHOLD });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── SECTION VISIBILITY TRACKING ──
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const label = entry.target.dataset.screenLabel;
+        if (label === '05 Platos Destacados') gtag('event','featured_dish_view');
+        if (label === '09 Testimonios') gtag('event','testimonios_view');
+        if (label === '03 Video') gtag('event','video_section_view');
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: CONFIG.SECTION_THRESHOLD });
+  document.querySelectorAll('[data-screen-label]').forEach(el => sectionObserver.observe(el));
+
+  // ── NAV: hide on scroll down, show on scroll up ──
+  const nav = document.getElementById('nav');
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentY = window.scrollY;
+    if (currentY > lastScrollY && currentY > CONFIG.NAV_HEIGHT) {
+      nav.classList.add('hidden');
+    } else {
+      nav.classList.remove('hidden');
+    }
+    lastScrollY = currentY;
+  }, { passive: true });
+
+  // ── NAV MOBILE DRAWER ──
+  const hamburger   = document.getElementById('nav-hamburger');
+  const drawer      = document.getElementById('nav-drawer');
+  const drawerClose = document.getElementById('nav-drawer-close');
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+    hamburger.focus();
+  }
+  hamburger.addEventListener('click', () => {
+    drawer.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    const firstFocusable = drawer.querySelector('button, a[href]');
+    if (firstFocusable) firstFocusable.focus();
+  });
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer(); });
+  drawer.addEventListener('keydown', e => {
+    if (!drawer.classList.contains('open') || e.key !== 'Tab') return;
+    const focusables = Array.from(drawer.querySelectorAll('button, a[href]'));
+    const first = focusables[0];
+    const last  = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // ── GTAG EVENT BINDINGS (replace inline onclick handlers) ──
+  // Nav menu links — delegated via [data-gtag-label]
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) {
+    navLinks.addEventListener('click', e => {
+      const link = e.target.closest('a[data-gtag-label]');
+      if (link) gtag('event','nav_menu_click', { link_label: link.dataset.gtagLabel });
+    });
+  }
+  // Generic single-event triggers via [data-gtag-event] (+ optional [data-gtag-params])
+  document.querySelectorAll('[data-gtag-event]').forEach(el => {
+    el.addEventListener('click', () => {
+      const eventName = el.dataset.gtagEvent;
+      const raw = el.dataset.gtagParams;
+      const params = raw ? JSON.parse(raw) : undefined;
+      gtag('event', eventName, params);
+    });
+  });
+
+  // ── MOBILE BAR TOGGLE ──
+  const mobileBar        = document.getElementById('bowl-mobile-bar');
+  const mobileBarTop     = mobileBar.querySelector('.bowl-mobile-bar-top');
+  const mobileBarContent = document.getElementById('mobile-bar-content');
+  mobileBarTop.addEventListener('click', () => {
+    mobileBar.classList.toggle('expanded');
+    mobileBarContent.style.display = mobileBar.classList.contains('expanded') ? 'block' : 'none';
+  });
+
+  // ── BUILD YOUR BOWL STATE ──
+  const selection = { protein: null, bowlType: null, base: null };
+  let productsData = null;
+
+  // ── FETCH PRODUCTS ──
+  fetch(CONFIG.PRODUCTS_URL)
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(data => {
+      productsData = data;
+      renderProteins(data);
+      renderBowlTypes(data);
+      renderDishes(data);
+    })
+    .catch(() => {
+      const grid = document.getElementById('proteins-grid');
+      if (grid) {
+        grid.innerHTML = '<p class="load-error">Could not load the menu. Please reload the page.</p>';
+      }
+    });
+
+  // ── RENDER PROTEINS ──
+  function renderProteins(data) {
+    const proteins = data.bowl_proteins
+      .filter(p => p.featured)
+      .sort((a, b) => a.featured_order - b.featured_order);
+
+    const grid = document.getElementById('proteins-grid');
+    grid.innerHTML = proteins.map(p => `
+      <div class="protein-card" role="button" tabindex="0" data-id="${p.id}">
+        <div class="protein-img-wrap">
+          <img src="${p.image}" alt="${p.name}" loading="lazy">
+          ${p.badges.length ? `<span class="badge badge-solid protein-badge">${p.badges[0]}</span>` : ''}
+        </div>
+        <div class="protein-info">
+          <p class="protein-name">${p.name}</p>
+          <p class="protein-desc">${p.description}</p>
+          <p class="protein-price">$${p.base_price.toFixed(2)}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── PROTEIN GRID DELEGATION ──
+  const proteinsGrid = document.getElementById('proteins-grid');
+  proteinsGrid.addEventListener('click', e => {
+    const card = e.target.closest('.protein-card');
+    if (card) selectProtein(card.dataset.id);
+  });
+  proteinsGrid.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('.protein-card');
+    if (card) { e.preventDefault(); selectProtein(card.dataset.id); }
+  });
+
+  // ── SELECT PROTEIN ──
+  function selectProtein(id) {
+    selection.protein = productsData.bowl_proteins.find(p => p.id === id);
+    selection.bowlType = null;
+    selection.base = null;
+
+    document.querySelectorAll('.protein-card').forEach(c => c.classList.remove('selected'));
+    document.querySelector(`.protein-card[data-id="${id}"]`).classList.add('selected');
+
+    document.getElementById('step-2').classList.add('visible');
+    document.getElementById('step-3').classList.remove('visible');
+    document.getElementById('bowl-summary').classList.remove('visible');
+
+    document.querySelectorAll('.bowl-type-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.base-pill').forEach(p => p.classList.remove('selected'));
+
+    updatePanel();
+    gtag('event', 'bowl_protein_select', { protein_id: id });
+  }
+
+  // ── RENDER BOWL TYPES ──
+  function renderBowlTypes(data) {
+    const types = data.bowl_config.types;
+    const grid = document.getElementById('bowl-types-grid');
+    grid.innerHTML = types.map(t => {
+      const badgeClass = t.id === 'keto' ? 'badge-keto' : t.id === 'lean' ? 'badge-lean' : 'badge-power';
+      return `
+      <div class="bowl-type-card" role="button" tabindex="0" data-id="${t.id}">
+        <span class="badge ${badgeClass}">${t.badge}</span>
+        <p class="bowl-type-name">${t.name}</p>
+        <p class="bowl-type-desc">${t.description}</p>
+      </div>`;
+    }).join('');
+  }
+
+  // ── BOWL TYPES GRID DELEGATION ──
+  const bowlTypesGrid = document.getElementById('bowl-types-grid');
+  bowlTypesGrid.addEventListener('click', e => {
+    const card = e.target.closest('.bowl-type-card');
+    if (card) selectBowlType(card.dataset.id);
+  });
+  bowlTypesGrid.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('.bowl-type-card');
+    if (card) { e.preventDefault(); selectBowlType(card.dataset.id); }
+  });
+
+  // ── SELECT BOWL TYPE ──
+  function selectBowlType(id) {
+    selection.bowlType = productsData.bowl_config.types.find(t => t.id === id);
+    selection.base = null;
+
+    document.querySelectorAll('.bowl-type-card').forEach(c => c.classList.remove('selected'));
+    document.querySelector(`.bowl-type-card[data-id="${id}"]`).classList.add('selected');
+
+    renderBases(id);
+    document.getElementById('step-3').classList.add('visible');
+    document.getElementById('bowl-summary').classList.remove('visible');
+    document.querySelectorAll('.base-pill').forEach(p => p.classList.remove('selected'));
+
+    updatePanel();
+    gtag('event', 'bowl_type_select', { bowl_type: id });
+  }
+
+  // ── RENDER BASES ──
+  function renderBases(bowlTypeId) {
+    const bases = productsData.bowl_config.bases[bowlTypeId] || [];
+    const wrap = document.getElementById('bases-wrap');
+    wrap.innerHTML = bases.map(b => {
+      const costLabel = b.extra_cost === 0 ? 'incluido' : `+$${b.extra_cost.toFixed(2)}`;
+      return `
+      <div class="base-pill" role="button" tabindex="0" data-id="${b.id}" data-cost="${b.extra_cost}" data-name="${b.name}">
+        <span>${b.name}</span>
+        <span class="base-pill-cost">${costLabel}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // ── BASES WRAP DELEGATION ──
+  const basesWrap = document.getElementById('bases-wrap');
+  basesWrap.addEventListener('click', e => {
+    const pill = e.target.closest('.base-pill');
+    if (pill) selectBase(pill.dataset.id, parseFloat(pill.dataset.cost), pill.dataset.name);
+  });
+  basesWrap.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const pill = e.target.closest('.base-pill');
+    if (pill) { e.preventDefault(); selectBase(pill.dataset.id, parseFloat(pill.dataset.cost), pill.dataset.name); }
+  });
+
+  // ── SELECT BASE ──
+  function selectBase(id, cost, name) {
+    selection.base = { id, extra_cost: cost, name };
+
+    document.querySelectorAll('.base-pill').forEach(p => p.classList.remove('selected'));
+    document.querySelector(`.base-pill[data-id="${id}"]`).classList.add('selected');
+
+    updatePanel();
+    showBowlSummary();
+    gtag('event', 'bowl_base_select', { base_id: id });
+  }
+
+  // ── UPDATE PANEL ──
+  function updatePanel() {
+    const { protein, bowlType, base } = selection;
+
+    const filled = document.getElementById('bowl-panel-filled');
+    const empty  = document.getElementById('bowl-panel-empty');
+
+    if (protein || bowlType || base) {
+      empty.style.display  = 'none';
+      filled.style.display = 'block';
+    }
+
+    if (protein)  document.getElementById('panel-protein').textContent = protein.name;
+    if (bowlType) document.getElementById('panel-bowl').textContent    = bowlType.name;
+    if (base)     document.getElementById('panel-base').textContent    = base.name;
+
+    if (protein) {
+      const basePrice = protein.base_price || 0;
+      const extraCost = base ? base.extra_cost : 0;
+      document.getElementById('panel-price').textContent = `$${(basePrice + extraCost).toFixed(2)}`;
+    }
+
+    const parts = [];
+    if (protein)  parts.push(protein.name);
+    if (bowlType) parts.push(bowlType.name);
+    if (base)     parts.push(base.name);
+    const label = parts.length ? parts.join(' · ') : 'Arma tu bowl';
+    document.getElementById('mobile-bar-label').textContent = `Tu bowl: ${label}`;
+
+    if (protein)  document.getElementById('mobile-protein').textContent = protein.name;
+    if (bowlType) document.getElementById('mobile-bowl').textContent    = bowlType.name;
+    if (base)     document.getElementById('mobile-base').textContent    = base.name;
+
+    if (protein) {
+      const basePrice = protein.base_price || 0;
+      const extraCost = base ? base.extra_cost : 0;
+      document.getElementById('mobile-price').textContent = `$${(basePrice + extraCost).toFixed(2)}`;
+    }
+  }
+
+  // ── SHOW BOWL SUMMARY ──
+  function showBowlSummary() {
+    const { protein, bowlType, base } = selection;
+    if (!protein || !bowlType || !base) return;
+
+    const summary = document.getElementById('bowl-summary');
+    document.getElementById('summary-title').textContent =
+      `${bowlType.name} · ${protein.name}`;
+    document.getElementById('summary-detail').textContent =
+      `Base: ${base.name} · Olive oil only · Made fresh today`;
+    summary.classList.add('visible');
+  }
+
+  // ── RENDER DISHES ──
+  function renderDishes(data) {
+    const dishes = data.featured_dishes;
+    const grid = document.getElementById('dishes-grid');
+
+    grid.innerHTML = dishes.map(dish => {
+      const badgesHtml = dish.badges
+        .map(b => `<span class="badge badge-dark">${b}</span>`)
+        .join('');
+
+      let macrosHtml = '';
+      if (dish.show_calories_only) {
+        macrosHtml = `<p class="dish-cal-only">${dish.macros.calories} kcal</p>`;
+      } else if (dish.show_full_macros && dish.macros) {
+        const m = dish.macros;
+        macrosHtml = `
+          <div class="dish-macros">
+            <div class="macro-item"><div class="macro-val">${m.protein_g}g</div><div class="macro-label">Proteína</div></div>
+            <div class="macro-item"><div class="macro-val">${m.carbs_g}g</div><div class="macro-label">Carbos</div></div>
+            <div class="macro-item"><div class="macro-val">${m.fat_g}g</div><div class="macro-label">Grasa</div></div>
+            <div class="macro-item"><div class="macro-val">${m.fiber_g}g</div><div class="macro-label">Fibra</div></div>
+            <div class="macro-item"><div class="macro-val">${m.calories}</div><div class="macro-label">Cal</div></div>
+          </div>
+          <hr class="dish-divider">`;
+      }
+
+      const orderHref = dish.order_url || '#order';
+
+      return `
+        <div class="dish-card reveal">
+          <div class="dish-img-wrap">
+            <img src="${dish.image}" alt="${dish.name}" loading="lazy">
+            <div class="dish-badges">${badgesHtml}</div>
+          </div>
+          <div class="dish-info">
+            <p class="dish-name">${dish.name}</p>
+            <p class="dish-desc">${dish.description}</p>
+            <p class="dish-signature">${dish.signature}</p>
+            <hr class="dish-divider">
+            ${macrosHtml}
+            <div class="dish-footer">
+              <span class="dish-price">$${dish.price.toFixed(2)}</span>
+              <a href="${orderHref}" class="dish-order-btn" target="_blank" rel="noopener" data-dish-id="${dish.id}">Order Online</a>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    document.querySelectorAll('.dish-card.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+  }
+
+  // ── DISHES GRID DELEGATION (gtag for order_online_dish) ──
+  document.getElementById('dishes-grid').addEventListener('click', e => {
+    const link = e.target.closest('.dish-order-btn[data-dish-id]');
+    if (link) gtag('event','order_online_dish', { dish_id: link.dataset.dishId });
+  });
+})();
+</script>
+</body>
+</html>

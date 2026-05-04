@@ -1,0 +1,791 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-01",
+  "status": "draft",
+  "note": "Macros son estimados — pendiente validación por dietista registrada",
+  "bowl_config": {
+    "types": [
+      {
+        "id": "keto",
+        "name": "Keto Bowl",
+        "badge": "KETO",
+        "badge_color": "tierra",
+        "description": "Sin carbohidratos. Sautéed spinach con ajo, red onions, feta, chili flecks y avocado chutney.",
+        "description_short": "Sin carbos. Base de mushroom truffle o spinach.",
+        "fixed_ingredients": [
+          "sautéed spinach",
+          "garlic",
+          "red onions",
+          "feta",
+          "chili flecks",
+          "avocado chutney"
+        ]
+      },
+      {
+        "id": "lean",
+        "name": "Lean Bowl",
+        "badge": "LEAN",
+        "badge_color": "verde",
+        "description": "Balance perfecto. Quinoa, arugula, cucumber, cherry tomatoes, onions salad y avocado chutney.",
+        "description_short": "Balance perfecto. Quinoa, arugula, cucumber, cherry tomatoes y avocado chutney.",
+        "fixed_ingredients": [
+          "arugula",
+          "cucumber",
+          "cherry tomatoes",
+          "onions salad",
+          "avocado chutney"
+        ]
+      },
+      {
+        "id": "power",
+        "name": "Power Bowl",
+        "badge": "POWER",
+        "badge_color": "purple",
+        "description": "Alta proteína. Rice o quinoa, braised lentils y avocado chutney.",
+        "description_short": "Alta proteína. Doble base a tu elección.",
+        "fixed_ingredients": [
+          "braised lentils",
+          "avocado chutney"
+        ]
+      }
+    ],
+    "bases": {
+      "keto": [
+        {
+          "id": "truffled_mushroom",
+          "name": "Truffled Mushroom",
+          "extra_cost": 3.95
+        },
+        {
+          "id": "spinach",
+          "name": "Spinach",
+          "extra_cost": 0
+        }
+      ],
+      "lean": [
+        {
+          "id": "hot_quinoa",
+          "name": "Hot Quinoa",
+          "extra_cost": 1.5
+        },
+        {
+          "id": "cold_quinoa",
+          "name": "Cold Quinoa",
+          "extra_cost": 1.5
+        },
+        {
+          "id": "rice",
+          "name": "Rice",
+          "extra_cost": 0
+        },
+        {
+          "id": "lentils",
+          "name": "Lentils",
+          "extra_cost": 2.0
+        },
+        {
+          "id": "rice_quinoa",
+          "name": "Rice + Quinoa",
+          "extra_cost": 1.0
+        }
+      ],
+      "power": [
+        {
+          "id": "rice",
+          "name": "Rice",
+          "extra_cost": 0
+        },
+        {
+          "id": "quinoa",
+          "name": "Quinoa",
+          "extra_cost": 1.5
+        },
+        {
+          "id": "rice_quinoa",
+          "name": "Rice + Quinoa",
+          "extra_cost": 1.0
+        },
+        {
+          "id": "no_rice",
+          "name": "No Rice",
+          "extra_cost": 0
+        },
+        {
+          "id": "only_lentils",
+          "name": "Only Lentils",
+          "extra_cost": 0
+        }
+      ]
+    },
+    "sauces": [
+      {
+        "id": "tahini",
+        "name": "Tahini Sauce",
+        "extra_cost": 0
+      },
+      {
+        "id": "jalapeno",
+        "name": "Jalapeño Sauce",
+        "extra_cost": 0
+      },
+      {
+        "id": "red_chilli",
+        "name": "Red Chilli Pepper Sauce",
+        "extra_cost": 1.0
+      },
+      {
+        "id": "tzatziki",
+        "name": "Tzatziki Sauce",
+        "extra_cost": 1.0
+      },
+      {
+        "id": "extra_red_chilli",
+        "name": "Extra Red Chilli Pepper Sauce",
+        "extra_cost": 1.95
+      },
+      {
+        "id": "extra_tahini",
+        "name": "Extra Tahini Sauce",
+        "extra_cost": 1.95
+      },
+      {
+        "id": "extra_jalapeno",
+        "name": "Extra Jalapeño Sauce",
+        "extra_cost": 1.95
+      },
+      {
+        "id": "avo_chipotle_yoghurt",
+        "name": "Avo Chipotle Yoghurt",
+        "extra_cost": 1.95
+      }
+    ],
+    "cooked_options": {
+      "applies_to": [
+        "grilled_salmon"
+      ],
+      "note": "Solo disponible para Grilled Salmon",
+      "options": [
+        "Rare",
+        "Medium Rare",
+        "Medium",
+        "Medium Well",
+        "Well Cooked",
+        "Well Done"
+      ]
+    }
+  },
+  "bowl_proteins": [
+    {
+      "id": "grilled_salmon",
+      "name": "Grilled Salmon",
+      "description": "Antibiotic-free fresh salmon. Wild caught.",
+      "description_long": "Antibiotic-free fresh salmon severed with a choice of your base.",
+      "credentials": [
+        "wild-caught",
+        "antibiotic-free"
+      ],
+      "base_price": 26.95,
+      "image": "img/bowl_destacados/grilled-salmon.webp",
+      "featured": true,
+      "featured_order": 1,
+      "badges": [
+        "BESTSELLER"
+      ],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": true,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 32,
+        "carbs_g": 0,
+        "fat_g": 18,
+        "fiber_g": 0,
+        "calories": 300
+      }
+    },
+    {
+      "id": "diced_raw_tuna",
+      "name": "Diced Raw Tuna",
+      "description": "Wild caught tuna. Sesame soy sauce.",
+      "description_long": "Wild caught tuna diced (sesame soy sauce) severed with a choice of your base.",
+      "credentials": [
+        "wild-caught"
+      ],
+      "base_price": 23.95,
+      "image": "img/bowl_destacados/diced_raw_tuna.jpg",
+      "featured": true,
+      "featured_order": 2,
+      "badges": [],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 28,
+        "carbs_g": 2,
+        "fat_g": 6,
+        "fiber_g": 0,
+        "calories": 180
+      }
+    },
+    {
+      "id": "organic_grilled_chicken_breast",
+      "name": "Grilled Chicken Breast",
+      "description": "Organic & antibiotic-free. Seasoned.",
+      "description_long": "Organic and Antibiotic-free chicken breast seasoned severed with a choice of your base.",
+      "credentials": [
+        "organic",
+        "antibiotic-free"
+      ],
+      "base_price": 21.95,
+      "image": "img/bowl_destacados/organic_grilled_chicken_breast.jpg",
+      "featured": true,
+      "featured_order": 3,
+      "badges": [],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 38,
+        "carbs_g": 0,
+        "fat_g": 8,
+        "fiber_g": 0,
+        "calories": 230
+      }
+    },
+    {
+      "id": "branzino",
+      "name": "Branzino",
+      "description": "Wild caught branzino filet. Served with your base.",
+      "description_long": "Wild caught branzino filet severed with a choice of your base.",
+      "credentials": [
+        "wild-caught"
+      ],
+      "base_price": 31.95,
+      "image": "img/bowl_destacados/branzino.jpg",
+      "featured": true,
+      "featured_order": 4,
+      "badges": [
+        "PREMIUM"
+      ],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 30,
+        "carbs_g": 0,
+        "fat_g": 10,
+        "fiber_g": 0,
+        "calories": 215
+      }
+    },
+    {
+      "id": "grilled_wild_caught_tuna",
+      "name": "Grilled Wild Caught Tuna",
+      "description": "Wild caught tuna steak.",
+      "description_long": "Wild caught tuna steak severed with a choice of your base.",
+      "credentials": [
+        "wild-caught"
+      ],
+      "base_price": 23.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 34,
+        "carbs_g": 0,
+        "fat_g": 4,
+        "fiber_g": 0,
+        "calories": 175
+      }
+    },
+    {
+      "id": "grilled_shrimp_brochette",
+      "name": "Grilled Shrimp Brochette",
+      "description": "Grilled shrimp on skewers.",
+      "description_long": "Grilled shrimp on skewers severed with a choice of your base.",
+      "credentials": [],
+      "base_price": 24.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 24,
+        "carbs_g": 2,
+        "fat_g": 6,
+        "fiber_g": 0,
+        "calories": 160
+      }
+    },
+    {
+      "id": "organic_grilled_chicken_brochette",
+      "name": "Organic Grilled Chicken Brochette",
+      "description": "Organic and antibiotic-free chicken brochettes.",
+      "description_long": "Organic and antibiotic-free chicken brochettes severed with a choice of your base.",
+      "credentials": [
+        "organic",
+        "antibiotic-free"
+      ],
+      "base_price": 21.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 32,
+        "carbs_g": 2,
+        "fat_g": 10,
+        "fiber_g": 0,
+        "calories": 220
+      }
+    },
+    {
+      "id": "organic_chicken_salad",
+      "name": "Organic Chicken Salad",
+      "description": "Antibiotic-free chicken breast, avocado, light mayo.",
+      "description_long": "Antibiotic-free chicken breast mixed with avocado and a light touch of mayo severed with a choice of your base.",
+      "credentials": [
+        "organic",
+        "antibiotic-free"
+      ],
+      "base_price": 20.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 28,
+        "carbs_g": 4,
+        "fat_g": 14,
+        "fiber_g": 2,
+        "calories": 260
+      }
+    },
+    {
+      "id": "vegan_falafel",
+      "name": "Vegan Falafel",
+      "description": "Home made falafel. Served with your base.",
+      "description_long": "Home made falafel severed with a choice of your base.",
+      "credentials": [
+        "homemade"
+      ],
+      "base_price": 17.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [
+        "VEGAN"
+      ],
+      "dietary_flags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 14,
+        "carbs_g": 28,
+        "fat_g": 16,
+        "fiber_g": 6,
+        "calories": 300
+      }
+    },
+    {
+      "id": "grilled_tofu",
+      "name": "Grilled Tofu",
+      "description": "Grilled za'atar tofu. Served with your base.",
+      "description_long": "Grilled za'atar tofu severed with a choice of your base.",
+      "credentials": [],
+      "base_price": 17.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [
+        "VEGAN"
+      ],
+      "dietary_flags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 16,
+        "carbs_g": 4,
+        "fat_g": 10,
+        "fiber_g": 2,
+        "calories": 170
+      }
+    },
+    {
+      "id": "pasture_raised_eggs",
+      "name": "2 Pasture Raised Eggs",
+      "description": "2 free range eggs, sunny side up.",
+      "description_long": "2 free range eggs sunny side up severed with a choice of your base.",
+      "credentials": [
+        "pasture-raised"
+      ],
+      "base_price": 17.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [],
+      "dietary_flags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 14,
+        "carbs_g": 0,
+        "fat_g": 12,
+        "fiber_g": 0,
+        "calories": 165
+      }
+    },
+    {
+      "id": "filet_mignon",
+      "name": "Grilled Grass Fed Filet Mignon",
+      "description": "Premium Angus lean beef filet.",
+      "description_long": "Premium Angus lean Beef filet, severed with a choice of your base.",
+      "credentials": [
+        "grass-fed",
+        "premium"
+      ],
+      "base_price": 38.95,
+      "image": null,
+      "featured": false,
+      "featured_order": null,
+      "badges": [
+        "PREMIUM"
+      ],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "has_cooked_option": false,
+      "macros_note": "Estimado · proteína sola sin base",
+      "macros": {
+        "protein_g": 42,
+        "carbs_g": 0,
+        "fat_g": 16,
+        "fiber_g": 0,
+        "calories": 320
+      }
+    }
+  ],
+  "base_macros": {
+    "note": "Macros estimados por porción de base. Sumar a macros de proteína para total del bowl.",
+    "truffled_mushroom": {
+      "protein_g": 4,
+      "carbs_g": 6,
+      "fat_g": 6,
+      "fiber_g": 2,
+      "calories": 90
+    },
+    "spinach": {
+      "protein_g": 3,
+      "carbs_g": 4,
+      "fat_g": 2,
+      "fiber_g": 2,
+      "calories": 45
+    },
+    "hot_quinoa": {
+      "protein_g": 6,
+      "carbs_g": 28,
+      "fat_g": 3,
+      "fiber_g": 4,
+      "calories": 160
+    },
+    "cold_quinoa": {
+      "protein_g": 6,
+      "carbs_g": 28,
+      "fat_g": 3,
+      "fiber_g": 4,
+      "calories": 160
+    },
+    "quinoa": {
+      "protein_g": 6,
+      "carbs_g": 28,
+      "fat_g": 3,
+      "fiber_g": 4,
+      "calories": 160
+    },
+    "rice": {
+      "protein_g": 3,
+      "carbs_g": 32,
+      "fat_g": 0,
+      "fiber_g": 1,
+      "calories": 140
+    },
+    "lentils": {
+      "protein_g": 9,
+      "carbs_g": 20,
+      "fat_g": 1,
+      "fiber_g": 8,
+      "calories": 120
+    },
+    "only_lentils": {
+      "protein_g": 9,
+      "carbs_g": 20,
+      "fat_g": 1,
+      "fiber_g": 8,
+      "calories": 120
+    },
+    "rice_quinoa": {
+      "protein_g": 4,
+      "carbs_g": 30,
+      "fat_g": 1,
+      "fiber_g": 2,
+      "calories": 148
+    },
+    "no_rice": {
+      "protein_g": 2,
+      "carbs_g": 8,
+      "fat_g": 0,
+      "fiber_g": 2,
+      "calories": 40
+    }
+  },
+  "featured_dishes": [
+    {
+      "id": "acai_bowl",
+      "name": "Acai Bowl",
+      "category": "Breakfast",
+      "description": "Organic acai blend, house-made granola (gluten-free), banana, fresh strawberries, blueberries, honey drizzle, coconut flakes, chia seeds.",
+      "signature": "Vegan · Gluten-free · Olive oil only",
+      "badges": [
+        "BESTSELLER",
+        "VEGAN"
+      ],
+      "dietary_flags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "image": "img/platos_destacados/acai_bowl.jpg",
+      "price": 16.95,
+      "macros_note": "Estimado · pendiente validación",
+      "macros": {
+        "protein_g": 9,
+        "carbs_g": 64,
+        "fat_g": 16,
+        "fiber_g": 11,
+        "calories": 420
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "protein_french_toast",
+      "name": "Protein French Toast",
+      "category": "Breakfast",
+      "description": "Thick-cut brioche, 3 pasture-raised eggs, house-made berry compote, fresh strawberries, coconut whipped cream, raw honey. Cooked in extra virgin olive oil.",
+      "signature": "Pasture-raised eggs · Olive oil only · Made fresh daily",
+      "badges": [
+        "HIGH PROTEIN",
+        "BESTSELLER"
+      ],
+      "dietary_flags": [],
+      "image": "img/platos_destacados/protein_french_toast.jpg",
+      "price": 17.95,
+      "macros_note": "Estimado · pendiente validación",
+      "macros": {
+        "protein_g": 28,
+        "carbs_g": 42,
+        "fat_g": 18,
+        "fiber_g": 3,
+        "calories": 440
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "avocado_toast",
+      "name": "Avocado Toast",
+      "category": "All-Day Breakfast",
+      "description": "Sourdough toast, smashed fresh avocado, cherry tomatoes, pickled red onions, microgreens, everything bagel seasoning, chili flakes. Finished with extra virgin olive oil.",
+      "signature": "Vegan · Olive oil only · Made fresh daily",
+      "badges": [
+        "STAFF FAV",
+        "VEGAN"
+      ],
+      "dietary_flags": [
+        "vegan"
+      ],
+      "image": "img/platos_destacados/avocado_toast.jpg",
+      "price": 14.95,
+      "macros_note": "Estimado · pendiente validación",
+      "macros": {
+        "protein_g": 11,
+        "carbs_g": 34,
+        "fat_g": 24,
+        "fiber_g": 10,
+        "calories": 380
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "shakshuka",
+      "name": "Shakshuka",
+      "category": "Breakfast",
+      "description": "2 pasture-raised eggs poached in house-made spiced tomato sauce, roasted red peppers, garlic, cumin, paprika, fresh cilantro. Served with warm pita.",
+      "signature": "Gluten-free (sin pita) · Olive oil only · Made fresh daily",
+      "badges": [
+        "CHEF'S PICK",
+        "GLUTEN-FREE"
+      ],
+      "dietary_flags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "image": "img/platos_destacados/shakshuka.jpg",
+      "price": 16.95,
+      "macros_note": "Estimado sin pita · pendiente validación",
+      "macros": {
+        "protein_g": 18,
+        "carbs_g": 24,
+        "fat_g": 18,
+        "fiber_g": 6,
+        "calories": 320
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "matcha_pancakes",
+      "name": "Matcha Pancakes",
+      "category": "Breakfast",
+      "description": "Almond flour pancakes with ceremonial grade matcha, pasture-raised eggs, coconut sugar, fresh blueberries, coconut whipped cream, raw honey drizzle. Cooked in extra virgin olive oil.",
+      "signature": "Gluten-free · Refined sugar-free · Olive oil only",
+      "badges": [
+        "DIETITIAN PICK",
+        "GLUTEN-FREE"
+      ],
+      "dietary_flags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "image": "img/platos_destacados/matcha_pancakes.jpg",
+      "price": 15.95,
+      "macros_note": "Estimado · pendiente validación",
+      "macros": {
+        "protein_g": 16,
+        "carbs_g": 38,
+        "fat_g": 20,
+        "fiber_g": 5,
+        "calories": 380
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "salmon_poached_egg",
+      "name": "Salmon Poached Egg",
+      "category": "Brunch",
+      "description": "Antibiotic-free fresh salmon fillet, 1 pasture-raised poached egg, sautéed spinach, cherry tomatoes, avocado, house-made lemon herb sauce. Cooked in extra virgin olive oil.",
+      "signature": "Wild-caught · Grass-fed · Gluten-free · Olive oil only",
+      "badges": [
+        "HIGH PROTEIN",
+        "GLUTEN-FREE"
+      ],
+      "dietary_flags": [
+        "gluten-free"
+      ],
+      "image": "img/platos_destacados/salmon_poached_egg.jpg",
+      "price": 18.95,
+      "macros_note": "Estimado · pendiente validación",
+      "macros": {
+        "protein_g": 38,
+        "carbs_g": 12,
+        "fat_g": 26,
+        "fiber_g": 4,
+        "calories": 420
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "gf_protein_muffin",
+      "name": "GF Protein Muffin",
+      "category": "Bakery",
+      "description": "House-made almond flour muffin with whey protein, coconut sugar, fresh blueberries, chia seeds, raw honey glaze. Baked fresh every morning.",
+      "signature": "Gluten-free · Refined sugar-free · Made fresh daily",
+      "badges": [
+        "GLUTEN-FREE",
+        "HOMEMADE"
+      ],
+      "dietary_flags": [
+        "vegetarian",
+        "gluten-free"
+      ],
+      "image": "img/platos_destacados/gf_protein_muffin.jpg",
+      "price": 6.95,
+      "macros_note": "Estimado · pendiente validación",
+      "macros": {
+        "protein_g": 14,
+        "carbs_g": 22,
+        "fat_g": 12,
+        "fiber_g": 4,
+        "calories": 240
+      },
+      "show_full_macros": true,
+      "order_url": ""
+    },
+    {
+      "id": "matcha_latte",
+      "name": "Specialty Matcha Latte",
+      "category": "Beverages",
+      "description": "Ceremonial grade matcha, oat milk (or your choice), light coconut sugar. Cold or hot.",
+      "signature": "No seed oils · No artificial flavors · No shortcuts",
+      "badges": [
+        "STAFF FAV"
+      ],
+      "dietary_flags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "image": "img/platos_destacados/matcha_latte.jpg",
+      "price": 7.95,
+      "macros_note": "Base: oat milk · pendiente validación",
+      "macros": {
+        "protein_g": null,
+        "carbs_g": null,
+        "fat_g": null,
+        "fiber_g": null,
+        "calories": 130
+      },
+      "show_full_macros": false,
+      "show_calories_only": true,
+      "order_url": ""
+    }
+  ]
+}
