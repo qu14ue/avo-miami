@@ -10,8 +10,8 @@
         "name": "Keto Bowl",
         "badge": "KETO",
         "badge_color": "tierra",
-        "description": "Sin carbohidratos. Sautéed spinach con ajo, red onions, feta, chili flecks y avocado chutney.",
-        "description_short": "Sin carbos. Base de mushroom truffle o spinach.",
+        "description": "Carb free. Sautéed spinach con ajo, red onions, feta, chili flecks y avocado chutney.",
+        "description_short": "Carb free. Base de mushroom truffle o spinach.",
         "fixed_ingredients": [
           "sautéed spinach",
           "garlic",
@@ -26,8 +26,8 @@
         "name": "Lean Bowl",
         "badge": "LEAN",
         "badge_color": "verde",
-        "description": "Balance perfecto. Quinoa, arugula, cucumber, cherry tomatoes, onions salad y avocado chutney.",
-        "description_short": "Balance perfecto. Quinoa, arugula, cucumber, cherry tomatoes y avocado chutney.",
+        "description": "Perfect balance. Quinoa, arugula, cucumber, cherry tomatoes, onions salad y avocado chutney.",
+        "description_short": "Perfect balance. Quinoa, arugula, cucumber, cherry tomatoes y avocado chutney.",
         "fixed_ingredients": [
           "arugula",
           "cucumber",
@@ -41,8 +41,8 @@
         "name": "Power Bowl",
         "badge": "POWER",
         "badge_color": "purple",
-        "description": "Alta proteína. Rice o quinoa, braised lentils y avocado chutney.",
-        "description_short": "Alta proteína. Doble base a tu elección.",
+        "description": "High protein. Rice or quinoa, braised lentils y avocado chutney.",
+        "description_short": "High protein. Double base at your choice.",
         "fixed_ingredients": [
           "braised lentils",
           "avocado chutney"
