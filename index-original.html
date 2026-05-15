@@ -23,16 +23,16 @@
     ============================================================ */
     :root {
       /* Colores base */
-      --verde-bosque:      #337A44;
-      --crema:             #ffffff;
+      --verde-bosque:      #1D6B3E;
+      --crema:             #F5F1EB;
       --carbon:            #1A1A17;
       --tierra:            #A07850;
-      --arena:             #fcfbf2;
-      --verde-hoja:        #599C3A;
+      --arena:             #E8DFD0;
+      --verde-hoja:        #3A8A57;
       --blanco:            #FFFFFF;
 
       /* Colores de hover/estado */
-      --verde-bosque-dark: #2A6438;
+      --verde-bosque-dark: #155A33;
       --carbon-dark:       #2a2a26;
       --blanco-hover:      #f0f0f0;
 
@@ -111,7 +111,7 @@
       font-family: var(--font-serif);
       font-weight: var(--fw-bold);
       font-size: var(--text-3xl);
-      color: var(--verde-hoja);
+      color: var(--carbon);
       line-height: 1.2;
       margin-bottom: 16px;
     }
@@ -248,12 +248,14 @@
     .nav-links-spaced   { flex: 1; justify-content: space-between; margin: 0 156px; }
     .nav-drawer-logo    { height: 32px; }
     .bowl-summary-btn   { font-size: var(--text-base); }
+    .bowl-mobile-oil    { color: var(--verde-bosque); }
+    .bowl-mobile-row-mt { margin-top: 8px; }
     .section-header h2 em.accent-carbon { color: var(--carbon); }
     .footer-privacy     { opacity: 0.6; }
     .load-error {
       text-align: center;
       padding: 32px 0;
-      color: var(--carbon-dark);
+      color: var(--tierra);
       font-size: var(--text-base);
     }
 
@@ -267,7 +269,7 @@
       font-weight: var(--fw-semibold);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--carbon-dark);
+      color: var(--tierra);
       margin-bottom: 18px;
     }
     .section-eyebrow::before {
@@ -275,17 +277,17 @@
       display: block;
       width: 28px;
       height: 1.5px;
-      background: var(--carbon-dark);
+      background: var(--tierra);
       flex-shrink: 0;
     }
     .section-eyebrow.light { color: var(--crema); opacity: 0.7; }
     .section-eyebrow.light::before { background: var(--crema); }
     .section-header h2 em.accent,
     .bowl-header h2 em.accent,
-    .rewards-copy h2 em.accent,s
+    .rewards-copy h2 em.accent,
     #catering h2 em.accent {
       font-style: italic;
-      color: var(--verde-bosque-dark);
+      color: var(--tierra);
     }
     .section-header p:not(.section-eyebrow) {
       font-family: var(--font-sans);
@@ -297,181 +299,144 @@
     }
 
     /* ============================================================
-       NAV — centered logo, Sweetgreen-style
+       NAV
     ============================================================ */
-    :root {
-      --site-header-height: 4.5rem; /* 72px */
-    }
-
-    .site-header {
+    #nav {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: var(--z-nav);
       background: var(--crema);
       border-bottom: 0.5px solid var(--border-subtle);
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: var(--z-nav);
+      transform: translateY(0);
       transition: transform 0.35s ease;
     }
-    .site-header.hidden { transform: translateY(-100%); }
-
-    /* Checkbox toggle — visually hidden, functional */
-    .mobile-nav-btn {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-      width: 0; height: 0;
+    #nav.hidden {
+      transform: translateY(-100%);
     }
-
-    /* Hamburger label */
-    .mobile-nav-btn-label {
-      cursor: pointer;
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      display: none;
+    .nav-inner {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      z-index: calc(var(--z-nav) + 1);
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 20px;
+      max-width: 1280px;
+      margin: 0 auto;
     }
-    .mobile-nav-btn__lettuce-wrap {
+    @media (min-width: 768px)  { .nav-inner { padding: 0 32px; } }
+    @media (min-width: 1024px) { .nav-inner { padding: 0 48px; } }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+    .nav-links {
+      display: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: var(--fw-semibold);
+      font-style: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--verde-bosque);
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 0.6; }
+    .nav-cta { color: var(--crema) !important; }
+
+    .nav-hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
       display: flex;
       flex-direction: column;
       gap: 5px;
     }
-    .mobile-nav-btn__lettuce-wrap__leaf {
+    .nav-hamburger span {
       display: block;
       width: 22px;
       height: 2px;
       background: var(--carbon);
       border-radius: 2px;
-      transition: transform 0.3s ease;
-      transform-origin: center;
-    }
-    /* Animate hamburger → X when open */
-    .mobile-nav-btn:checked ~ .mobile-nav-btn-label .mobile-nav-btn__lettuce-wrap__leaf:first-child {
-      transform: translateY(3.5px) rotate(45deg);
-    }
-    .mobile-nav-btn:checked ~ .mobile-nav-btn-label .mobile-nav-btn__lettuce-wrap__leaf:last-child {
-      transform: translateY(-3.5px) rotate(-45deg);
     }
 
-    /* Viewport wrapper */
-    .site-header__viewport {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 48px;
-    }
-
-    /* 3-column grid: left links | logo | right links */
-    .top-bar__nav-row {
-      align-items: center;
-      display: grid;
-      gap: 10px;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-      height: var(--site-header-height);
-    }
-
-    /* Nav lists */
-    .top-bar__nav--left,
-    .top-bar__nav--right {
-      align-items: center;
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      padding: 0; margin: 0;
-    }
-    .top-bar__nav--right { justify-content: flex-end; }
-
-    .top-bar__nav__link {
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: var(--fw-semibold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--verde-bosque);
-      transition: opacity 0.2s;
-      white-space: nowrap;
-    }
-    .top-bar__nav__link:hover { opacity: 0.6; }
-
-    /* Logo */
-    .branding { display: flex; align-items: center; justify-content: center; }
-    .branding img { height: 38px; width: auto; }
-
-    /* Order CTA button */
-    .top-bar__order-btn {
-      display: inline-block;
-      background: var(--verde-bosque);
-      color: var(--blanco);
-      font-family: var(--font-sans);
-      font-weight: var(--fw-medium);
-      font-size: var(--text-base);
-      padding: 10px 22px;
-      border-radius: var(--radius-pill);
-      transition: background 0.15s ease;
-      white-space: nowrap;
-    }
-    .top-bar__order-btn:hover { background: var(--verde-bosque-dark); }
-
-    /* Mobile nav panel (full-screen, dark) */
-    .mobile-site-nav {
+    /* Mobile drawer */
+    .nav-drawer {
       display: none;
-      background: var(--carbon);
       position: fixed;
-      top: var(--site-header-height);
-      left: 0;
-      width: 100%;
-      height: calc(100vh - var(--site-header-height));
-      overflow-y: auto;
-      z-index: calc(var(--z-nav) - 1);
-      padding: 16px 0 48px;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: var(--carbon);
+      z-index: var(--z-drawer);
+      flex-direction: column;
+      padding: 24px;
     }
-    /* Show panel when checkbox is checked */
-    .mobile-nav-btn:checked ~ .site-header__viewport .mobile-site-nav {
-      display: block;
+    .nav-drawer.open { display: flex; }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
     }
-
-    .mobile-site-nav__main-list,
-    .mobile-site-nav__sub-list { list-style: none; padding: 0; margin: 0; }
-
-    .mobile-site-nav__main-list__link {
+    .nav-drawer-close {
+      background: none;
+      border: none;
+      color: var(--crema);
+      font-size: var(--text-2xl);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+    .nav-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex: 1;
+    }
+    .nav-drawer-links a {
       font-family: var(--font-serif);
       font-style: italic;
       font-size: var(--text-2xl);
       color: var(--crema);
-      display: block;
-      padding: 16px 24px;
+      padding: 14px 0;
       border-bottom: 0.5px solid rgba(245,241,235,0.12);
     }
-    .mobile-site-nav__sub-list { margin-top: 28px; }
-    .mobile-site-nav__sub-list__link {
+    .nav-drawer-cta { margin-top: 40px; }
+    .nav-drawer-cta .btn { width: 100%; display: block; font-size: 15px; padding: 16px; }
+
+    /* Mobile bottom bar */
+    .nav-bottom-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      height: 56px;
+      background: var(--verde-bosque);
+      z-index: 99;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-bottom-bar a {
+      color: var(--blanco);
       font-family: var(--font-sans);
-      font-size: var(--text-md);
-      color: var(--crema);
-      opacity: 0.65;
-      display: block;
-      padding: 12px 24px;
+      font-weight: var(--fw-medium);
+      font-size: 15px;
+      width: 100%;
+      text-align: center;
+      padding: 16px;
     }
 
     @media (min-width: 1024px) {
-      .mobile-nav-btn-label { display: none; }
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+      .nav-bottom-bar { display: none; }
+      .nav-logo img { height: 40px; }
     }
-    /* Tighten spacing at medium desktop (1024–1280px) */
-    @media (min-width: 1024px) and (max-width: 1280px) {
-      .site-header__viewport { padding: 0 24px; }
-      .top-bar__nav--left,
-      .top-bar__nav--right { gap: 16px; }
-    }
+
+    /* Compensate for fixed mobile bottom bar (56px) */
     @media (max-width: 1023px) {
-      .mobile-nav-btn-label { display: flex; }
-      .site-header__viewport { padding: 0; max-width: 100%; }
-      .top-bar__nav--left { visibility: hidden; } /* keeps grid column, hides content */
-      .top-bar__nav--right li:not(.top-bar__nav__item--order) { display: none; }
-      .top-bar__nav--right { gap: 0; }
-      .top-bar__nav-row { padding: 0 20px 0 60px; }
+      body { padding-bottom: 56px; }
     }
 
     /* ============================================================
@@ -479,7 +444,7 @@
     ============================================================ */
     #hero {
       position: relative;
-      height: 85vh;
+      height: 100vh;
       min-height: 600px;
       display: flex;
       align-items: center;
@@ -550,7 +515,7 @@
       opacity: 0.85;
       line-height: 1.6;
       margin-bottom: 24px;
-      max-width: 460px;
+      max-width: 420px;
     }
     .hero-badges {
       display: flex;
@@ -707,11 +672,359 @@
     }
 
     /* ============================================================
-       05 · PLATOS DESTACADOS  (04 Build Your Bowl removed)
+       04 · BUILD YOUR BOWL
     ============================================================ */
-    #platos-placeholder { display: none; }
+    #build-bowl {
+      background: var(--crema);
+    }
+    .bowl-header { margin-bottom: 48px; max-width: 640px; }
+    .bowl-header h2 { margin-bottom: 20px; }
 
-        /* ============================================================
+    .bowl-header-list {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .bowl-header-list li {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--carbon);
+      line-height: 1.6;
+      padding: 8px 0 8px 16px;
+      border-left: 2px solid var(--verde-bosque);
+      margin-bottom: 8px;
+    }
+    .bowl-header-close {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--carbon);
+      opacity: 0.6;
+      line-height: 1.8;
+    }
+    .step-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tierra);
+      margin-bottom: 16px;
+    }
+
+    /* Protein grid */
+    .proteins-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    @media (min-width: 1024px) {
+      .proteins-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .protein-card {
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--blanco);
+      transition: border-color 0.2s;
+    }
+    .protein-card:hover { border-color: rgba(29,107,62,0.3); }
+    .protein-card.selected { border-color: var(--verde-bosque); background: rgba(29,107,62,0.03); }
+    .protein-img-wrap { position: relative; aspect-ratio: 1; overflow: hidden; }
+    .protein-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .protein-badge { position: absolute; top: 8px; left: 8px; }
+    .protein-info { padding: 12px; }
+    .protein-name {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: 15px;
+      color: var(--carbon);
+      margin-bottom: 4px;
+    }
+    .protein-desc {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--carbon);
+      opacity: 0.65;
+      margin-bottom: 6px;
+    }
+    .protein-price {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--verde-bosque);
+    }
+    .proteins-link {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--verde-bosque);
+      text-decoration: underline;
+      display: block;
+      text-align: right;
+      margin-bottom: 40px;
+    }
+    .proteins-link:hover { opacity: 0.75; }
+
+    /* Bowl layout desktop */
+    .bowl-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    @media (min-width: 1024px) {
+      .bowl-layout { flex-direction: row; gap: 40px; align-items: flex-start; }
+      .bowl-steps  { flex: 1; min-width: 0; }
+      .bowl-panel-col { width: 320px; flex-shrink: 0; }
+    }
+
+    /* Steps 2 & 3 */
+    .bowl-step {
+      display: none;
+      margin-bottom: 32px;
+      animation: fadeUp 0.3s ease-out;
+    }
+    .bowl-step.visible { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Bowl type cards */
+    .bowl-types {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 600px) { .bowl-types { grid-template-columns: repeat(3,1fr); } }
+
+    .bowl-type-card {
+      cursor: pointer;
+      border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      background: var(--blanco);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .bowl-type-card:hover { border-color: rgba(29,107,62,0.3); }
+    .bowl-type-card.selected { border-color: var(--verde-bosque); background: rgba(29,107,62,0.03); }
+    .bowl-type-name {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: var(--text-xl);
+      color: var(--carbon);
+      margin: 8px 0 6px;
+    }
+    .bowl-type-desc {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    /* Base pills */
+    .bases-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .base-pill {
+      cursor: pointer;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 8px 16px;
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      background: var(--blanco);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .base-pill:hover { border-color: var(--verde-bosque); }
+    .base-pill.selected { background: var(--verde-bosque); color: var(--crema); border-color: var(--verde-bosque); }
+    .base-pill-cost { font-size: var(--text-sm); opacity: 0.75; }
+
+    /* Panel Tu Bowl */
+    .bowl-panel {
+      background: var(--blanco);
+      border: 0.5px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 24px;
+    }
+    @media (min-width: 1024px) {
+      .bowl-panel {
+        position: sticky;
+        top: 80px;
+      }
+    }
+    .bowl-panel-empty {
+      text-align: center;
+      padding: 16px 0;
+    }
+    .bowl-panel-empty p:first-child {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--carbon);
+      opacity: 0.4;
+      margin-bottom: 8px;
+    }
+    .bowl-panel-empty p:last-child {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.5;
+      line-height: 1.5;
+    }
+    .bowl-panel-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tierra);
+      margin-bottom: 16px;
+    }
+    .bowl-panel-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .bowl-panel-key {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      opacity: 0.6;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .bowl-panel-val {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-base);
+      color: var(--carbon);
+      text-align: right;
+    }
+    .bowl-panel-val.olive { color: var(--verde-bosque); }
+    .bowl-panel-divider {
+      border: none;
+      border-top: 0.5px solid var(--border-subtle);
+      margin: 12px 0;
+    }
+    .bowl-panel-price {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-lg);
+      color: var(--verde-bosque);
+      text-align: right;
+    }
+
+    /* Summary card */
+    .bowl-summary {
+      display: none;
+      margin-top: 16px;
+      background: var(--verde-bosque);
+      border-radius: var(--radius-card);
+      padding: 20px;
+    }
+    .bowl-summary.visible { display: block; animation: fadeUp 0.3s ease-out; }
+    .bowl-summary-label {
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--crema);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .bowl-summary-title {
+      font-family: var(--font-serif);
+      font-weight: var(--fw-bold);
+      font-size: var(--text-xl);
+      color: var(--crema);
+      margin-bottom: 8px;
+    }
+    .bowl-summary-detail {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      color: var(--crema);
+      opacity: 0.85;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .bowl-summary-ctas {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .bowl-summary-note {
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      color: var(--crema);
+      opacity: 0.65;
+      text-align: center;
+    }
+
+    /* Mobile bowl sticky bar */
+    .bowl-mobile-bar {
+      display: flex;
+      position: fixed;
+      bottom: 56px; left: 0; width: 100%;
+      z-index: var(--z-sticky);
+      background: var(--carbon);
+      cursor: pointer;
+      flex-direction: column;
+      transition: max-height 0.3s ease;
+      max-height: 64px;
+      overflow: hidden;
+    }
+    .bowl-mobile-bar.expanded { max-height: 80vh; overflow-y: auto; }
+    .bowl-mobile-bar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .bowl-mobile-bar-label {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: var(--crema);
+    }
+    .bowl-mobile-bar-arrow {
+      font-size: var(--text-xl);
+      color: var(--crema);
+      transition: transform 0.3s;
+    }
+    .bowl-mobile-bar.expanded .bowl-mobile-bar-arrow { transform: rotate(180deg); }
+    .bowl-mobile-bar-content {
+      padding: 20px;
+      background: var(--carbon);
+      color: var(--crema);
+    }
+    .bowl-mobile-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .bowl-mobile-key { font-size: var(--text-base); opacity: 0.6; }
+    .bowl-mobile-val { font-size: var(--text-base); font-weight: var(--fw-medium); }
+    @media (min-width: 1024px) {
+      .bowl-mobile-bar { display: none; }
+    }
+
+    /* ============================================================
        05 · PLATOS DESTACADOS
     ============================================================ */
     #platos {
@@ -958,7 +1271,6 @@
       line-height: 1.7;
     }
 
-
     /* ============================================================
        08 · BENEFICIOS
     ============================================================ */
@@ -998,6 +1310,7 @@
       opacity: 0.8;
       line-height: 1.7;
     }
+
     /* ============================================================
        09 · TESTIMONIOS
     ============================================================ */
@@ -1114,7 +1427,7 @@
       font-weight: var(--fw-semibold);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--carbon-dark);
+      color: var(--tierra);
       margin-bottom: 18px;
     }
     .rewards-eyebrow::before {
@@ -1122,7 +1435,7 @@
       display: block;
       width: 28px;
       height: 1.5px;
-      background: var(--carbon-dark);
+      background: var(--tierra);
       flex-shrink: 0;
     }
     .rewards-sub {
@@ -1257,8 +1570,8 @@
        13 · FOOTER
     ============================================================ */
     #footer {
-      background: var(--crema);
-      color: var(--verde-bosque-dark);
+      background: var(--carbon);
+      color: var(--crema);
     }
     .footer-main {
       display: grid;
@@ -1280,18 +1593,18 @@
     .footer-tagline {
       font-family: var(--font-sans);
       font-size: var(--text-base);
-      color: var(--carbon-dark);
+      color: var(--crema);
       opacity: 0.6;
       margin-top: 12px;
     }
-    .footer-logo img { height: 50px; width: auto; }
+    .footer-logo img { height: 32px; width: auto; }
     .footer-col-label {
       font-family: var(--font-sans);
-      font-weight: var(--fw-semibold);
+      font-weight: var(--fw-medium);
       font-size: var(--text-sm);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--verde-bosque-dark);
+      color: var(--crema);
       opacity: 0.5;
       margin-bottom: 16px;
     }
@@ -1303,7 +1616,7 @@
     .footer-links a {
       font-family: var(--font-sans);
       font-size: var(--text-md);
-      color: var(--verde-bosque-dark);
+      color: var(--crema);
       opacity: 0.75;
       transition: opacity 0.2s;
     }
@@ -1313,11 +1626,11 @@
       align-items: center;
       gap: 10px;
     }
-    .footer-social svg { width: 20px; height: 20px; stroke: var(--verde-bosque-dark); fill: none; }
+    .footer-social svg { width: 20px; height: 20px; stroke: var(--crema); fill: none; }
     .footer-social span {
       font-family: var(--font-sans);
       font-size: var(--text-md);
-      color: var(--verde-bosque-dark);
+      color: var(--crema);
       opacity: 0.75;
     }
     /* full-width border, container inside constrains the text */
@@ -1404,53 +1717,52 @@
 <!-- ============================================================
      NAV
 ============================================================ -->
-<header id="nav" class="site-header" role="banner">
-  <input type="checkbox" id="mobile-nav-btn" class="mobile-nav-btn" aria-hidden="true">
-  <label for="mobile-nav-btn" class="mobile-nav-btn-label" aria-label="Toggle navigation">
-    <span class="mobile-nav-btn__lettuce-wrap">
-      <span class="mobile-nav-btn__lettuce-wrap__leaf"></span>
-      <span class="mobile-nav-btn__lettuce-wrap__leaf"></span>
-    </span>
-  </label>
-  <div class="site-header__viewport">
-    <div class="top-bar">
-      <div class="top-bar__nav-row">
-        <!-- Left links -->
-        <ul class="top-bar__nav top-bar__nav--left">
-          <li><a href="/our-story-healthy-food-miami" class="top-bar__nav__link" data-gtag-label="Our Mission">Our Mission</a></li>
-          <li><a href="/rewards" class="top-bar__nav__link" data-gtag-label="Rewards">Rewards</a></li>
-          <li><a href="/merch" class="top-bar__nav__link" data-gtag-label="Merch">Merch</a></li>
-        </ul>
-        <!-- Logo centered -->
-        <a href="/" class="branding" aria-label="Avo Miami — Home">
-          <img src="img/logos/logo-avo-miami.png" alt="Avo Miami" height="38" width="auto">
-        </a>
-        <!-- Right links -->
-        <ul class="top-bar__nav top-bar__nav--right">
-          <li><a href="/menus" class="top-bar__nav__link" data-gtag-label="Menu">Menu</a></li>
-          <li><a href="/where-to-eat-healthy-miami" class="top-bar__nav__link" data-gtag-label="Locations">Locations</a></li>
-          <li><a href="/catering-miami-healthy-food" class="top-bar__nav__link" data-gtag-label="Catering">Catering</a></li>
-          <li class="top-bar__nav__item--order">
-            <a href="#order" class="top-bar__order-btn" data-gtag-event="nav_order_online">Order Now</a>
-          </li>
-        </ul>
-      </div>
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a href="/" class="nav-logo nav-flex-fixed" aria-label="Avo Miami — Home">
+      <img id="nav-logo-img" src="img/logos/logo-avo-miami.png" alt="Avo Miami logo" width="160" height="40">
+    </a>
+    <!-- Center links (desktop) -->
+    <div class="nav-links nav-links-spaced">
+      <a href="/our-story-healthy-food-miami" data-gtag-label="Our Mission">Our Mission</a>
+      <a href="/rewards" data-gtag-label="Rewards">Rewards</a>
+      <a href="/merch" data-gtag-label="Merch">Merch</a>
+      <a href="/menus" data-gtag-label="Menu">Menu</a>
+      <a href="/where-to-eat-healthy-miami" data-gtag-label="Locations">Locations</a>
+      <a href="/catering-miami-healthy-food" data-gtag-label="Catering">Catering</a>
     </div>
-    <!-- Mobile full-screen nav -->
-    <nav class="mobile-site-nav" aria-label="Mobile navigation">
-      <ul class="mobile-site-nav__main-list">
-        <li><a href="/menus" class="mobile-site-nav__main-list__link">Menu</a></li>
-        <li><a href="/where-to-eat-healthy-miami" class="mobile-site-nav__main-list__link">Locations</a></li>
-        <li><a href="/our-story-healthy-food-miami" class="mobile-site-nav__main-list__link">Our Mission</a></li>
-        <li><a href="/rewards" class="mobile-site-nav__main-list__link">Rewards</a></li>
-        <li><a href="/catering-miami-healthy-food" class="mobile-site-nav__main-list__link">Catering</a></li>
-      </ul>
-      <ul class="mobile-site-nav__sub-list">
-        <li><a href="#order" class="mobile-site-nav__sub-list__link" data-gtag-event="nav_order_online_mobile">Order Online →</a></li>
-      </ul>
-    </nav>
+    <!-- CTA -->
+    <a href="#order" class="btn btn-primary nav-cta nav-flex-fixed" data-gtag-event="nav_order_online">Order Online</a>
+    <!-- Hamburger (mobile) -->
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</header>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Navigation menu">
+  <div class="nav-drawer-header">
+    <img src="img/logos/logo-avo-miami-white.png" alt="Avo Miami logo" class="nav-drawer-logo" width="128" height="32">
+    <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="nav-drawer-links">
+    <a href="/menus">Menu</a>
+    <a href="/where-to-eat-healthy-miami">Locations</a>
+    <a href="/our-story-healthy-food-miami">Our Mission</a>
+    <a href="/rewards">Rewards</a>
+    <a href="/catering-miami-healthy-food">Catering</a>
+  </nav>
+  <div class="nav-drawer-cta">
+    <a href="#order" class="btn btn-primary" data-gtag-event="nav_order_online">Order Online</a>
+  </div>
+</div>
+
+<!-- Mobile bottom bar -->
+<div class="nav-bottom-bar" aria-label="Order Online">
+  <a href="#order" data-gtag-event="nav_order_online_mobile">Order Online ▶</a>
+</div>
 
 <main id="main-content">
 
@@ -1463,11 +1775,11 @@
   <div class="hero-container">
   <div class="hero-content">
     <p class="hero-eyebrow">Savor the Best Healthy Food Restaurant in Miami</p>
-    <h1>Clean whole food meals to nourish your body and soul.</h1>
-    <p class="hero-sub">Meet Miami's cleanest menu. Dietitian-designed, fresh to order, every dish is made with ingredients you can trust.</p>
+    <h1>Real food. Real ingredients.<br>Nothing to hide.</h1>
+    <p class="hero-sub">Zero seed oils. No microwaves. Dietitian-designed.<br>Made fresh every morning.</p>
     <div class="hero-badges">
-      <span class="badge badge-dark">SEED OIL FREE</span>
-      <span class="badge badge-dark">NO PROCESSED FOOD</span>
+      <span class="badge badge-dark">ZERO SEED OILS</span>
+      <span class="badge badge-dark">DIETITIAN-DESIGNED</span>
       <span class="badge badge-dark">OPEN KITCHEN</span>
     </div>
     <div class="hero-ctas">
@@ -1476,7 +1788,7 @@
     </div>
     <p class="hero-social-proof">
       <span class="hero-stars">★★★★★</span>
-      4.8 · +10,000 happy guests across 3 locations
+      4.8 · 1,700+ happy guests across 3 locations
     </p>
   </div>
   </div>
@@ -1489,7 +1801,7 @@
   <div class="strip-inner">
     <div class="strip-item">
       <svg viewBox="0 0 24 24" stroke-width="1.5"><ellipse cx="12" cy="12" rx="5" ry="10"/><path d="M12 2C12 2 7 6 7 12s5 10 5 10"/></svg>
-      <span>Seed Oil Free</span>
+      <span>Zero Seed Oils</span>
     </div>
     <span class="strip-sep">·</span>
     <div class="strip-item">
@@ -1499,7 +1811,7 @@
     <span class="strip-sep">·</span>
     <div class="strip-item">
       <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2v6M9 5l3-3 3 3M5 18c0-3.3 3.1-6 7-6s7 2.7 7 6"/><path d="M3 18h18"/></svg>
-      <span>No Microwave</span>
+      <span>No Microwaves</span>
     </div>
     <span class="strip-sep">·</span>
     <div class="strip-item">
@@ -1519,7 +1831,7 @@
     <span class="strip-sep">·</span>
     <div class="strip-item">
       <svg viewBox="0 0 24 24" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <span>NO PROCESSED FOOD</span>
+      <span>Because You Deserve The Best</span>
     </div>
   </div>
 </section>
@@ -1544,6 +1856,129 @@
 
 </section>
 
+<!-- ============================================================
+     04 · BUILD YOUR BOWL
+============================================================ -->
+<section id="build-bowl" class="section-pad" data-screen-label="04 Build Your Bowl">
+  <div class="container">
+    <div class="bowl-header reveal">
+      <p class="section-eyebrow">Build Your Bowl</p>
+      <h2>Build the bowl <br><em class="accent">your body craves.</em></h2>
+      <ul class="bowl-header-list">
+        <li>Post-workout? Power Bowl with Grilled Salmon and Lentils.</li>
+        <li>Going Keto? Branzino with Truffled Mushrooms.</li>
+        <li>Keeping it light? Lean Bowl with Tuna and Cold Quinoa.</li>
+      </ul>
+      <p class="bowl-header-close">Every combination, dietitian-designed.<br>Every bowl, made fresh this morning.</p>
+    </div>
+
+    <!-- Proteins (step 1 - always visible) -->
+    <div class="reveal">
+      <p class="step-label">STEP 1 — CHOOSE YOUR PROTEIN</p>
+      <div class="proteins-grid" id="proteins-grid">
+        <!-- populated by JS -->
+      </div>
+      <a href="/menus/bowls-miami" class="proteins-link">View all proteins →</a>
+    </div>
+
+    <!-- Two-column layout for steps 2/3 + panel -->
+    <div class="bowl-layout">
+      <!-- Steps 2 & 3 -->
+      <div class="bowl-steps">
+
+        <!-- Step 2: Bowl type -->
+        <div class="bowl-step" id="step-2">
+          <p class="step-label">STEP 2 — HOW DO YOU WANT IT?</p>
+          <div class="bowl-types" id="bowl-types-grid">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <!-- Step 3: Base -->
+        <div class="bowl-step" id="step-3">
+          <p class="step-label">STEP 3 — CHOOSE YOUR BASE</p>
+          <div class="bases-wrap" id="bases-wrap">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Panel Tu Bowl (desktop) -->
+      <div class="bowl-panel-col">
+        <div class="bowl-panel" id="bowl-panel">
+          <div id="bowl-panel-empty" class="bowl-panel-empty">
+            <p>"Your bowl will appear here."</p>
+            <p>Select a protein, bowl, and base to build your combination.</p>
+          </div>
+          <div id="bowl-panel-filled" class="is-hidden-init" aria-live="polite">
+            <p class="bowl-panel-label">YOUR BOWL</p>
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Protein:</span>
+              <span class="bowl-panel-val" id="panel-protein">—</span>
+            </div>
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Bowl:</span>
+              <span class="bowl-panel-val" id="panel-bowl">—</span>
+            </div>
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Base:</span>
+              <span class="bowl-panel-val" id="panel-base">—</span>
+            </div>
+            <hr class="bowl-panel-divider">
+            <div class="bowl-panel-row">
+              <span class="bowl-panel-key">Oil:</span>
+              <span class="bowl-panel-val olive">Olive oil only</span>
+            </div>
+            <hr class="bowl-panel-divider">
+            <div class="bowl-panel-price" id="panel-price"></div>
+          </div>
+          <!-- Summary card -->
+          <div class="bowl-summary" id="bowl-summary">
+            <p class="bowl-summary-label">YOUR BOWL IS READY</p>
+            <p class="bowl-summary-title" id="summary-title"></p>
+            <p class="bowl-summary-detail" id="summary-detail"></p>
+            <div class="bowl-summary-ctas">
+              <a href="#order" class="btn btn-white bowl-summary-btn" data-gtag-event="bowl_order_now">Order Now</a>
+              <a href="/menus" class="btn btn-ghost bowl-summary-btn" data-gtag-event="bowl_ver_menu">View Full Menu</a>
+            </div>
+            <p class="bowl-summary-note">Complete your order in the Avo Miami app</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile sticky bar -->
+  <div class="bowl-mobile-bar" id="bowl-mobile-bar">
+    <div class="bowl-mobile-bar-top">
+      <span class="bowl-mobile-bar-label" id="mobile-bar-label">Tu bowl: Arma tu bowl</span>
+      <span class="bowl-mobile-bar-arrow">▲</span>
+    </div>
+    <div class="bowl-mobile-bar-content is-hidden-init" id="mobile-bar-content">
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Proteína:</span>
+        <span class="bowl-mobile-val" id="mobile-protein">—</span>
+      </div>
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Bowl:</span>
+        <span class="bowl-mobile-val" id="mobile-bowl">—</span>
+      </div>
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Base:</span>
+        <span class="bowl-mobile-val" id="mobile-base">—</span>
+      </div>
+      <div class="bowl-mobile-row">
+        <span class="bowl-mobile-key">Oil:</span>
+        <span class="bowl-mobile-val bowl-mobile-oil">Olive oil only</span>
+      </div>
+      <div class="bowl-mobile-row bowl-mobile-row-mt">
+        <span class="bowl-mobile-key">Precio ref.:</span>
+        <span class="bowl-mobile-val" id="mobile-price"></span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      05 · PLATOS DESTACADOS
@@ -1552,7 +1987,7 @@
   <div class="container">
     <div class="section-header reveal">
       <p class="section-eyebrow">Featured Dishes</p>
-      <h2>Flavorful clean options<br><em class="accent">from breakfast to dinner.</em></h2>
+      <h2>Eat well. Feel full. <br><em class="accent">Come back tomorrow.</em></h2>
       <p>Satisfying portions without the post-meal slump. Clean labels with zero fillers. Discover our signature favorites: real food, prepared fresh, and designed to keep you at your best.</p>
     </div>
     <div class="dishes-grid" id="dishes-grid">
@@ -1695,9 +2130,50 @@
   </div>
 </section>
 
-
-
-
+<!-- ============================================================
+     08 · BENEFICIOS
+============================================================ -->
+<section id="beneficios" class="section-pad" data-screen-label="08 Beneficios">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow light">Why Avo</p>
+      <h2>Why you’ll keep <em class="accent accent-carbon">coming back.</em></h2>
+      <p>Six reasons to choose Avo — every time.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🥗</div>
+        <h3 class="benefit-title">Eat out without compromising your health</h3>
+        <p class="benefit-body">Say goodbye to post-restaurant guilt. At Avo, you know exactly what’s on your plate—and everything is there for a reason.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💪</div>
+        <h3 class="benefit-title">Actually stay full</h3>
+        <p class="benefit-body">Avo bowls are generous. You won’t be hungry again in two hours. Eat delicious, eat well, eat enough.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">👨‍👩‍👧</div>
+        <h3 class="benefit-title">Something for everyone</h3>
+        <p class="benefit-body">Vegan, vegetarian, gluten-free, high-protein, and a kids' menu. No need to compromise with your group—everyone finds something they love.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⚡</div>
+        <h3 class="benefit-title">Recharge after your workout</h3>
+        <p class="benefit-body">Cold-pressed juices, wellness shots, smoothies, and protein-packed bowls. Real nutrition for active bodies.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✨</div>
+        <h3 class="benefit-title">Experience the vibe, don't just eat</h3>
+        <p class="benefit-body">Open kitchen, bohemian vibes, and a staff that treats you like a regular. Avo isn’t just a pit stop—it’s a destination.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🫒</div>
+        <h3 class="benefit-title">Pay for real quality</h3>
+        <p class="benefit-body">Grass-fed, wild-caught, olive oil only, fresh daily. You’re not just paying for the space—you’re paying for what goes into your body.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      09 · TESTIMONIOS
@@ -1902,7 +2378,7 @@
   <div class="footer-main">
     <div>
       <div class="footer-logo">
-        <img src="img/logos/avo-miami-logo.webp" alt="Avo Miami logo" width="128" height="32">
+        <img src="img/logos/logo-avo-miami-white.png" alt="Avo Miami logo" width="128" height="32">
       </div>
       <p class="footer-tagline">"Because you deserve the best."</p>
     </div>
@@ -1992,26 +2468,43 @@
     lastScrollY = currentY;
   }, { passive: true });
 
-  // ── MOBILE NAV TOGGLE (CSS checkbox) ──
-  const mobileNavBtn = document.getElementById('mobile-nav-btn');
-  if (mobileNavBtn) {
-    mobileNavBtn.addEventListener('change', () => {
-      document.body.classList.toggle('no-scroll', mobileNavBtn.checked);
-    });
-    // Close nav when a mobile link is tapped
-    document.querySelectorAll('.mobile-site-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNavBtn.checked = false;
-        document.body.classList.remove('no-scroll');
-      });
-    });
+  // ── NAV MOBILE DRAWER ──
+  const hamburger   = document.getElementById('nav-hamburger');
+  const drawer      = document.getElementById('nav-drawer');
+  const drawerClose = document.getElementById('nav-drawer-close');
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+    hamburger.focus();
   }
+  hamburger.addEventListener('click', () => {
+    drawer.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    const firstFocusable = drawer.querySelector('button, a[href]');
+    if (firstFocusable) firstFocusable.focus();
+  });
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer(); });
+  drawer.addEventListener('keydown', e => {
+    if (!drawer.classList.contains('open') || e.key !== 'Tab') return;
+    const focusables = Array.from(drawer.querySelectorAll('button, a[href]'));
+    const first = focusables[0];
+    const last  = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  });
 
   // ── GTAG EVENT BINDINGS (replace inline onclick handlers) ──
   // Nav menu links — delegated via [data-gtag-label]
-  const navRow = document.querySelector('.top-bar__nav-row');
-  if (navRow) {
-    navRow.addEventListener('click', e => {
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) {
+    navLinks.addEventListener('click', e => {
       const link = e.target.closest('a[data-gtag-label]');
       if (link) gtag('event','nav_menu_click', { link_label: link.dataset.gtagLabel });
     });
@@ -2026,7 +2519,16 @@
     });
   });
 
+  // ── MOBILE BAR TOGGLE ──
+  const mobileBar        = document.getElementById('bowl-mobile-bar');
+  const mobileBarTop     = mobileBar.querySelector('.bowl-mobile-bar-top');
+  const mobileBarContent = document.getElementById('mobile-bar-content');
+  mobileBarTop.addEventListener('click', () => {
+    mobileBar.classList.toggle('expanded');
+    mobileBarContent.style.display = mobileBar.classList.contains('expanded') ? 'block' : 'none';
+  });
 
+  // ── BUILD YOUR BOWL STATE ──
   const selection = { protein: null, bowlType: null, base: null };
   let productsData = null;
 
@@ -2036,16 +2538,211 @@
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     })
-    .then(data => renderDishes(data))
+    .then(data => {
+      productsData = data;
+      renderProteins(data);
+      renderBowlTypes(data);
+      renderDishes(data);
+    })
     .catch(() => {
-      const grid = document.getElementById('dishes-grid');
-      if (grid) grid.innerHTML = '<p class="load-error">Could not load the menu. Please reload the page.</p>';
+      const grid = document.getElementById('proteins-grid');
+      if (grid) {
+        grid.innerHTML = '<p class="load-error">Could not load the menu. Please reload the page.</p>';
+      }
     });
 
-  // ── RENDER DISHES ──
+  // ── RENDER PROTEINS ──
+  function renderProteins(data) {
+    const proteins = data.bowl_proteins
+      .filter(p => p.featured)
+      .sort((a, b) => a.featured_order - b.featured_order);
 
+    const grid = document.getElementById('proteins-grid');
+    grid.innerHTML = proteins.map(p => `
+      <div class="protein-card" role="button" tabindex="0" data-id="${p.id}">
+        <div class="protein-img-wrap">
+          <img src="${p.image}" alt="${p.name}" loading="lazy">
+          ${p.badges.length ? `<span class="badge badge-solid protein-badge">${p.badges[0]}</span>` : ''}
+        </div>
+        <div class="protein-info">
+          <p class="protein-name">${p.name}</p>
+          <p class="protein-desc">${p.description}</p>
+          <p class="protein-price">$${p.base_price.toFixed(2)}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── PROTEIN GRID DELEGATION ──
+  const proteinsGrid = document.getElementById('proteins-grid');
+  proteinsGrid.addEventListener('click', e => {
+    const card = e.target.closest('.protein-card');
+    if (card) selectProtein(card.dataset.id);
+  });
+  proteinsGrid.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('.protein-card');
+    if (card) { e.preventDefault(); selectProtein(card.dataset.id); }
+  });
+
+  // ── SELECT PROTEIN ──
+  function selectProtein(id) {
+    selection.protein = productsData.bowl_proteins.find(p => p.id === id);
+    selection.bowlType = null;
+    selection.base = null;
+
+    document.querySelectorAll('.protein-card').forEach(c => c.classList.remove('selected'));
+    document.querySelector(`.protein-card[data-id="${id}"]`).classList.add('selected');
+
+    document.getElementById('step-2').classList.add('visible');
+    document.getElementById('step-3').classList.remove('visible');
+    document.getElementById('bowl-summary').classList.remove('visible');
+
+    document.querySelectorAll('.bowl-type-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.base-pill').forEach(p => p.classList.remove('selected'));
+
+    updatePanel();
+    gtag('event', 'bowl_protein_select', { protein_id: id });
+  }
+
+  // ── RENDER BOWL TYPES ──
+  function renderBowlTypes(data) {
+    const types = data.bowl_config.types;
+    const grid = document.getElementById('bowl-types-grid');
+    grid.innerHTML = types.map(t => {
+      const badgeClass = t.id === 'keto' ? 'badge-keto' : t.id === 'lean' ? 'badge-lean' : 'badge-power';
+      return `
+      <div class="bowl-type-card" role="button" tabindex="0" data-id="${t.id}">
+        <span class="badge ${badgeClass}">${t.badge}</span>
+        <p class="bowl-type-name">${t.name}</p>
+        <p class="bowl-type-desc">${t.description}</p>
+      </div>`;
+    }).join('');
+  }
+
+  // ── BOWL TYPES GRID DELEGATION ──
+  const bowlTypesGrid = document.getElementById('bowl-types-grid');
+  bowlTypesGrid.addEventListener('click', e => {
+    const card = e.target.closest('.bowl-type-card');
+    if (card) selectBowlType(card.dataset.id);
+  });
+  bowlTypesGrid.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('.bowl-type-card');
+    if (card) { e.preventDefault(); selectBowlType(card.dataset.id); }
+  });
+
+  // ── SELECT BOWL TYPE ──
+  function selectBowlType(id) {
+    selection.bowlType = productsData.bowl_config.types.find(t => t.id === id);
+    selection.base = null;
+
+    document.querySelectorAll('.bowl-type-card').forEach(c => c.classList.remove('selected'));
+    document.querySelector(`.bowl-type-card[data-id="${id}"]`).classList.add('selected');
+
+    renderBases(id);
+    document.getElementById('step-3').classList.add('visible');
+    document.getElementById('bowl-summary').classList.remove('visible');
+    document.querySelectorAll('.base-pill').forEach(p => p.classList.remove('selected'));
+
+    updatePanel();
+    gtag('event', 'bowl_type_select', { bowl_type: id });
+  }
+
+  // ── RENDER BASES ──
+  function renderBases(bowlTypeId) {
+    const bases = productsData.bowl_config.bases[bowlTypeId] || [];
+    const wrap = document.getElementById('bases-wrap');
+    wrap.innerHTML = bases.map(b => {
+      const costLabel = b.extra_cost === 0 ? 'incluido' : `+$${b.extra_cost.toFixed(2)}`;
+      return `
+      <div class="base-pill" role="button" tabindex="0" data-id="${b.id}" data-cost="${b.extra_cost}" data-name="${b.name}">
+        <span>${b.name}</span>
+        <span class="base-pill-cost">${costLabel}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // ── BASES WRAP DELEGATION ──
+  const basesWrap = document.getElementById('bases-wrap');
+  basesWrap.addEventListener('click', e => {
+    const pill = e.target.closest('.base-pill');
+    if (pill) selectBase(pill.dataset.id, parseFloat(pill.dataset.cost), pill.dataset.name);
+  });
+  basesWrap.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const pill = e.target.closest('.base-pill');
+    if (pill) { e.preventDefault(); selectBase(pill.dataset.id, parseFloat(pill.dataset.cost), pill.dataset.name); }
+  });
+
+  // ── SELECT BASE ──
+  function selectBase(id, cost, name) {
+    selection.base = { id, extra_cost: cost, name };
+
+    document.querySelectorAll('.base-pill').forEach(p => p.classList.remove('selected'));
+    document.querySelector(`.base-pill[data-id="${id}"]`).classList.add('selected');
+
+    updatePanel();
+    showBowlSummary();
+    gtag('event', 'bowl_base_select', { base_id: id });
+  }
+
+  // ── UPDATE PANEL ──
+  function updatePanel() {
+    const { protein, bowlType, base } = selection;
+
+    const filled = document.getElementById('bowl-panel-filled');
+    const empty  = document.getElementById('bowl-panel-empty');
+
+    if (protein || bowlType || base) {
+      empty.style.display  = 'none';
+      filled.style.display = 'block';
+    }
+
+    if (protein)  document.getElementById('panel-protein').textContent = protein.name;
+    if (bowlType) document.getElementById('panel-bowl').textContent    = bowlType.name;
+    if (base)     document.getElementById('panel-base').textContent    = base.name;
+
+    if (protein) {
+      const basePrice = protein.base_price || 0;
+      const extraCost = base ? base.extra_cost : 0;
+      document.getElementById('panel-price').textContent = `$${(basePrice + extraCost).toFixed(2)}`;
+    }
+
+    const parts = [];
+    if (protein)  parts.push(protein.name);
+    if (bowlType) parts.push(bowlType.name);
+    if (base)     parts.push(base.name);
+    const label = parts.length ? parts.join(' · ') : 'Arma tu bowl';
+    document.getElementById('mobile-bar-label').textContent = `Tu bowl: ${label}`;
+
+    if (protein)  document.getElementById('mobile-protein').textContent = protein.name;
+    if (bowlType) document.getElementById('mobile-bowl').textContent    = bowlType.name;
+    if (base)     document.getElementById('mobile-base').textContent    = base.name;
+
+    if (protein) {
+      const basePrice = protein.base_price || 0;
+      const extraCost = base ? base.extra_cost : 0;
+      document.getElementById('mobile-price').textContent = `$${(basePrice + extraCost).toFixed(2)}`;
+    }
+  }
+
+  // ── SHOW BOWL SUMMARY ──
+  function showBowlSummary() {
+    const { protein, bowlType, base } = selection;
+    if (!protein || !bowlType || !base) return;
+
+    const summary = document.getElementById('bowl-summary');
+    document.getElementById('summary-title').textContent =
+      `${bowlType.name} · ${protein.name}`;
+    document.getElementById('summary-detail').textContent =
+      `Base: ${base.name} · Olive oil only · Made fresh today`;
+    summary.classList.add('visible');
+  }
+
+  // ── RENDER DISHES ──
   function renderDishes(data) {
-    const dishes = data.featured_dishes.slice(0, 4);
+    const dishes = data.featured_dishes;
     const grid = document.getElementById('dishes-grid');
 
     grid.innerHTML = dishes.map(dish => {
