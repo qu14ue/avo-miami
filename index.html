@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="img/heros/Gemini_Generated_Image_8akv4d8akv4d8akv.png" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================================
        CSS BASE — Variables, Reset, Tipografía
@@ -44,7 +44,7 @@
       --star-color:        #FFB800;
 
       /* Tipografía */
-      --font-serif:        'Cormorant Garant', Georgia, serif;
+      --font-serif:        'Pridi', Georgia, serif;
       --font-sans:         'DM Sans', system-ui, sans-serif;
 
       /* Escala tipográfica */
@@ -61,9 +61,9 @@
       --text-display:      64px;
 
       /* Pesos tipográficos */
-      --fw-regular:        400;
-      --fw-medium:         500;
-      --fw-semibold:       600;
+      --fw-regular:        200;
+      --fw-medium:         300;
+      --fw-semibold:       500;
       --fw-bold:           700;
 
       /* Border radius */
@@ -108,8 +108,8 @@
        TIPOGRAFÍA GLOBAL
     ============================================================ */
     h2 {
-      font-family: var(--font-serif);
-      font-weight: var(--fw-bold);
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
       font-size: var(--text-3xl);
       color: var(--verde-hoja);
       line-height: 1.2;
@@ -532,9 +532,9 @@
       margin-bottom: 20px;
     }
     #hero h1 {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-style: italic;
-      font-weight: var(--fw-bold);
+      font-weight: var(--fw-semibold);
       font-size: var(--text-3xl);
       color: var(--crema);
       line-height: 1.15;
@@ -751,9 +751,9 @@
     }
     .dish-info { padding: 14px; }
     .dish-name {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 15px;
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 16px;
       color: var(--carbon);
       margin-bottom: 6px;
       line-height: 1.3;
@@ -944,10 +944,10 @@
       flex: 1;
     }
     .dif-title {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-weight: var(--fw-bold);
       font-size: 20px;
-      color: var(--carbon);
+      color: var(--verde-hoja);
       margin-bottom: 10px;
     }
     .dif-body {
@@ -1081,29 +1081,36 @@
     ============================================================ */
     #rewards {
       background: var(--crema);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
     }
-    .rewards-layout {
+    .rewards-left {
       display: flex;
-      flex-direction: column-reverse;
-      gap: 48px;
       align-items: center;
-    }
-    @media (min-width: 1024px) {
-      .rewards-layout {
-        flex-direction: row;
-        align-items: center;
-        gap: 80px;
-      }
-    }
-    .rewards-copy { flex: 1; }
-    .rewards-img {
-      flex: 1;
-      display: flex;
+      padding: var(--pad-section-desktop) clamp(32px, 5vw, 80px);
       justify-content: center;
     }
-    .rewards-img img {
-      max-height: 480px;
-      width: auto;
+    .rewards-copy { width: 100%; max-width: 540px; }
+    .rewards-right {
+      overflow: hidden;
+    }
+    .rewards-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 767px) {
+      #rewards {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .rewards-right { height: 320px; order: -1; }
+      .rewards-left { padding: var(--pad-section-mobile) 20px; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .rewards-left { padding: 64px 40px; }
     }
     .rewards-eyebrow {
       display: inline-flex;
@@ -1335,6 +1342,114 @@
       color: var(--crema);
       opacity: 0.4;
     }
+
+    /* ============================================================
+       CHEF'S SUGGESTION — Banner card dentro de #platos
+    ============================================================ */
+    .chefs-banner {
+      display: grid;
+      grid-template-columns: 620px 1fr;
+      background: var(--carbon);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 56px;
+      margin-bottom: 40px;
+    }
+    .chefs-banner__img {
+      position: relative;
+      overflow: hidden;
+    }
+    .chefs-banner__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .chefs-banner:hover .chefs-banner__img img { transform: scale(1.04); }
+    .chefs-banner__copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 44px 48px;
+      background: var(--blanco);
+    }
+    .chefs-banner__eyebrow {
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--verde-hoja);
+      margin-bottom: 14px;
+    }
+    .chefs-banner__title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: var(--fw-medium);
+      font-size: clamp(28px, 3vw, 42px);
+      color: var(--carbon);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .chefs-banner__desc {
+      font-family: var(--font-sans);
+      font-size: var(--text-md);
+      color: rgba(26,26,23,0.65);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      max-width: 380px;
+    }
+    .chefs-banner__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .chefs-banner__tag {
+      font-family: var(--font-sans);
+      font-size: var(--text-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(26,26,23,0.2);
+      color: rgba(26,26,23,0.65);
+    }
+    .chefs-banner__tag--accent {
+      border-color: var(--verde-hoja);
+      color: var(--verde-hoja);
+    }
+    .chefs-banner__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-bosque);
+      color: var(--crema);
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: var(--fw-medium);
+      padding: 12px 26px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.15s ease;
+    }
+    .chefs-banner__cta:hover { background: var(--verde-bosque-dark); }
+    .chefs-banner__cta svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    @media (max-width: 767px) {
+      .chefs-banner { grid-template-columns: 1fr; }
+      .chefs-banner__img { height: 260px; }
+      .chefs-banner__copy { padding: 32px 24px 40px; }
+      .chefs-banner__desc { max-width: 100%; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .chefs-banner { grid-template-columns: 320px 1fr; }
+      .chefs-banner__copy { padding: 36px 36px; }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -1446,7 +1561,7 @@
         <li><a href="/catering-miami-healthy-food" class="mobile-site-nav__main-list__link">Catering</a></li>
       </ul>
       <ul class="mobile-site-nav__sub-list">
-        <li><a href="#order" class="mobile-site-nav__sub-list__link" data-gtag-event="nav_order_online_mobile">Order Online →</a></li>
+        <li><a href="#order" class="mobile-site-nav__sub-list__link" data-gtag-event="nav_order_online_mobile">Order Now →</a></li>
       </ul>
     </nav>
   </div>
@@ -1471,7 +1586,7 @@
       <span class="badge badge-dark">OPEN KITCHEN</span>
     </div>
     <div class="hero-ctas">
-      <a href="#order" class="btn btn-primary" data-gtag-event="hero_order_online">Order Online</a>
+      <a href="#order" class="btn btn-primary" data-gtag-event="hero_order_online">Order Now</a>
       <a href="/menus" class="btn btn-ghost" data-gtag-event="hero_see_menu">See Our Menu</a>
     </div>
     <p class="hero-social-proof">
@@ -1558,82 +1673,36 @@
     <div class="dishes-grid" id="dishes-grid">
       <!-- populated by JS -->
     </div>
+    <!-- Chef's Suggestion banner -->
+    <div class="chefs-banner reveal">
+      <div class="chefs-banner__img">
+        <img
+          src="img/platos_destacados/branzino.jpg"
+          alt="Branzino — Chef's Suggestion"
+          loading="lazy"
+          width="590"
+          height="340"
+        >
+      </div>
+      <div class="chefs-banner__copy">
+        <p class="chefs-banner__eyebrow">Chef's Suggestion</p>
+        <h3 class="chefs-banner__title">Wild Caught<br>Branzino</h3>
+        <p class="chefs-banner__desc">Wildcaught branzino, fresh citrus, vine-ripened cherry tomatoes, and housemade tabbouleh made with care and perfect for lunch or dinner.</p>
+        <div class="chefs-banner__tags">
+          <span class="chefs-banner__tag chefs-banner__tag--accent">High Protein</span>
+          <span class="chefs-banner__tag">Gluten-Free</span>
+          <span class="chefs-banner__tag">Zero Seed Oils</span>
+          
+        </div>
+        <a href="/menus" class="chefs-banner__cta" data-gtag-event="chefs_suggestion_order_now">
+          Order Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
     <div class="dishes-cta reveal">
       <a href="/menus" class="btn btn-secondary" data-gtag-event="ver_menu_completo">View Full Menu</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     06 · QUÉ ES / QUÉ NO ES
-============================================================ -->
-<section id="que-es" class="section-pad" data-screen-label="06 Qué es Avo">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="section-eyebrow">What We Are</p>
-      <h2>Real food.<br><em class="accent">For everyone.</em></h2>
-      <p>The place you’ve always wished existed: actually delicious, actually real, and made for all. Not just for vegans, not just for athletes. Just olive oil, an open kitchen, and nothing to hide. For anyone who believes they deserve to eat well.</p>
-    </div>
-    <div class="que-es-grid reveal">
-
-      <!-- BLOQUE NO ES -->
-      <div class="que-es-block no">
-        <div class="que-es-block-label no">AVO IS NOT...</div>
-        <div class="que-es-row">
-          <span class="que-es-icon no">✗</span>
-          <span>Just for vegans</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon no">✗</span>
-          <span>Boring food that feels like a sacrifice</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon no">✗</span>
-          <span>Fast food with a "healthy" label</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon no">✗</span>
-          <span>Seed oils disguised as healthy</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon no">✗</span>
-          <span>Reheated in a microwave</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon no">✗</span>
-          <span>A chain that doesn't know your name</span>
-        </div>
-      </div>
-
-      <!-- BLOQUE SÍ ES -->
-      <div class="que-es-block yes">
-        <div class="que-es-block-label yes">AVO IS...</div>
-        <div class="que-es-row">
-          <span class="que-es-icon yes">✓</span>
-          <span>Real food that’s actually delicious</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon yes">✓</span>
-          <span>For everyone—families, athletes, and brunch lovers</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon yes">✓</span>
-          <span>Dietitian-Designed, Chef-Crafted</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon yes">✓</span>
-          <span>100% Olive Oil. Always. No exceptions.</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon yes">✓</span>
-          <span>Made fresh this morning, right in front of you</span>
-        </div>
-        <div class="que-es-row">
-          <span class="que-es-icon yes">✓</span>
-          <span>A place where the staff remembers your face</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1739,30 +1808,6 @@
         <p class="test-author-meta">Local Guide ·11 reviews · 2 months ago</p>
       </div>
 
-      <div class="test-card reveal">
-        <p class="test-card-stars">★★★★★</p>
-        <p class="test-quote">"Best breakfast in Miami if you're looking for clean organic everything. My husband is gluten free and they have the best protein French toast! The ginger shots and espresso is just amazing. And it's so cute in there you can just grab breakfast, lunch, smoothie and chill. This is my go to."</p>
-        <hr class="test-divider">
-        <p class="test-author-name">Eileena Kim</p>
-        <p class="test-author-meta">Local Guide · 67 reviews · 1 months ago</p>
-      </div>
-
-      <div class="test-card reveal">
-        <p class="test-card-stars">★★★★★</p>
-        <p class="test-quote">"I’ve spent years traveling the world visiting coffee shops, and ever since I stepped into the first Avo location, I’ve been in love with their concept. This new spot is truly spectacular. Excellent service, a great menu, and the coffee is consistently amazing."</p>
-        <hr class="test-divider">
-        <p class="test-author-name">Travel_for_a_coffee</p>
-        <p class="test-author-meta">Local Guide · 914 reviews · 4 months ago</p>
-      </div>
-
-      <div class="test-card reveal">
-        <p class="test-card-stars">★★★★★</p>
-        <p class="test-quote">"Avo Miami is a true gem. Superbe location on Sunset Harbor, beautiful restaurant, delicious healthy mediterranean food and exceptional service. Food is made with love and everyone is treated like family."</p>
-        <hr class="test-divider">
-        <p class="test-author-name">Benjamin T</p>
-        <p class="test-author-meta">Local Guide · 8 reviews · 6 months ago</p>
-      </div>
-
     </div>
     <div class="test-cta reveal">
       <a href="https://maps.google.com" target="_blank" rel="noopener">Love your experience? Share the vibe. →</a>
@@ -1773,33 +1818,36 @@
 <!-- ============================================================
      10 · REWARDS
 ============================================================ -->
-<section id="rewards" class="section-pad" data-screen-label="10 Rewards">
-  <div class="container">
-    <div class="rewards-layout">
-      <div class="rewards-copy reveal">
-        <p class="rewards-eyebrow">AVO REWARDS</p>
-        <h2>Eat well. Earn points. <em class="accent">Repeat.</em></h2>
-        <p class="rewards-sub">Every visit counts. Download the Avo Miami app to earn points with every order and redeem them for your favorites.</p>
-        <ul class="rewards-benefits">
-          <li>🎁 Points on every purchase — in-store, online, or to-go.</li>
-          <li>🎂 Birthday rewards — a special surprise during your month.</li>
-          <li>📱 Easy app ordering — skip the line, no waiting.</li>
-        </ul>
-        <div class="rewards-store-badges">
-          <a href="#app-store" data-gtag-event="rewards_app_store">
-            <img src="img/logos/download-on-the-app-store-apple-logo-svgrepo-com.svg" alt="Download on App Store" width="135" height="40">
-          </a>
-          <a href="#google-play" data-gtag-event="rewards_google_play">
-            <img src="img/logos/google-play-badge-logo-svgrepo-com.svg" alt="Get it on Google Play" width="135" height="40">
-          </a>
-        </div>
-        <a href="/rewards" class="btn btn-secondary rewards-more" data-gtag-event="rewards_learn_more">Learn more about Rewards</a>
+<section id="rewards" data-screen-label="10 Rewards">
+
+  <!-- Left: copy -->
+  <div class="rewards-left">
+    <div class="rewards-copy reveal">
+      <p class="rewards-eyebrow">AVO REWARDS</p>
+      <h2>Eat well. Earn points. <em class="accent">Repeat.</em></h2>
+      <p class="rewards-sub">Every visit counts. Download the Avo Miami app to earn points with every order and redeem them for your favorites.</p>
+      <ul class="rewards-benefits">
+        <li>🎁 Points on every purchase — in-store, online, or to-go.</li>
+        <li>🎂 Birthday rewards — a special surprise during your month.</li>
+        <li>📱 Easy app ordering — skip the line, no waiting.</li>
+      </ul>
+      <div class="rewards-store-badges">
+        <a href="#app-store" data-gtag-event="rewards_app_store">
+          <img src="img/logos/download-on-the-app-store-apple-logo-svgrepo-com.svg" alt="Download on App Store" width="135" height="40">
+        </a>
+        <a href="#google-play" data-gtag-event="rewards_google_play">
+          <img src="img/logos/google-play-badge-logo-svgrepo-com.svg" alt="Get it on Google Play" width="135" height="40">
+        </a>
       </div>
-      <div class="rewards-img reveal">
-        <img src="img/mockup_app/image-mobile-portrait.png" alt="Avo Miami app mockup" loading="lazy" width="240" height="480">
-      </div>
+      <a href="/rewards" class="btn btn-secondary rewards-more" data-gtag-event="rewards_learn_more">Learn more about Rewards</a>
     </div>
   </div>
+
+  <!-- Right: image -->
+  <div class="rewards-right">
+    <img src="img/mockup_app/img-app.jpg" alt="Avo Miami app" loading="lazy">
+  </div>
+
 </section>
 
 <!-- ============================================================
@@ -1843,7 +1891,7 @@
                data-gtag-params='{"location_name":"Sunset Harbor"}'>Get Directions</a>
             <a href="#order" class="btn btn-primary"
                data-gtag-event="location_order_online"
-               data-gtag-params='{"location_name":"Sunset Harbor"}'>Order Online</a>
+               data-gtag-params='{"location_name":"Sunset Harbor"}'>Order Now</a>
           </div>
         </div>
       </div>
@@ -1864,7 +1912,7 @@
                data-gtag-params='{"location_name":"Coconut Grove"}'>Get Directions</a>
             <a href="#order" class="btn btn-primary"
                data-gtag-event="location_order_online"
-               data-gtag-params='{"location_name":"Coconut Grove"}'>Order Online</a>
+               data-gtag-params='{"location_name":"Coconut Grove"}'>Order Now</a>
           </div>
         </div>
       </div>
@@ -1885,7 +1933,7 @@
                data-gtag-params='{"location_name":"South Miami"}'>Get Directions</a>
             <a href="#order" class="btn btn-primary"
                data-gtag-event="location_order_online"
-               data-gtag-params='{"location_name":"South Miami"}'>Order Online</a>
+               data-gtag-params='{"location_name":"South Miami"}'>Order Now</a>
           </div>
         </div>
       </div>
@@ -2085,7 +2133,7 @@
             ${macrosHtml}
             <div class="dish-footer">
               <span class="dish-price">$${dish.price.toFixed(2)}</span>
-              <a href="${orderHref}" class="dish-order-btn" target="_blank" rel="noopener" data-dish-id="${dish.id}">Order Online</a>
+              <a href="${orderHref}" class="dish-order-btn" target="_blank" rel="noopener" data-dish-id="${dish.id}">Order Now</a>
             </div>
           </div>
         </div>`;
