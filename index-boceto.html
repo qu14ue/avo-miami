@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avo Miami — Meet Miami's Cleanest Menu</title>
+<meta name="description" content="Whole food meals, made fresh to order in our open kitchens to nourish body and soul. Seed oil free, dietitian-designed, protein-packed.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/logos/favico32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-bosque:#337A44;
+    --verde-bosque-dark:#2A6438;
+    --verde-hoja:#599C3A;
+    --verde-oscuro:#26311F;
+    --verde-oscuro-2:#2E3A26;
+    --crema:#FFFFFF;
+    --arena:#FBF8F1;
+    --carbon:#1A1A17;
+    --carbon-dark:#2a2a26;
+    --tierra:#A07850;
+    --border-subtle:#E6DFD1;
+    --font-serif:'Pridi', Georgia, serif;
+    --font-sans:'DM Sans', system-ui, sans-serif;
+    --radius-pill:100px;
+    --radius-card:16px;
+    --pad-desktop:96px;
+    --pad-mobile:56px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-sans);background:var(--crema);color:var(--carbon);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+
+  .container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px;}
+  @media (min-width:768px){.container{padding:0 32px;}}
+  @media (min-width:1024px){.container{padding:0 48px;}}
+
+  .section-pad{padding-top:var(--pad-mobile);padding-bottom:var(--pad-mobile);}
+  @media (min-width:1024px){.section-pad{padding-top:var(--pad-desktop);padding-bottom:var(--pad-desktop);}}
+
+  h1,h2,h3{font-weight:500;line-height:1.15;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:.03em;text-transform:uppercase;padding:14px 30px;border-radius:var(--radius-pill);border:1.5px solid transparent;white-space:nowrap;transition:background .15s ease,color .15s ease,border-color .15s ease,transform .15s ease;}
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--verde-bosque);color:#fff;}
+  .btn-primary:hover{background:var(--verde-bosque-dark);}
+  .btn-secondary{background:transparent;color:var(--verde-bosque);border-color:var(--verde-bosque);}
+  .btn-secondary:hover{background:rgba(51,122,68,.08);}
+  .btn-white{background:#fff;color:var(--verde-oscuro);}
+  .btn-white:hover{background:#eee;}
+  .btn-ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.55);}
+  .btn-ghost-white:hover{background:rgba(255,255,255,.1);border-color:#fff;}
+  .btn-dark{background:var(--verde-oscuro);color:#fff;}
+  .btn-dark:hover{background:#1c2417;}
+  .btn-sm{padding:10px 20px;font-size:11px;}
+
+  /* ===== NAV ===== */
+  .site-header{position:fixed;top:0;left:0;width:100%;z-index:100;background:var(--crema);border-bottom:1px solid var(--border-subtle);}
+  .nav-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;height:76px;gap:12px;max-width:1280px;margin:0 auto;padding:0 48px;}
+  .nav-links{display:flex;align-items:center;gap:26px;}
+  .nav-links--right{justify-content:flex-end;}
+  .nav-links a{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--verde-oscuro);white-space:nowrap;transition:opacity .2s;}
+  .nav-links a:hover{opacity:.6;}
+  .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;}
+  .brand img{height:40px;width:auto;}
+  .nav-order{margin-left:24px;}
+  .mobile-toggle{position:absolute;opacity:0;pointer-events:none;}
+  .mobile-toggle-label{display:none;position:absolute;left:20px;top:50%;transform:translateY(-50%);width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;z-index:101;}
+  .burger{display:flex;flex-direction:column;gap:5px;}
+  .burger span{width:22px;height:2px;background:var(--verde-oscuro);border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .mobile-toggle:checked ~ .mobile-toggle-label .burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .mobile-toggle:checked ~ .mobile-toggle-label .burger span:nth-child(2){opacity:0;}
+  .mobile-toggle:checked ~ .mobile-toggle-label .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-panel{display:none;position:fixed;top:76px;left:0;width:100%;height:calc(100vh - 76px);background:var(--verde-oscuro);overflow-y:auto;padding:12px 0 40px;z-index:99;}
+  .mobile-toggle:checked ~ .mobile-panel{display:block;}
+  .mobile-panel a{display:block;font-family:var(--font-serif);font-style:italic;font-size:22px;color:#fff;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .mobile-panel .nav-order{display:block;margin:24px 28px 0;}
+  @media (max-width:1023px){
+    .mobile-toggle-label{display:flex;}
+    .nav-row{padding:0 20px 0 64px;grid-template-columns:1fr auto;}
+    .nav-links--left{display:none;}
+    .nav-links--right a:not(.nav-order){display:none;}
+    .nav-links--right{justify-content:flex-end;}
+  }
+  @media (min-width:1024px) and (max-width:1280px){
+    .nav-row{padding:0 24px;gap:8px;}
+    .nav-links{gap:16px;}
+  }
+
+  /* ===== HERO ===== */
+  #hero{background:var(--arena);padding-top:calc(76px + 48px);padding-bottom:56px;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+  @media (min-width:1024px){
+    #hero{padding-top:calc(76px + 64px);padding-bottom:80px;}
+    .hero-grid{grid-template-columns:1fr 1fr;gap:56px;}
+  }
+  .hero-copy h1{font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:38px;color:var(--verde-oscuro);margin-bottom:18px;}
+  @media (min-width:1024px){.hero-copy h1{font-size:56px;}}
+  .hero-copy p{font-size:16px;line-height:1.65;color:var(--carbon);opacity:.75;max-width:440px;margin-bottom:28px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
+  .hero-checks{display:flex;flex-wrap:wrap;gap:20px;}
+  .hero-checks span{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--verde-bosque);}
+  .hero-checks svg{width:14px;height:14px;flex-shrink:0;}
+  .hero-media{position:relative;}
+  .hero-media-frame{border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(38,49,31,.35);}
+  .hero-media-frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.3;}
+
+  /* ===== VIDEO ===== */
+  #video-section{position:relative;background:var(--carbon);height:78vw;max-height:520px;min-height:280px;overflow:hidden;}
+  @media (min-width:768px){#video-section{height:60vh;max-height:560px;}}
+  #video-section video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .video-overlay{position:absolute;inset:0;background:rgba(20,20,16,.28);}
+  .video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;border:none;transition:transform .2s ease,background .2s ease;}
+  .video-play:hover{transform:translate(-50%,-50%) scale(1.06);background:#fff;}
+  .video-play svg{width:22px;height:22px;fill:var(--verde-oscuro);margin-left:3px;}
+
+  /* ===== GREEN / MENU CLASSICS ===== */
+  #classics{background:var(--verde-bosque);color:#fff;}
+  .classics-intro{font-family:var(--font-sans);font-size:19px;line-height:1.6;color:#fff;max-width:900px;margin:0 auto 56px;text-align:center;}
+  .classics-intro strong{font-weight:700;display:block;margin-top:4px;}
+  .classics-layout{display:grid;grid-template-columns:1fr;gap:36px;}
+  @media (min-width:1024px){.classics-layout{grid-template-columns:300px 1fr;gap:48px;align-items:start;}}
+  .classics-side h3{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:30px;color:#fff;margin-bottom:22px;line-height:1.25;}
+  .musts-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.25);}
+  .musts-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.92);padding:9px 0;}
+  .musts-list svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;color:#DFF3C8;}
+
+  .classics-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .classics-scroll::-webkit-scrollbar{display:none;}
+  .classic-card{scroll-snap-align:start;flex:0 0 240px;border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;}
+  .classic-card:first-child{flex:0 0 260px;background:#fff;box-shadow:0 20px 40px -16px rgba(0,0,0,.25);}
+  .classic-card:not(:first-child){background:rgba(255,255,255,.12);}
+  .classic-card img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .classic-card-body{padding:18px;flex:1;display:flex;flex-direction:column;}
+  .classic-card:first-child .classic-card-body h4,
+  .classic-card:first-child .classic-card-body p{color:var(--carbon);}
+  .classic-card-body h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;}
+  .classic-card-body p{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:16px;flex:1;}
+  .classic-card:first-child .classic-card-body p{opacity:.7;color:var(--carbon);}
+  .classic-card-ctas{display:flex;gap:8px;flex-wrap:wrap;}
+  .classic-card:first-child .classic-card-ctas .btn-secondary{border-color:var(--verde-bosque);color:var(--verde-bosque);}
+  .classic-card:first-child .classic-card-ctas .btn-primary{background:var(--verde-bosque);}
+  .classic-card:not(:first-child) .classic-card-ctas .btn-white{padding:9px 16px;font-size:10.5px;}
+  .classic-card:not(:first-child) .classic-card-ctas .btn-ghost-white{padding:9px 16px;font-size:10.5px;}
+
+  /* ===== WHAT'S NEW ===== */
+  #whats-new{background:var(--verde-bosque);padding-top:0;}
+  #whats-new h2{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:30px;color:#fff;margin-bottom:28px;}
+  @media (min-width:1024px){#whats-new h2{font-size:36px;}}
+  .new-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px;}
+  .new-scroll::-webkit-scrollbar{display:none;}
+  .new-card{scroll-snap-align:start;flex:0 0 min(100%,780px);background:#fff;border-radius:var(--radius-card);display:grid;grid-template-columns:220px 1fr;overflow:hidden;box-shadow:0 20px 45px -18px rgba(0,0,0,.28);}
+  @media (max-width:639px){.new-card{grid-template-columns:1fr;}}
+  .new-card img{width:100%;height:100%;object-fit:cover;min-height:180px;}
+  .new-card-body{padding:28px 32px;display:flex;flex-direction:column;justify-content:center;}
+  .new-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--verde-hoja);margin-bottom:10px;}
+  .new-card-body h3{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:26px;color:var(--verde-hoja);margin-bottom:10px;}
+  .new-card-body p{font-size:13.5px;line-height:1.6;color:var(--carbon);opacity:.72;margin-bottom:20px;max-width:340px;}
+  .new-card-ctas{display:flex;gap:10px;flex-wrap:wrap;}
+  .new-dots{display:flex;gap:8px;margin-top:24px;}
+  .new-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);}
+  .new-dots span:first-child{background:#fff;}
+
+  /* ===== JOIN APP ===== */
+  #join-app{background:var(--arena);}
+  .join-grid{display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;}
+  @media (min-width:900px){.join-grid{grid-template-columns:1fr 1fr;}}
+  .join-copy{padding:56px 20px;display:flex;flex-direction:column;justify-content:center;}
+  @media (min-width:768px){.join-copy{padding:64px 32px;}}
+  @media (min-width:1024px){.join-copy{padding:64px 48px 64px 48px;}}
+  .join-eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--verde-bosque);margin-bottom:14px;}
+  .join-copy h2{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:32px;color:var(--verde-oscuro);margin-bottom:22px;max-width:420px;}
+  @media (min-width:1024px){.join-copy h2{font-size:38px;}}
+  .join-list{margin-bottom:28px;}
+  .join-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--carbon);padding:6px 0;}
+  .join-list svg{width:16px;height:16px;color:var(--verde-bosque);flex-shrink:0;}
+  .join-media{overflow:hidden;min-height:280px;}
+  .join-media img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  /* ===== CTA BAND ===== */
+  #cta-band{background:var(--verde-oscuro);padding:72px 0;}
+  .cta-inner{display:flex;flex-direction:column;gap:28px;align-items:flex-start;}
+  @media (min-width:900px){.cta-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:40px;}}
+  #cta-band h2{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:28px;color:#fff;line-height:1.3;max-width:560px;}
+  @media (min-width:1024px){#cta-band h2{font-size:34px;}}
+  .cta-ctas{display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0;}
+
+  /* ===== FOOTER ===== */
+  #footer{background:var(--verde-oscuro-2);color:#fff;}
+  .footer-top{display:grid;grid-template-columns:1fr;gap:40px;padding:64px 20px 48px;}
+  @media (min-width:768px){.footer-top{padding-left:32px;padding-right:32px;}}
+  @media (min-width:1024px){
+    .footer-top{grid-template-columns:1.2fr 1fr 1fr 1.3fr;padding:72px 48px 56px;gap:32px;max-width:1280px;margin:0 auto;}
+  }
+  .footer-brand img{height:56px;width:auto;margin-bottom:14px;}
+  .footer-brand p{font-size:13px;color:rgba(255,255,255,.55);max-width:220px;line-height:1.6;}
+  .footer-col-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px;}
+  .footer-col a,.footer-col p{display:block;font-size:14px;color:rgba(255,255,255,.85);line-height:2;}
+  .footer-col p{opacity:.6;margin-bottom:4px;}
+  .footer-find p:first-child{color:#DFF3C8;font-weight:600;opacity:1;margin-bottom:14px;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);}
+  .footer-bottom .container{padding:20px;text-align:center;}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,.4);}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="site-header">
+  <input type="checkbox" id="mobile-toggle" class="mobile-toggle">
+  <nav class="nav-row">
+    <ul class="nav-links nav-links--left">
+      <li><a href="#classics">Menu</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#join-app">Rewards</a></li>
+      <li><a href="#">Merch</a></li>
+    </ul>
+    <a href="#hero" class="brand">
+      <img src="img/logos/logo-avo-miami.png" alt="Avo Miami">
+    </a>
+    <ul class="nav-links nav-links--right">
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Catering</a></li>
+      <li class="nav-order"><a href="#" class="btn btn-primary btn-sm">Order Now</a></li>
+    </ul>
+  </nav>
+  <label for="mobile-toggle" class="mobile-toggle-label" aria-label="Toggle menu">
+    <span class="burger"><span></span><span></span><span></span></span>
+  </label>
+  <div class="mobile-panel">
+    <a href="#classics">Menu</a>
+    <a href="#locations">Locations</a>
+    <a href="#join-app">Rewards</a>
+    <a href="#">Merch</a>
+    <a href="#">About Us</a>
+    <a href="#">Catering</a>
+    <a href="#" class="btn btn-primary nav-order">Order Now</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Meet Miami's<br>cleanest menu</h1>
+      <p>Whole food meals, made fresh to order in our open kitchens to nourish body and soul. Your well-known healthy spot in Miami.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary">Order Now</a>
+        <a href="#locations" class="btn btn-secondary">Find Nearest Avo</a>
+      </div>
+      <div class="hero-checks">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Seed Oil Free</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Dietitian-Design</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Protein-Packed</span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-media-frame">
+        <img src="img/heros/hero-3.jpg" alt="Fresh bowls made with grass-fed protein and olive oil">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section id="video-section">
+  <video id="avo-video" muted loop playsinline poster="img/heros/hero-3.jpg">
+    <source src="img/videos/avo-miami-01.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+  <button class="video-play" id="video-play-btn" aria-label="Play video">
+    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+</section>
+
+<!-- ===== MENU CLASSICS ===== -->
+<section id="classics" class="section-pad">
+  <div class="container">
+    <p class="classics-intro">We are committed to bring the cleanest ingredients as grass-fed meats, wild-caught fish, cooking with olive oil only.<strong>Just how we would make it for our family!</strong></p>
+
+    <div class="classics-layout">
+      <div class="classics-side">
+        <h3>Some of our most liked menu classics</h3>
+        <div class="musts-label">Our Must's</div>
+        <ul class="musts-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Seed oil free, cooked with olive oil only</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Fresh made, no processed ingredients, no microwave</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Grass-fed meat and wild-caught fish</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Free-range eggs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>A perfect nutritional balance &amp; bold flavors</li>
+        </ul>
+      </div>
+
+      <div class="classics-scroll" id="classics-track"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT'S NEW ===== -->
+<section id="whats-new" class="section-pad">
+  <div class="container">
+    <h2>What's new on our menu?</h2>
+    <div class="new-scroll" id="new-track"></div>
+    <div class="new-dots" id="new-dots"></div>
+  </div>
+</section>
+
+<!-- ===== JOIN APP ===== -->
+<section id="join-app">
+  <div class="join-grid">
+    <div class="join-copy">
+      <div class="join-eyebrow">Join Our Avo Family</div>
+      <h2>Order through our app and start winning</h2>
+      <ul class="join-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Buy $1 win 1 point</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>50 welcome points</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>1st order, FREE delivery</li>
+      </ul>
+      <a href="#" class="btn btn-dark">Download Now</a>
+    </div>
+    <div class="join-media">
+      <img src="img/mockup_app/img-app.jpg" alt="Ordering through the Avo Miami app">
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section id="cta-band">
+  <div class="container cta-inner">
+    <h2>Find your nearest AVO or order online for delivery and pickup</h2>
+    <div class="cta-ctas">
+      <a href="#" class="btn btn-white">Order Now</a>
+      <a href="#locations" class="btn btn-ghost-white">Find Nearest Avo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div id="locations"></div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/logos/logo-avo-miami-white.png" alt="Avo Miami">
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Web</div>
+      <a href="#hero">Home</a>
+      <a href="#classics">Menu</a>
+      <a href="#locations">Locations</a>
+      <a href="#join-app">Rewards</a>
+      <a href="#">About Us</a>
+      <a href="#">Catering</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-label">Social</div>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Facebook</a>
+    </div>
+    <div class="footer-col footer-find">
+      <div class="footer-col-label">Find Us</div>
+      <p>Open from 7AM to 22PM</p>
+      <p style="margin-top:14px;color:#DFF3C8;opacity:1;font-weight:600;">Miami Beach</p>
+      <p>1834 Bay Rd</p>
+      <p style="margin-top:10px;color:#DFF3C8;opacity:1;font-weight:600;">Coconut Grove</p>
+      <p>2911 Grande Ave #400D</p>
+      <p style="margin-top:10px;color:#DFF3C8;opacity:1;font-weight:600;">South Miami</p>
+      <p>5958 S Dixie Hwy</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container"><p>&copy; 2026 Avo Miami. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+  // Video play toggle
+  var vid = document.getElementById('avo-video');
+  var playBtn = document.getElementById('video-play-btn');
+  playBtn.addEventListener('click', function(){
+    if (vid.paused) { vid.play(); playBtn.style.opacity = 0; }
+    else { vid.pause(); playBtn.style.opacity = 1; }
+  });
+  vid.addEventListener('click', function(){
+    if (!vid.paused) { vid.pause(); playBtn.style.opacity = 1; }
+  });
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.mobile-panel a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('mobile-toggle').checked = false; });
+  });
+
+  // ---- Content sourced from data/products.json ----
+  // Embedded directly (instead of fetch) so this preview also works when the
+  // file is opened straight from disk, without a local server (fetch() of a
+  // local JSON file is blocked by CORS under the file:// protocol).
+  var dishes = [
+    {
+      id: 'salmon_poached_egg',
+      name: 'Salmon Poached Egg',
+      category: 'Brunch',
+      description: 'Antibiotic-free fresh salmon fillet, 1 pasture-raised poached egg, sautéed spinach, cherry tomatoes, avocado, house-made lemon herb sauce.',
+      image: 'img/platos_destacados/salmon_poached_egg.jpg'
+    },
+    {
+      id: 'avocado_toast',
+      name: 'Avocado Toast',
+      category: 'All-Day Breakfast',
+      description: 'Sourdough toast, smashed fresh avocado, cherry tomatoes, pickled red onions, microgreens, everything bagel seasoning, chili flakes.',
+      image: 'img/platos_destacados/avocado_toast.jpg'
+    },
+    {
+      id: 'acai_bowl',
+      name: 'Acai Bowl',
+      category: 'Breakfast',
+      description: 'Organic acai blend, house-made granola (gluten-free), banana, fresh strawberries, blueberries, honey drizzle, coconut flakes, chia seeds.',
+      image: 'img/platos_destacados/acai_bowl.jpg'
+    },
+    {
+      id: 'shakshuka',
+      name: 'Shakshuka',
+      category: 'Breakfast',
+      description: '2 pasture-raised eggs poached in house-made spiced tomato sauce, roasted red peppers, garlic, cumin, paprika, fresh cilantro.',
+      image: 'img/platos_destacados/shakshuka.jpg'
+    },
+    {
+      id: 'matcha_pancakes',
+      name: 'Matcha Pancakes',
+      category: 'Breakfast',
+      description: 'Almond flour pancakes with ceremonial grade matcha, pasture-raised eggs, coconut sugar, fresh blueberries, coconut whipped cream.',
+      image: 'img/platos_destacados/matcha_pancakes.jpg'
+    },
+    {
+      id: 'matcha_latte',
+      name: 'Specialty Matcha Latte',
+      category: 'Summer Smoothies',
+      description: 'Ceremonial grade matcha, oat milk (or your choice), light coconut sugar. An incredibly refreshing way to start your day. Cold or hot.',
+      image: 'img/platos_destacados/matcha_latte.jpg'
+    },
+    {
+      id: 'gf_protein_muffin',
+      name: 'GF Protein Muffin',
+      category: 'Bakery',
+      description: 'House-made almond flour muffin with whey protein, coconut sugar, fresh blueberries, chia seeds, raw honey glaze. Baked fresh every morning.',
+      image: 'img/platos_destacados/gf_protein_muffin.jpg'
+    }
+  ];
+
+  // Menu classics carousel — 5 real dishes
+  var classicIds = ['salmon_poached_egg','avocado_toast','acai_bowl','shakshuka','matcha_pancakes'];
+  var track = document.getElementById('classics-track');
+  classicIds.forEach(function(id){
+    var d = dishes.find(function(x){ return x.id === id; });
+    if (!d) return;
+    var el = document.createElement('div');
+    el.className = 'classic-card';
+    el.innerHTML =
+      '<img src="' + d.image + '" alt="' + d.name + '">' +
+      '<div class="classic-card-body">' +
+        '<h4>' + d.name + '</h4>' +
+        '<p>' + d.description + '</p>' +
+        '<div class="classic-card-ctas">' +
+          '<a href="#" class="btn btn-primary btn-sm">Order Now</a>' +
+          '<a href="#locations" class="btn btn-secondary btn-sm">Find Us Near</a>' +
+        '</div>' +
+      '</div>';
+    track.appendChild(el);
+  });
+
+  // What's new carousel — 3 real dishes/drinks
+  var newIds = ['matcha_latte','matcha_pancakes','gf_protein_muffin'];
+  var newTrack = document.getElementById('new-track');
+  var dots = document.getElementById('new-dots');
+  newIds.forEach(function(id){
+    var d = dishes.find(function(x){ return x.id === id; });
+    if (!d) return;
+    var el = document.createElement('div');
+    el.className = 'new-card';
+    el.innerHTML =
+      '<img src="' + d.image + '" alt="' + d.name + '">' +
+      '<div class="new-card-body">' +
+        '<div class="new-eyebrow">' + d.category + '</div>' +
+        '<h3>' + d.name + '</h3>' +
+        '<p>' + d.description + '</p>' +
+        '<div class="new-card-ctas">' +
+          '<a href="#" class="btn btn-primary btn-sm">Order Now</a>' +
+          '<a href="#locations" class="btn btn-secondary btn-sm">Find Nearest Avo</a>' +
+        '</div>' +
+      '</div>';
+    newTrack.appendChild(el);
+    dots.appendChild(document.createElement('span'));
+  });
+</script>
+</body>
+</html>
