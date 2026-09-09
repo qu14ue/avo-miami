@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avo Miami | Healthy Restaurant in Miami Beach, Coconut Grove &amp; South Miami</title>
+<meta name="description" content="Seed oil free, dietitian-designed whole food meals made to order. Three Avo locations in Miami Beach, Coconut Grove and South Miami. Order online or pick up.">
+<link rel="canonical" href="https://avo-miami.com/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#4F5E4A">
+<link rel="icon" href="img/logos/favico32.png" sizes="32x32">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Avo Miami">
+<meta property="og:url" content="https://avo-miami.com/">
+<meta property="og:title" content="Avo Miami | Healthy Restaurant in Miami">
+<meta property="og:description" content="Seed oil free, dietitian-designed whole food meals made to order. Three locations across Miami.">
+<meta property="og:image" content="https://avo-miami.com/img/og/og-avo-miami.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Avo Miami | Healthy Restaurant in Miami">
+<meta name="twitter:description" content="Seed oil free, dietitian-designed whole food meals made to order. Three locations across Miami.">
+<meta name="twitter:image" content="https://avo-miami.com/img/og/og-avo-miami.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-oscuro:#4F5E4A;
+    --verde-medio:#7C8A72;
+    --crema:#F6F2E6;
+    --linea:#DCD6C4;
+    --verde-noche:#364133;
+    --nav-h:84px;
+    --nav-gap:16px;
+    --font-sans:'Poppins', system-ui, sans-serif;
+    --radius-pill:100px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  section[id]{scroll-margin-top:calc(var(--nav-h) + var(--nav-gap));}
+  body{font-family:var(--font-sans);background:var(--crema);color:var(--verde-oscuro);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;height:auto;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+
+  /* Contenedor: diseño pensado para notebook, ancho máx. 1280px */
+  .container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px;}
+  @media (min-width:768px){.container{padding:0 32px;}}
+  @media (min-width:1024px){.container{padding:0 48px;}}
+
+  h1{font-weight:600;line-height:1.08;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-sans);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:14px 30px;border-radius:var(--radius-pill);border:1.5px solid transparent;white-space:nowrap;transition:background .15s ease,color .15s ease,border-color .15s ease,transform .15s ease;}
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--verde-oscuro);color:#FFFFFF;}
+  .btn-primary:hover{background:#3E4A3A;}
+  .btn-secondary{background:transparent;color:var(--verde-oscuro);border-color:var(--verde-oscuro);}
+  .btn-secondary:hover{background:rgba(79,94,74,.08);}
+  .btn-sm{padding:10px 22px;font-size:14.5px;}
+
+  /* ===== NAV ===== */
+  .site-header{position:fixed;top:0;left:0;width:100%;z-index:100;background:var(--crema);padding-top:var(--nav-gap);transition:box-shadow .25s ease,background .25s ease;}
+  .site-header.is-scrolled{box-shadow:0 6px 24px rgba(79,94,74,.12);border-bottom:1px solid var(--linea);}
+  .nav-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;height:var(--nav-h);gap:12px;max-width:1280px;margin:0 auto;padding:0 48px;}
+  .nav-links{display:flex;align-items:center;gap:26px;}
+  .nav-links--right{justify-content:flex-end;}
+  .nav-links a:not(.btn){font-size:14.5px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--verde-oscuro);white-space:nowrap;transition:opacity .2s;}
+  .nav-links a.btn-primary{color:#FFFFFF;}
+  .nav-links a:not(.btn):hover{opacity:.65;}
+  .brand{display:flex;align-items:center;justify-content:center;}
+  .brand-logo{height:76px;width:auto;display:block;}
+  .nav-order{margin-left:24px;}
+  .mobile-toggle{position:absolute;opacity:0;pointer-events:none;}
+  .mobile-toggle-label{display:none;position:absolute;right:20px;top:50%;transform:translateY(-50%);width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;z-index:101;}
+  .burger{display:flex;flex-direction:column;gap:5px;}
+  .burger span{width:22px;height:2px;background:var(--verde-oscuro);border-radius:2px;transition:transform .25s ease,opacity .2s ease;}
+  .mobile-toggle:checked ~ .mobile-toggle-label .burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .mobile-toggle:checked ~ .mobile-toggle-label .burger span:nth-child(2){opacity:0;}
+  .mobile-toggle:checked ~ .mobile-toggle-label .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-panel{display:none;position:fixed;top:calc(var(--nav-h) + var(--nav-gap));left:0;width:100%;height:calc(100vh - var(--nav-h) - var(--nav-gap));background:var(--verde-oscuro);overflow-y:auto;padding:12px 0 40px;z-index:99;}
+  .mobile-toggle:checked ~ .mobile-panel{display:block;}
+  .mobile-panel a{display:block;font-family:var(--font-sans);font-weight:400;font-size:20px;color:var(--crema);padding:16px 28px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .mobile-panel .nav-order{display:block;margin:24px 28px 0;}
+  .mobile-panel .btn-primary.nav-order{background:var(--crema);color:var(--verde-oscuro);}
+  .mobile-panel .btn-primary.nav-order:hover{background:#fff;}
+  @media (max-width:1023px){
+    .mobile-toggle-label{display:flex;}
+    .nav-row{display:flex;align-items:center;justify-content:space-between;padding:0 64px 0 20px;}
+    .nav-links--left{display:none;}
+    .nav-links--right a:not(.nav-order){display:none;}
+    .nav-links--right{justify-content:flex-end;}
+    .nav-order{margin-left:0;}
+    .brand-logo{height:52px;}
+  }
+  @media (min-width:1024px) and (max-width:1280px){
+    .nav-row{padding:0 24px;gap:8px;}
+    .nav-links{gap:16px;}
+  }
+
+  /* ===== HERO ===== */
+  #hero{background:var(--crema);padding-top:calc(var(--nav-h) + var(--nav-gap) + 56px);padding-bottom:64px;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+  @media (min-width:1024px){
+    #hero{padding-top:calc(var(--nav-h) + var(--nav-gap) + 72px);padding-bottom:88px;}
+    .hero-grid{grid-template-columns:1fr 1fr;gap:56px;}
+  }
+  .hero-copy h1{font-size:38px;color:var(--verde-oscuro);margin-bottom:20px;letter-spacing:-.01em;}
+  @media (min-width:1024px){.hero-copy h1{font-size:56px;}}
+  .hero-copy p{font-size:16px;line-height:1.65;color:var(--verde-medio);max-width:420px;margin-bottom:28px;}
+  .hero-copy p strong{color:var(--verde-oscuro);font-weight:700;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px;}
+  .hero-checks{display:flex;flex-wrap:wrap;row-gap:12px;column-gap:20px;width:fit-content;padding:14px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);}
+  .hero-checks span{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--verde-medio);}
+  .hero-checks .hero-check-mobile-only{display:none;}
+  @media (max-width:1023px){.hero-checks .hero-check-mobile-only{display:inline-flex;}}
+  .hero-checks svg{width:13px;height:13px;flex-shrink:0;color:var(--verde-medio);}
+  .hero-media{position:relative;}
+  @media (max-width:1023px){.hero-media{order:-1;}}
+  .hero-media-frame{border-radius:20px;overflow:hidden;}
+  .hero-media-frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.3;}
+
+  /* ===== VIDEO BAND ===== */
+  #video-section{position:relative;background:#1A1A17;height:78vw;max-height:520px;min-height:280px;overflow:hidden;}
+  @media (min-width:768px){#video-section{height:60vh;max-height:560px;}}
+  #video-section video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .video-overlay{position:absolute;inset:0;background:rgba(20,20,16,.28);}
+  .video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;border:none;transition:transform .2s ease,background .2s ease;}
+  .video-play:hover{transform:translate(-50%,-50%) scale(1.06);background:#fff;}
+  .video-play svg{width:22px;height:22px;fill:var(--verde-oscuro);margin-left:3px;}
+
+  /* ===== MENU CLASSICS ===== */
+  #classics{position:relative;background:var(--verde-medio);color:var(--crema);overflow:hidden;padding:72px 0 88px;}
+  @media (min-width:1024px){#classics{padding:96px 0 110px;}}
+  .classics-shape{position:absolute;top:-14%;right:-6%;width:min(620px,58vw);pointer-events:none;user-select:none;z-index:0;}
+  #classics > .container,.classics-split{position:relative;z-index:1;}
+
+  .classics-intro{font-size:20px;line-height:1.5;font-weight:400;color:var(--crema);max-width:800px;margin-bottom:64px;}
+  @media (min-width:1024px){.classics-intro{font-size:25px;margin-bottom:86px;}}
+  .classics-intro strong{font-weight:700;display:block;}
+
+  .classics-split{--pad:20px;width:100%;max-width:1280px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:1fr;gap:44px;align-items:start;}
+  @media (min-width:768px){.classics-split{--pad:32px;}}
+  @media (min-width:1024px){.classics-split{--pad:48px;grid-template-columns:330px minmax(0,1fr);gap:64px;align-items:center;}}
+
+  /* --- columna izquierda (estática) --- */
+  .classics-aside{border-top:1px solid rgba(246,242,230,.45);border-bottom:1px solid rgba(246,242,230,.45);padding:34px 0;}
+  .classics-aside h2{font-size:34px;line-height:1.16;font-weight:700;color:var(--crema);letter-spacing:-.01em;margin-bottom:22px;}
+  @media (min-width:1024px){.classics-aside h2{font-size:42px;}}
+  .classics-musts{font-size:15px;font-weight:700;color:var(--crema);margin-bottom:16px;}
+  .classics-list li{display:flex;align-items:flex-start;gap:14px;font-size:14px;line-height:1.35;color:var(--crema);padding:9px 0;}
+  .classics-list svg{width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--crema);}
+
+  /* --- columna derecha (carrousel) --- */
+  .classics-carousel{position:relative;overflow:hidden;margin-right:calc(-1 * (var(--pad) + max(0px,(100vw - 1280px)/2)));padding:22px 0;}
+  .classics-track{display:flex;gap:16px;align-items:stretch;will-change:transform;transition:transform .55s cubic-bezier(.22,.61,.36,1);}
+  .classics-track.no-anim{transition:none;}
+  .p-card{flex:0 0 auto;width:300px;display:flex;flex-direction:column;background:#D0DBB4;border-radius:6px;padding:18px;opacity:.5;transform:scale(.92);transform-origin:center bottom;transition:opacity .45s ease,transform .45s ease,background .45s ease;cursor:pointer;}
+  @media (min-width:1024px){.p-card{width:332px;padding:20px;}}
+  .p-card.is-active{background:#FFFFFF;opacity:1;transform:scale(1);cursor:default;}
+  .p-card:not(.is-active) *{pointer-events:none;}
+  .p-card-media{border-radius:6px;overflow:hidden;background:var(--crema);margin-bottom:18px;}
+  .p-card-media img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .p-card h3{font-size:19px;font-weight:700;color:var(--verde-oscuro);line-height:1.2;margin-bottom:10px;}
+  .p-card p{font-size:14px;line-height:1.5;color:var(--verde-medio);margin-bottom:16px;}
+  .p-card-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .p-card-meta span{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--verde-medio);border:1px solid var(--linea);border-radius:var(--radius-pill);padding:4px 11px;}
+  .p-card-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;}
+  .p-card-ctas .btn{font-size:11.5px;padding:11px 20px;}
+
+  .classics-nav{display:flex;gap:12px;margin-top:26px;padding:0 20px;}
+  @media (min-width:1024px){.classics-nav{padding:0;}}
+  .classics-nav button{width:44px;height:44px;border-radius:50%;background:transparent;border:1.5px solid rgba(246,242,230,.6);color:var(--crema);display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease;}
+  .classics-nav button:hover{background:rgba(246,242,230,.14);border-color:var(--crema);}
+  .classics-nav svg{width:17px;height:17px;}
+
+  /* ===== WHAT'S NEW (carrousel horizontal) ===== */
+  .whatsnew{--pad:20px;position:relative;z-index:1;width:100%;max-width:1280px;margin:96px auto 0;padding:0 var(--pad);}
+  @media (min-width:768px){.whatsnew{--pad:32px;}}
+  @media (min-width:1024px){.whatsnew{--pad:48px;margin-top:120px;}}
+  .whatsnew-head{display:flex;align-items:center;gap:26px;margin-bottom:26px;}
+  .whatsnew-head h2{font-size:28px;font-weight:700;color:var(--crema);letter-spacing:-.01em;white-space:nowrap;}
+  @media (min-width:1024px){.whatsnew-head h2{font-size:36px;}}
+  .whatsnew-head .rule{flex:1 1 auto;height:1px;background:rgba(246,242,230,.55);}
+
+  .whatsnew-carousel{position:relative;overflow:hidden;margin-right:calc(-1 * (var(--pad) + max(0px,(100vw - 1280px)/2)));padding:14px 0;}
+  .whatsnew-track{display:flex;gap:28px;align-items:stretch;will-change:transform;transition:transform .55s cubic-bezier(.22,.61,.36,1);}
+  .whatsnew-track.no-anim{transition:none;}
+  .n-card{flex:0 0 auto;width:100%;max-width:920px;background:#FFFFFF;border-radius:4px;padding:26px;display:flex;flex-direction:column;gap:22px;opacity:.5;transform:scale(.94);transform-origin:center center;transition:opacity .45s ease,transform .45s ease;cursor:pointer;}
+  .n-card.is-active{opacity:1;transform:scale(1);cursor:default;}
+  .n-card:not(.is-active) *{pointer-events:none;}
+  @media (min-width:768px){.n-card{flex-direction:row;align-items:center;gap:34px;padding:30px;}}
+  .n-card-media{flex:0 0 auto;border-radius:6px;overflow:hidden;background:#F2F2F2;}
+  .n-card-media img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  @media (min-width:768px){.n-card-media{width:262px;}}
+  .n-card-body{flex:1 1 auto;min-width:0;}
+  .n-card-eyebrow{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--verde-medio);margin-bottom:10px;}
+  .n-card h3{font-size:30px;font-weight:700;line-height:1.1;color:var(--verde-medio);margin-bottom:14px;}
+  @media (min-width:1024px){.n-card h3{font-size:40px;}}
+  .n-card p{font-size:16px;line-height:1.5;color:var(--verde-oscuro);max-width:520px;margin-bottom:22px;}
+  .n-card-ctas{display:flex;flex-wrap:wrap;gap:10px;}
+  .n-card-ctas .btn{font-size:11.5px;padding:12px 22px;}
+
+  .whatsnew-dots{display:flex;gap:11px;margin-top:22px;}
+  .whatsnew-dots button{width:14px;height:14px;border-radius:50%;border:none;background:rgba(246,242,230,.45);padding:0;transition:background .25s ease,transform .25s ease;}
+  .whatsnew-dots button:hover{background:rgba(246,242,230,.75);}
+  .whatsnew-dots button.is-active{background:var(--crema);}
+
+  /* ===== JOIN APP ===== */
+  #join-app{background:var(--crema);}
+  .joinapp-grid{display:grid;grid-template-columns:1fr;align-items:stretch;}
+  @media (min-width:900px){.joinapp-grid{grid-template-columns:55% 45%;}}
+  .joinapp-copy{--pad:20px;display:flex;flex-direction:column;justify-content:center;padding:64px var(--pad);}
+  @media (min-width:768px){.joinapp-copy{--pad:32px;}}
+  @media (min-width:900px){
+    .joinapp-copy{--pad:48px;padding:88px 56px 88px calc(var(--pad) + max(0px,(100vw - 1280px)/2));}
+  }
+  .joinapp-copy .eyebrow{font-size:16px;font-weight:400;text-transform:uppercase;letter-spacing:.02em;color:var(--verde-medio);margin-bottom:18px;}
+  .joinapp-copy h2{font-size:32px;line-height:1.18;font-weight:700;color:var(--verde-medio);letter-spacing:-.01em;margin-bottom:30px;max-width:19ch;}
+  @media (min-width:1024px){.joinapp-copy h2{font-size:42px;}}
+  .joinapp-perks{margin-bottom:34px;}
+  .joinapp-perks li{display:flex;gap:10px;font-size:18px;line-height:1.55;color:var(--verde-medio);}
+  @media (min-width:1024px){.joinapp-perks li{font-size:20px;}}
+  .joinapp-perks li::before{content:"\2022";}
+  .joinapp-cta{align-self:flex-start;}
+  .joinapp-media{position:relative;min-height:320px;}
+  .joinapp-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  @media (max-width:899px){.joinapp-media{height:56vw;max-height:420px;}}
+
+  /* ===== CTA BAND + FOOTER (fondo verde noche) ===== */
+  .btn-light{background:var(--crema);color:var(--verde-noche);}
+  .btn-light:hover{background:#FFFFFF;}
+  .btn-outline-light{background:transparent;color:var(--crema);border-color:var(--crema);}
+  .btn-outline-light:hover{background:rgba(246,242,230,.12);}
+
+  #cta-band{position:relative;background:var(--verde-noche);overflow:hidden;padding:80px 0 96px;}
+  @media (min-width:1024px){#cta-band{padding:104px 0 120px;}}
+  .cta-shape{position:absolute;top:-62%;right:-6%;width:min(620px,56vw);pointer-events:none;z-index:0;}
+  #cta-band .container{position:relative;z-index:1;}
+  #cta-band h2{font-size:30px;line-height:1.22;font-weight:700;color:var(--crema);letter-spacing:-.01em;max-width:30ch;margin-bottom:30px;}
+  @media (min-width:1024px){#cta-band h2{font-size:40px;}}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;}
+  .cta-actions .btn{font-size:15px;padding:15px 32px;text-transform:uppercase;}
+
+  .site-footer{background:var(--verde-noche);padding:0 0 80px;}
+  .footer-grid{display:grid;grid-template-columns:1fr;gap:44px;}
+  @media (min-width:700px){.footer-grid{grid-template-columns:1fr 1fr;gap:48px 32px;}}
+  @media (min-width:1024px){.footer-grid{grid-template-columns:1.1fr 1fr 1fr 1.4fr;gap:32px;}}
+  .footer-brand img{width:auto;height:120px;}
+  .footer-col h3{font-size:15px;font-weight:400;letter-spacing:.03em;text-transform:uppercase;color:var(--crema);margin-bottom:12px;}
+  .footer-col li{padding:3px 0;}
+  .footer-col a,.footer-col p{font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:var(--verde-medio);line-height:1.5;}
+  .footer-col a{transition:color .2s ease;}
+  .footer-col a:hover{color:var(--crema);}
+  .footer-place{margin-top:22px;}
+  .footer-place strong{display:block;font-size:15px;font-weight:400;letter-spacing:.03em;text-transform:uppercase;color:var(--crema);}
+  /* ===== SEO / A11Y utilidades ===== */
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  .entity-line{font-size:16px;line-height:1.6;color:var(--crema);opacity:.9;max-width:760px;margin-bottom:20px;}
+  @media (min-width:1024px){.entity-line{font-size:17px;}}
+  .nav-soon{font-size:14.5px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--verde-oscuro);opacity:.45;white-space:nowrap;cursor:default;}
+  .mobile-soon{display:block;font-size:20px;color:var(--crema);opacity:.45;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .footer-place{font-style:normal;}
+  .footer-place a{text-decoration:none;}
+
+  /* ===== LOCATIONS (paleta de Classics) ===== */
+  #locations{background:var(--verde-medio);color:var(--crema);padding:72px 0 88px;}
+  @media (min-width:1024px){#locations{padding:96px 0 110px;}}
+  #locations > .container > h2{font-size:34px;line-height:1.16;font-weight:700;color:var(--crema);letter-spacing:-.01em;margin-bottom:16px;}
+  @media (min-width:1024px){#locations > .container > h2{font-size:42px;}}
+  .locations-intro{font-size:17px;line-height:1.6;color:var(--crema);opacity:.9;max-width:640px;margin-bottom:40px;}
+  @media (min-width:1024px){.locations-intro{font-size:18px;margin-bottom:48px;}}
+  .locations-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media (min-width:640px){.locations-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}}
+  @media (min-width:1024px){.locations-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  .loc-card{display:flex;flex-direction:column;background:#FFFFFF;border-radius:6px;padding:24px 22px 22px;font-style:normal;overflow:hidden;}
+  @media (min-width:1024px){.loc-card{padding:28px 26px 26px;}}
+  .loc-media{margin:-24px -22px 18px;border-radius:6px 6px 0 0;overflow:hidden;background:var(--crema);}
+  @media (min-width:1024px){.loc-media{margin:-28px -26px 20px;}}
+  .loc-media img{width:100%;aspect-ratio:16/7;object-fit:cover;}
+  .loc-card h3{font-size:19px;font-weight:700;color:var(--verde-oscuro);line-height:1.2;margin-bottom:12px;}
+  .loc-card p{font-size:14px;line-height:1.5;color:var(--verde-medio);margin-bottom:10px;}
+  .loc-card a[href^="tel"]{color:var(--verde-oscuro);font-weight:700;}
+  .loc-card a[href^="tel"]:hover{opacity:.7;}
+  .loc-hours{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--verde-medio);border:1px solid var(--linea);border-radius:var(--radius-pill);padding:4px 11px;margin-bottom:0;}
+  .loc-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:20px;}
+  .loc-ctas .btn{font-size:11.5px;padding:11px 18px;}
+
+  /* ===== FAQ (paleta de Join App) ===== */
+  #faq{background:var(--crema);padding:64px 0 76px;}
+  @media (min-width:1024px){#faq{padding:88px 0 100px;}}
+  #faq h2{font-size:32px;line-height:1.18;font-weight:700;color:var(--verde-medio);letter-spacing:-.01em;margin-bottom:28px;}
+  @media (min-width:1024px){#faq h2{font-size:42px;margin-bottom:38px;}}
+  .faq-list{max-width:860px;}
+  .faq-list details{border-bottom:1px solid var(--linea);}
+  .faq-list details:first-child{border-top:1px solid var(--linea);}
+  .faq-list summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 0;font-size:18px;line-height:1.4;font-weight:700;color:var(--verde-medio);}
+  .faq-list summary:hover{color:var(--verde-oscuro);}
+  .faq-list summary::-webkit-details-marker{display:none;}
+  .faq-list summary::after{content:"+";font-size:22px;font-weight:400;line-height:1.2;color:var(--verde-medio);flex-shrink:0;}
+  .faq-list details[open] summary::after{content:"\2013";}
+  .faq-list details p{font-size:16px;line-height:1.7;color:var(--verde-medio);padding:0 0 22px;max-width:70ch;}
+  @media (min-width:1024px){.faq-list details p{font-size:17px;}}
+  .faq-list details p a{color:var(--verde-oscuro);text-decoration:underline;}
+
+  .why-seedoil{max-width:760px;margin:56px 0 8px;padding-top:28px;border-top:1px solid rgba(246,242,230,.28);}
+  .why-seedoil h3{font-size:20px;font-weight:600;color:var(--crema);margin-bottom:10px;}
+  .why-seedoil p{font-size:15.5px;line-height:1.7;color:var(--crema);opacity:.9;}
+  .why-seedoil p a{color:var(--crema);text-decoration:underline;font-weight:500;}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="site-header">
+  <input type="checkbox" id="mobile-toggle" class="mobile-toggle">
+  <nav class="nav-row">
+    <ul class="nav-links nav-links--left">
+      <li><a href="#classics">Menu</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#join-app">Rewards</a></li>
+      <!-- [[PENDIENTE: URL de la tienda de merch. Hasta tenerla va como span, no como link roto]] -->
+      <li><span class="nav-soon">Merch</span></li>
+    </ul>
+    <a href="#hero" class="brand">
+      <img src="img/logos/logo-verde-2026.svg" alt="Avo Miami" class="brand-logo" width="1161" height="1168">
+    </a>
+    <ul class="nav-links nav-links--right">
+      <li><a href="/our-story-healthy-food-miami">About Us</a></li>
+      <li><a href="/catering-miami-healthy-food">Catering</a></li>
+      <li class="nav-order"><a href="https://order.avo-miami.com/" class="btn btn-primary btn-sm">Order Now</a></li>
+    </ul>
+  </nav>
+  <label for="mobile-toggle" class="mobile-toggle-label" aria-label="Toggle menu">
+    <span class="burger"><span></span><span></span><span></span></span>
+  </label>
+  <div class="mobile-panel">
+    <a href="#classics">Menu</a>
+    <a href="#locations">Locations</a>
+    <a href="#join-app">Rewards</a>
+    <span class="mobile-soon">Merch</span>
+    <a href="/our-story-healthy-food-miami">About Us</a>
+    <a href="/catering-miami-healthy-food">Catering</a>
+    <a href="https://order.avo-miami.com/" class="btn btn-primary nav-order">Order Now</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Meet Miami's<br>cleanest menu</h1>
+      <p>Whole food meals, made fresh to order in our open kitchens to nourish body and soul. <strong>Your well-known healthy spot in Miami.</strong></p>
+      <div class="hero-ctas">
+        <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+        <a href="#locations" class="btn btn-secondary">Find Nearest Avo</a>
+      </div>
+      <div class="hero-checks">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Seed Oil Free</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Dietitian-Designed</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Protein-Packed</span>
+        <span class="hero-check-mobile-only"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Made-to-Order</span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-media-frame">
+        <img src="img/heros/hero-img.webp" width="800" height="800" fetchpriority="high" decoding="async" alt="Seed oil free bowls and fresh dishes served at Avo Miami">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO BAND ===== -->
+<section id="video-section">
+  <!-- [[PENDIENTE: poster propio del video (hoy reusa el hero) y pista de captions o texto descriptivo si el video tiene voz]] -->
+  <video id="avo-video" muted loop playsinline preload="none" poster="img/heros/hero-img.webp">
+    <source src="img/videos/avo-miami-01.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+  <button class="video-play" id="video-play-btn" aria-label="Play video">
+    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+</section>
+
+
+<!-- ===== MENU CLASSICS ===== -->
+<section id="classics">
+  <img src="img/assets/avo-shape.svg" loading="lazy" alt="" class="classics-shape" aria-hidden="true">
+
+  <div class="container">
+    <p class="entity-line">Avo Miami is a whole-food restaurant with three locations in Miami Beach, Coconut Grove and South Miami, serving seed-oil-free, dietitian-designed meals made fresh to order in open kitchens.</p>
+    <p class="classics-intro">We are committed to bringing you the cleanest ingredients &mdash; grass-fed meats, wild-caught fish and olive oil only, never seed oils. <strong>Just how we&rsquo;d make it for our own family.</strong></p>
+  </div>
+
+  <div class="classics-split">
+    <div class="classics-aside">
+      <h2>Some of our<br>most liked<br>menu classics</h2>
+      <div class="classics-musts">Our MUST&rsquo;S</div>
+      <ul class="classics-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Seed oil free, cooked with olive oil only</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Fresh made, no processed ingredients, no microwave</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Grass-fed meat and wild-caught fish</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Free-range eggs</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>A perfect nutritional balance &amp; bold flavors</span></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="classics-carousel">
+        <!-- [[PENDIENTE: kcal, proteina y precios de estas 5 tarjetas son datos de maqueta, no confirmados por el cliente. Verificar antes de publicar y antes de activar el JSON-LD de Menu]] -->
+        <div class="classics-track" id="classics-track">
+      <article class="p-card" data-idx="0">
+        <div class="p-card-media">
+          <!-- [[PENDIENTE: foto real de Protein breakfast bowl. Mientras se reusa el hero, el alt va vacio para no describir algo que la imagen no muestra]] -->
+          <img src="img/heros/hero-img.webp" width="800" height="800" loading="lazy" decoding="async" alt="" style="object-position:center 35%"></div>
+        <h3>Protein breakfast bowl</h3>
+        <p>Slow-roasted sweet potato, poached free-range eggs, avocado and feta over greens.</p>
+        <div class="p-card-meta"><span><span class="visually-hidden">Calories: </span>620 kcal</span><span><span class="visually-hidden">Protein: </span>38g protein</span><span><span class="visually-hidden">Price: </span>$16</span></div>
+        <div class="p-card-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="#locations" class="btn btn-secondary">Find Us Near</a>
+        </div>
+      </article>
+      <article class="p-card" data-idx="1">
+        <div class="p-card-media">
+          <!-- [[PENDIENTE: foto real de Beet Salad. Mientras se reusa el hero, el alt va vacio para no describir algo que la imagen no muestra]] -->
+          <img src="img/heros/hero-img.webp" width="800" height="800" loading="lazy" decoding="async" alt="" style="object-position:center 50%"></div>
+        <h3>Beet Salad</h3>
+        <p>Roasted beets, whipped feta, mint and toasted pistachio with a citrus-olive oil dressing.</p>
+        <div class="p-card-meta"><span><span class="visually-hidden">Calories: </span>410 kcal</span><span><span class="visually-hidden">Protein: </span>14g protein</span><span><span class="visually-hidden">Price: </span>$14</span></div>
+        <div class="p-card-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="#locations" class="btn btn-secondary">Find Us Near</a>
+        </div>
+      </article>
+      <article class="p-card" data-idx="2">
+        <div class="p-card-media">
+          <!-- [[PENDIENTE: foto real de Avo Signature Bowl. Mientras se reusa el hero, el alt va vacio para no describir algo que la imagen no muestra]] -->
+          <img src="img/heros/hero-img.webp" width="800" height="800" loading="lazy" decoding="async" alt="" style="object-position:center 60%"></div>
+        <h3>Avo Signature Bowl</h3>
+        <p>Grass-fed steak, jasmine rice, charred broccolini and our house chimichurri.</p>
+        <div class="p-card-meta"><span><span class="visually-hidden">Calories: </span>720 kcal</span><span><span class="visually-hidden">Protein: </span>46g protein</span><span><span class="visually-hidden">Price: </span>$19</span></div>
+        <div class="p-card-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="#locations" class="btn btn-secondary">Find Us Near</a>
+        </div>
+      </article>
+      <article class="p-card" data-idx="3">
+        <div class="p-card-media">
+          <!-- [[PENDIENTE: foto real de Wild Salmon Plate. Mientras se reusa el hero, el alt va vacio para no describir algo que la imagen no muestra]] -->
+          <img src="img/heros/hero-img.webp" width="800" height="800" loading="lazy" decoding="async" alt="" style="object-position:center 40%"></div>
+        <h3>Wild Salmon Plate</h3>
+        <p>Wild-caught salmon seared in olive oil, quinoa tabbouleh and lemon-tahini.</p>
+        <div class="p-card-meta"><span><span class="visually-hidden">Calories: </span>580 kcal</span><span><span class="visually-hidden">Protein: </span>42g protein</span><span><span class="visually-hidden">Price: </span>$21</span></div>
+        <div class="p-card-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="#locations" class="btn btn-secondary">Find Us Near</a>
+        </div>
+      </article>
+      <article class="p-card" data-idx="4">
+        <div class="p-card-media">
+          <!-- [[PENDIENTE: foto real de Green Power Bowl. Mientras se reusa el hero, el alt va vacio para no describir algo que la imagen no muestra]] -->
+          <img src="img/heros/hero-img.webp" width="800" height="800" loading="lazy" decoding="async" alt="" style="object-position:center 45%"></div>
+        <h3>Green Power Bowl</h3>
+        <p>Kale, avocado, chickpeas, cucumber and grilled chicken with green goddess dressing.</p>
+        <div class="p-card-meta"><span><span class="visually-hidden">Calories: </span>520 kcal</span><span><span class="visually-hidden">Protein: </span>40g protein</span><span><span class="visually-hidden">Price: </span>$17</span></div>
+        <div class="p-card-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="#locations" class="btn btn-secondary">Find Us Near</a>
+        </div>
+      </article>
+        </div>
+      </div>
+      <div class="classics-nav">
+        <button type="button" id="classics-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
+        <button type="button" id="classics-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+    <!-- ===== WHY SEED OIL FREE (AEO) ===== -->
+    <div class="container">
+      <div class="why-seedoil">
+        <h3>Why seed oil free?</h3>
+        <p>Canola, sunflower and soybean oils are cheap, heavily refined and used in almost every restaurant kitchen in Miami. We cook exclusively with olive oil instead &mdash; in the dressings, on the plancha and in the fryer &mdash; so a bowl at Avo tastes like the ingredients it is made of, not like the oil it was cooked in. No seed oils, no microwave, no processed shortcuts. <a href="/healthy-eating-blog-miami">Read more on our blog</a></p>
+      </div>
+    </div>
+
+    <!-- ===== WHAT'S NEW ===== -->
+    <div class="whatsnew">
+      <div class="whatsnew-head">
+        <h2>What&rsquo;s new on our menu?</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="whatsnew-carousel">
+        <div class="whatsnew-track" id="whatsnew-track">
+        <article class="n-card" data-idx="0">
+          <div class="n-card-media"><img src="img/assets/new-item-3.webp" width="600" height="600" loading="lazy" decoding="async" alt="Melon Matcha at Avo Miami"></div>
+          <div class="n-card-body">
+            <div class="n-card-eyebrow">Summer Smoothies</div>
+            <h3>Melon Matcha</h3>
+            <p>An incredibly refreshing beverage that combines premium green matcha with juicy watermelon puree and creamy coconut milk.</p>
+            <div class="n-card-ctas">
+              <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+              <a href="#locations" class="btn btn-secondary">Find Nearest Avo</a>
+            </div>
+          </div>
+        </article>
+        <article class="n-card" data-idx="1">
+          <div class="n-card-media"><img src="img/assets/new-item-1.webp" width="600" height="600" loading="lazy" decoding="async" alt="Blue Coco Açaí at Avo Miami"></div>
+          <div class="n-card-body">
+            <div class="n-card-eyebrow">Superfood Bowls</div>
+            <h3>Blue Coco Açaí</h3>
+            <p>Butterfly pea and coconut milk layered over a thick açaí base, finished with wild blueberries and a touch of raw honey.</p>
+            <div class="n-card-ctas">
+              <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+              <a href="#locations" class="btn btn-secondary">Find Nearest Avo</a>
+            </div>
+          </div>
+        </article>
+        <article class="n-card" data-idx="2">
+          <div class="n-card-media"><img src="img/assets/new-item-2.webp" width="600" height="600" loading="lazy" decoding="async" alt="Pitaya Sunrise at Avo Miami"></div>
+          <div class="n-card-body">
+            <div class="n-card-eyebrow">Summer Smoothies</div>
+            <h3>Pitaya Sunrise</h3>
+            <p>Cold-pressed dragon fruit with pineapple, lime and ginger — bright, tart and packed with antioxidants. Made to order, always.</p>
+            <div class="n-card-ctas">
+              <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+              <a href="#locations" class="btn btn-secondary">Find Nearest Avo</a>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="whatsnew-dots" id="whatsnew-dots">
+        <button type="button" data-dot="0" aria-label="Go to slide 1"></button>
+        <button type="button" data-dot="1" aria-label="Go to slide 2"></button>
+        <button type="button" data-dot="2" aria-label="Go to slide 3"></button>
+      </div>
+    </div>
+</section>
+
+<!-- ===== JOIN APP ===== -->
+<section id="join-app">
+  <div class="joinapp-grid">
+    <div class="joinapp-copy">
+      <div class="eyebrow">Join our Avo family</div>
+      <h2>Order through our app and start winning</h2>
+      <ul class="joinapp-perks">
+        <li><span>Buy $1 win 1 point</span></li>
+        <li><span>50 welcome points</span></li>
+        <li><span>1st order, FREE delivery</span></li>
+      </ul>
+      <a href="/app" class="btn btn-secondary joinapp-cta">Download Now</a>
+    </div>
+    <div class="joinapp-media">
+      <img src="img/assets/img-app.webp" width="576" height="574" loading="lazy" decoding="async" alt="Ordering from the Avo Miami app on a phone">
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATIONS ===== -->
+<section id="locations">
+  <div class="container">
+    <h2>Find your nearest Avo in Miami</h2>
+    <p class="locations-intro">Three open kitchens across Miami, all serving the same seed-oil-free, dietitian-designed menu. Order ahead for pickup or delivery, or walk in any day of the week.</p>
+    <div class="locations-grid">
+      <address class="loc-card">
+        <div class="loc-media"><img src="img/assets/sunset.webp" width="800" height="800" loading="lazy" decoding="async" alt="Inside the Avo Miami Beach dining room on Bay Road" style="object-position:center 45%"></div>
+        <h3>Avo Miami Beach <span class="visually-hidden">(Sunset Harbour)</span></h3>
+        <p>1834 Bay Rd<br>Miami Beach, FL 33139</p>
+        <p><a href="tel:+17863978881">(786) 397-8881</a></p>
+        <p class="loc-hours">Open daily 7:00 AM &ndash; 10:00 PM</p>
+        <div class="loc-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="https://maps.app.goo.gl/4Ghi8rY9jkJumbiL9" target="_blank" rel="noopener" class="btn btn-secondary">Get directions</a>
+        </div>
+      </address>
+
+      <address class="loc-card">
+        <div class="loc-media"><img src="img/assets/coconut.webp" width="800" height="800" loading="lazy" decoding="async" alt="Inside the planted terrace at Avo Coconut Grove" style="object-position:center 50%"></div>
+        <h3>Avo Coconut Grove</h3>
+        <p>2911 Grand Ave<br>Miami, FL 33133</p>
+        <p><a href="tel:+17868287138">(786) 828-7138</a></p>
+        <p class="loc-hours">Open daily 7:00 AM &ndash; 10:00 PM</p>
+        <div class="loc-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="https://maps.app.goo.gl/JkwvrLMazdpucwHE6" target="_blank" rel="noopener" class="btn btn-secondary">Get directions</a>
+        </div>
+      </address>
+
+      <address class="loc-card">
+        <div class="loc-media"><img src="img/assets/south.webp" width="800" height="800" loading="lazy" decoding="async" alt="Inside the Avo South Miami storefront on S Dixie Hwy" style="object-position:center 28%"></div>
+        <h3>Avo South Miami</h3>
+        <p>5958 S Dixie Hwy<br>South Miami, FL 33143</p>
+        <p><a href="tel:+17865344191">(786) 534-4191</a></p>
+        <p class="loc-hours">Open daily 7:00 AM &ndash; 10:00 PM</p>
+        <div class="loc-ctas">
+          <a href="https://order.avo-miami.com/" class="btn btn-primary">Order Now</a>
+          <a href="https://maps.app.goo.gl/nERpTM3XQirn1xN66" target="_blank" rel="noopener" class="btn btn-secondary">Get directions</a>
+        </div>
+      </address>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <h2>Frequently asked questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Is Avo Miami seed oil free?</summary>
+        <p>Yes. Every dish at Avo Miami is cooked with olive oil only. We never use canola, sunflower, soybean or any other seed oil, in any preparation.</p>
+      </details>
+
+      <details>
+        <summary>Where is Avo Miami located?</summary>
+        <p>Avo Miami has three locations: Miami Beach (1834 Bay Rd, Miami Beach, FL 33139), Coconut Grove (2911 Grand Ave, Miami, FL 33133) and South Miami (5958 S Dixie Hwy, South Miami, FL 33143).</p>
+      </details>
+
+      <details>
+        <summary>What are Avo Miami&rsquo;s opening hours?</summary>
+        <p>All three Avo Miami locations are open daily from 7:00 AM to 10:00 PM.</p>
+      </details>
+
+      <details>
+        <summary>Does Avo Miami deliver?</summary>
+        <p>Yes. You can order delivery or pickup from any Avo Miami location at order.avo-miami.com or through the Avo Miami app, available on the App Store and Google Play.</p>
+      </details>
+
+      <details>
+        <summary>Are the meals designed by a nutritionist?</summary>
+        <p>Yes. The Avo Miami menu is dietitian-designed and guided by nutritionists, built around organic vegetables, grass-fed meats and wild-caught proteins for a balanced macronutrient profile.</p>
+      </details>
+
+      <details>
+        <summary>Does Avo Miami have gluten-free or vegan options?</summary>
+        <p>Yes. The menu has dedicated vegan and vegetarian sections and a gluten-free section, and those options are also available on the catering menu.</p>
+      </details>
+
+      <details>
+        <summary>Does Avo Miami offer catering?</summary>
+        <p>Yes. Avo Miami caters nutrient-dense, chef-crafted platters portioned for groups of 10, for corporate luncheons and private events. Catering is ordered online and can be scheduled for a specific date or delivery.</p>
+      </details>
+
+      <details>
+        <summary>How does the Avo Miami rewards program work?</summary>
+        <p>You earn points on every purchase made through the Avo Miami app and redeem them for menu items: 100 points for coffee, teas or matcha blends, 150 for baked items, 175 for cold-pressed juices, 200 for signature toasts, 250 for protein smoothies, 275 for salads, 500 for a salmon, tuna or shrimp bowl and 700 for a filet mignon or lamb chops bowl.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section id="cta-band">
+  <img src="img/assets/avo-shape.svg" loading="lazy" alt="" class="cta-shape" aria-hidden="true">
+  <div class="container">
+    <h2>Find your nearest AVO or order online for delivery and pickup</h2>
+    <div class="cta-actions">
+      <a href="https://order.avo-miami.com/" class="btn btn-light">Order Now</a>
+      <a href="#locations" class="btn btn-outline-light">Find Nearest Avo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#hero"><img src="img/logos/logo-blanco-2026.svg" width="1161" height="1168" loading="lazy" alt="Avo Miami"></a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Web</h3>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#classics">Menu</a></li>
+        <li><a href="/where-to-eat-healthy-miami">Locations</a></li>
+        <li><a href="#join-app">Rewards</a></li>
+        <li><a href="/our-story-healthy-food-miami">About Us</a></li>
+        <li><a href="/catering-miami-healthy-food">Catering</a></li>
+        <li><a href="/healthy-eating-blog-miami">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Social</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/avomiami" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@avomiami" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://www.facebook.com/avomiami/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Find Us</h3>
+      <p>Open daily 7:00 AM &ndash; 10:00 PM</p>
+      <address class="footer-place">
+        <strong>Miami Beach</strong>
+        <p>1834 Bay Rd, Miami Beach, FL 33139</p>
+        <p><a href="tel:+17863978881">(786) 397-8881</a></p>
+      </address>
+      <address class="footer-place">
+        <strong>Coconut Grove</strong>
+        <p>2911 Grand Ave, Miami, FL 33133</p>
+        <p><a href="tel:+17868287138">(786) 828-7138</a></p>
+      </address>
+      <address class="footer-place">
+        <strong>South Miami</strong>
+        <p>5958 S Dixie Hwy, South Miami, FL 33143</p>
+        <p><a href="tel:+17865344191">(786) 534-4191</a></p>
+      </address>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.mobile-panel a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('mobile-toggle').checked = false; });
+  });
+
+  var header = document.querySelector('.site-header');
+  var onScroll = function(){
+    if (window.scrollY > 8) { header.classList.add('is-scrolled'); }
+    else { header.classList.remove('is-scrolled'); }
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var vid = document.getElementById('avo-video');
+  var playBtn = document.getElementById('video-play-btn');
+  playBtn.addEventListener('click', function(){
+    if (vid.paused) { vid.play(); playBtn.style.opacity = 0; }
+    else { vid.pause(); playBtn.style.opacity = 1; }
+  });
+  vid.addEventListener('click', function(){
+    if (!vid.paused) { vid.pause(); playBtn.style.opacity = 1; }
+  });
+
+  /* ===== CARROUSEL MENU CLASSICS ===== */
+  (function(){
+    var track = document.getElementById('classics-track');
+    if(!track) return;
+    var TOTAL = track.children.length;          // 5 productos reales
+    // Clonamos el set completo para poder loopear sin saltos visibles
+    for(var c=0;c<TOTAL;c++){
+      var clone = track.children[c].cloneNode(true);
+      clone.setAttribute('data-clone','1');
+      track.appendChild(clone);
+    }
+    var cards = Array.prototype.slice.call(track.children);
+    var index = 0, animating = false;
+
+    function step(){
+      var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+      return cards[0].offsetWidth + gap;
+    }
+    function paint(anim){
+      track.classList.toggle('no-anim', !anim);
+      track.style.transform = 'translateX(' + (-index * step()) + 'px)';
+      cards.forEach(function(el,i){ el.classList.toggle('is-active', i === index); });
+      if(!anim){ track.offsetHeight; track.classList.remove('no-anim'); }
+    }
+    function go(i){
+      if(animating) return;
+      index = i;
+      animating = true;
+      paint(true);
+      setTimeout(function(){
+        // normalizamos el índice dentro del primer set, sin animación
+        if(index >= TOTAL){ index -= TOTAL; paint(false); }
+        else if(index < 0){ index += TOTAL; paint(false); }
+        animating = false;
+      }, 560);
+    }
+    var next = function(){ go(index + 1); };
+    var prev = function(){ go(index - 1); };
+
+    document.getElementById('classics-next').addEventListener('click', next);
+    document.getElementById('classics-prev').addEventListener('click', prev);
+
+    var startX = 0, dragging = false, moved = 0;
+
+    // Click en una tarjeta en reposo -> avanza hasta dejarla activa
+    cards.forEach(function(el,i){
+      el.addEventListener('click', function(){
+        if(i === index || animating || dragging || Math.abs(moved) > 4) return;
+        go(i);
+      });
+    });
+
+    // Drag / swipe
+    track.addEventListener('pointerdown', function(e){
+      if(animating) return;
+      dragging = true; startX = e.clientX; moved = 0;
+      track.classList.add('no-anim');
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      moved = e.clientX - startX;
+      track.style.transform = 'translateX(' + (-index * step() + moved) + 'px)';
+    });
+    function endDrag(){
+      if(!dragging) return;
+      dragging = false;
+      track.classList.remove('no-anim');
+      var threshold = Math.min(90, step() * 0.22);
+      if(moved < -threshold){ next(); }
+      else if(moved > threshold){ prev(); }
+      else { paint(true); }
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    window.addEventListener('resize', function(){ paint(false); });
+    paint(false);
+  })();
+
+  /* ===== CARROUSEL WHAT'S NEW ===== */
+  (function(){
+    var track = document.getElementById('whatsnew-track');
+    if(!track) return;
+    var cards = Array.prototype.slice.call(track.children);
+    var dots  = Array.prototype.slice.call(document.getElementById('whatsnew-dots').children);
+    var TOTAL = cards.length;
+    var index = 0;
+
+    function step(){
+      var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 28;
+      return cards[0].offsetWidth + gap;
+    }
+    function paint(anim){
+      track.classList.toggle('no-anim', !anim);
+      track.style.transform = 'translateX(' + (-index * step()) + 'px)';
+      cards.forEach(function(el,i){ el.classList.toggle('is-active', i === index); });
+      dots.forEach(function(d,i){ d.classList.toggle('is-active', i === index); });
+      if(!anim){ track.offsetHeight; track.classList.remove('no-anim'); }
+    }
+    function go(i){
+      index = (i + TOTAL) % TOTAL;   // wrap simple, sin clones
+      paint(true);
+    }
+
+    dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+    cards.forEach(function(el,i){
+      el.addEventListener('click', function(){
+        if(i === index || Math.abs(moved) > 4) return;
+        go(i);
+      });
+    });
+
+    // Drag / swipe
+    var startX = 0, dragging = false, moved = 0;
+    track.addEventListener('pointerdown', function(e){
+      dragging = true; startX = e.clientX; moved = 0;
+      track.classList.add('no-anim');
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      moved = e.clientX - startX;
+      track.style.transform = 'translateX(' + (-index * step() + moved) + 'px)';
+    });
+    function endDrag(){
+      if(!dragging) return;
+      dragging = false;
+      track.classList.remove('no-anim');
+      var threshold = Math.min(90, step() * 0.18);
+      if(moved < -threshold){ go(index + 1); }
+      else if(moved > threshold){ go(index - 1); }
+      else { paint(true); }
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    window.addEventListener('resize', function(){ paint(false); });
+    paint(false);
+  })();
+</script>
+
+<!-- ===== DATOS ESTRUCTURADOS (en Webflow van en Page Settings > Custom Code > Head) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avo-miami.com/#organization",
+      "name": "Avo Miami",
+      "url": "https://avo-miami.com/",
+      "logo": "https://avo-miami.com/img/logos/logo-verde-2026.svg",
+      "foundingDate": "2021",
+      "sameAs": [
+        "https://www.instagram.com/avomiami",
+        "https://www.tiktok.com/@avomiami",
+        "https://www.facebook.com/avomiami/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://avo-miami.com/#website",
+      "url": "https://avo-miami.com/",
+      "name": "Avo Miami",
+      "publisher": {
+        "@id": "https://avo-miami.com/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://avo-miami.com/#miami-beach",
+  "name": "Avo Miami — Miami Beach",
+  "parentOrganization": {
+    "@id": "https://avo-miami.com/#organization"
+  },
+  "url": "https://avo-miami.com/",
+  "image": "https://avo-miami.com/img/heros/hero-img.webp",
+  "servesCuisine": [
+    "Healthy",
+    "Bowls",
+    "Breakfast",
+    "Mediterranean"
+  ],
+  "priceRange": "$$",
+  "telephone": "+17863978881",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1834 Bay Rd",
+    "addressLocality": "Miami Beach",
+    "addressRegion": "FL",
+    "postalCode": "33139",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "22:00"
+    }
+  ],
+  "hasMenu": "https://order.avo-miami.com/",
+  "hasMap": "https://maps.app.goo.gl/4Ghi8rY9jkJumbiL9",
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://order.avo-miami.com/"
+    },
+    "deliveryMethod": [
+      "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+      "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://avo-miami.com/#coconut-grove",
+  "name": "Avo Miami — Coconut Grove",
+  "parentOrganization": {
+    "@id": "https://avo-miami.com/#organization"
+  },
+  "url": "https://avo-miami.com/",
+  "image": "https://avo-miami.com/img/heros/hero-img.webp",
+  "servesCuisine": [
+    "Healthy",
+    "Bowls",
+    "Breakfast",
+    "Mediterranean"
+  ],
+  "priceRange": "$$",
+  "telephone": "+17868287138",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2911 Grand Ave",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33133",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "22:00"
+    }
+  ],
+  "hasMenu": "https://order.avo-miami.com/",
+  "hasMap": "https://maps.app.goo.gl/JkwvrLMazdpucwHE6",
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://order.avo-miami.com/"
+    },
+    "deliveryMethod": [
+      "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+      "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://avo-miami.com/#south-miami",
+  "name": "Avo Miami — South Miami",
+  "parentOrganization": {
+    "@id": "https://avo-miami.com/#organization"
+  },
+  "url": "https://avo-miami.com/",
+  "image": "https://avo-miami.com/img/heros/hero-img.webp",
+  "servesCuisine": [
+    "Healthy",
+    "Bowls",
+    "Breakfast",
+    "Mediterranean"
+  ],
+  "priceRange": "$$",
+  "telephone": "+17865344191",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5958 S Dixie Hwy",
+    "addressLocality": "South Miami",
+    "addressRegion": "FL",
+    "postalCode": "33143",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "22:00"
+    }
+  ],
+  "hasMenu": "https://order.avo-miami.com/",
+  "hasMap": "https://maps.app.goo.gl/nERpTM3XQirn1xN66",
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://order.avo-miami.com/"
+    },
+    "deliveryMethod": [
+      "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+      "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+    ]
+  }
+}
+</script>
+<!-- [[PENDIENTE: los precios, kcal y proteina de Menu Classics son datos de maqueta, NO confirmados por el cliente.
+     Este bloque queda comentado a proposito: publicar precios o macros inventados en schema es riesgo de penalizacion.
+     Descomentar recien cuando el cliente confirme la carta real. Faltan tambien los precios de What's New. ]]
+<!--
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://avo-miami.com/#menu",
+  "name": "Avo Miami Menu",
+  "inLanguage": "en-US",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Menu Classics",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Protein breakfast bowl",
+          "description": "Slow-roasted sweet potato, poached free-range eggs, avocado and feta over greens.",
+          "offers": {
+            "@type": "Offer",
+            "price": "16.00",
+            "priceCurrency": "USD"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "620 calories",
+            "proteinContent": "38 g"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Beet Salad",
+          "description": "Roasted beets, whipped feta, mint and toasted pistachio with a citrus-olive oil dressing.",
+          "offers": {
+            "@type": "Offer",
+            "price": "14.00",
+            "priceCurrency": "USD"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "410 calories",
+            "proteinContent": "14 g"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Avo Signature Bowl",
+          "description": "Grass-fed steak, jasmine rice, charred broccolini and our house chimichurri.",
+          "offers": {
+            "@type": "Offer",
+            "price": "19.00",
+            "priceCurrency": "USD"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "720 calories",
+            "proteinContent": "46 g"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Wild Salmon Plate",
+          "description": "Wild-caught salmon seared in olive oil, quinoa tabbouleh and lemon-tahini.",
+          "offers": {
+            "@type": "Offer",
+            "price": "21.00",
+            "priceCurrency": "USD"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "580 calories",
+            "proteinContent": "42 g"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Green Power Bowl",
+          "description": "Kale, avocado, chickpeas, cucumber and grilled chicken with green goddess dressing.",
+          "offers": {
+            "@type": "Offer",
+            "price": "17.00",
+            "priceCurrency": "USD"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": "520 calories",
+            "proteinContent": "40 g"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "What's New",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Melon Matcha",
+          "description": "Premium green matcha with juicy watermelon puree and creamy coconut milk."
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Blue Coco Acai",
+          "description": "Butterfly pea and coconut milk layered over a thick acai base, finished with wild blueberries and raw honey."
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Pitaya Sunrise",
+          "description": "Cold-pressed dragon fruit with pineapple, lime and ginger."
+        }
+      ]
+    }
+  ]
+}
+</script>
+-->
+<!-- [[PENDIENTE: no agregar AggregateRating hasta tener resenas reales de Google. Nunca autodeclaradas.]] -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Avo Miami seed oil free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every dish at Avo Miami is cooked with olive oil only. We never use canola, sunflower, soybean or any other seed oil, in any preparation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Avo Miami located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avo Miami has three locations: Miami Beach (1834 Bay Rd, Miami Beach, FL 33139), Coconut Grove (2911 Grand Ave, Miami, FL 33133) and South Miami (5958 S Dixie Hwy, South Miami, FL 33143)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Avo Miami's opening hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All three Avo Miami locations are open daily from 7:00 AM to 10:00 PM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Avo Miami deliver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can order delivery or pickup from any Avo Miami location at order.avo-miami.com or through the Avo Miami app, available on the App Store and Google Play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the meals designed by a nutritionist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Avo Miami menu is dietitian-designed and guided by nutritionists, built around organic vegetables, grass-fed meats and wild-caught proteins for a balanced macronutrient profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Avo Miami have gluten-free or vegan options?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The menu has dedicated vegan and vegetarian sections and a gluten-free section, and those options are also available on the catering menu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Avo Miami offer catering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Avo Miami caters nutrient-dense, chef-crafted platters portioned for groups of 10, for corporate luncheons and private events. Catering is ordered online and can be scheduled for a specific date or delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Avo Miami rewards program work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You earn points on every purchase made through the Avo Miami app and redeem them for menu items: 100 points for coffee, teas or matcha blends, 150 for baked items, 175 for cold-pressed juices, 200 for signature toasts, 250 for protein smoothies, 275 for salads, 500 for a salmon, tuna or shrimp bowl and 700 for a filet mignon or lamb chops bowl."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
